@@ -464,6 +464,126 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
  .ftabs button:hover{margin-right:0}
  footer{padding-bottom:90px}
 }
+/* ===== v5: marcadores del mapa ===== */
+.mk{background:none;border:0}
+.mk svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.mapbox{position:relative}
+.gauge{--p:0;width:40px;height:40px;border-radius:50%;background:conic-gradient(var(--gc,#F5F3EE) calc(var(--p)*1%),rgba(18,28,59,.75) 0);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.5);cursor:pointer}
+.gauge b{width:28px;height:28px;border-radius:50%;background:#121C3B;color:#F5F3EE;font:800 9.5px Inter;display:flex;align-items:center;justify-content:center}
+.gauge.ok{--gc:#7FB800}.gauge.mid{--gc:#F5F3EE}.gauge.bad{--gc:#FF6A1A}
+.warn{width:34px;height:34px;border-radius:50%;background:#FF6A1A;color:#121C3B;padding:6px;box-shadow:0 0 0 0 rgba(255,106,26,.7);animation:wp 1.3s infinite;cursor:pointer}
+@keyframes wp{70%{box-shadow:0 0 0 16px rgba(255,106,26,0)}100%{box-shadow:0 0 0 0 rgba(255,106,26,0)}}
+.ok{width:24px;height:24px;border-radius:50%;background:#7FB800;color:#121C3B;padding:4px;border:2px solid #fff}
+.hq{width:40px;height:40px;border-radius:12px;background:#121C3B;color:#C2F03A;padding:8px;border:2px solid #C2F03A;box-shadow:0 4px 14px rgba(0,0,0,.5)}
+.mlab{background:#121C3B;color:#F5F3EE;border:0;border-radius:6px;font:700 11px Inter;padding:4px 8px;box-shadow:0 2px 8px rgba(0,0,0,.4)}
+.mlab:before{display:none}
+.coord{width:30px;height:30px;border-radius:50%;background:#FF6A1A;color:#121C3B;padding:6px;border:2px solid #fff;cursor:pointer}
+.route{animation:dash 1s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-28}}
+.obra{--p:0;width:38px;height:38px;border-radius:50%;background:conic-gradient(var(--oc,#F5F3EE) calc(var(--p)*1%),rgba(18,28,59,.7) 0);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .3s;box-shadow:0 2px 8px rgba(0,0,0,.5)}
+.obra i{width:28px;height:28px;border-radius:50%;background:#121C3B;color:#F5F3EE;padding:5px;display:block}
+.obra.idle{--oc:#6F7BA0;opacity:.75}.obra.run{--oc:#F5F3EE}.obra.late{--oc:#FF6A1A;animation:wp 1.3s infinite}.obra.done{--oc:#C2F03A;transform:scale(1.08)}.obra.done i{background:#C2F03A;color:#121C3B}
+.zl{display:inline-block;background:#F5F3EE;color:#121C3B;font:800 11.5px Sora;padding:3px 8px;border-radius:6px;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.45);transform:translateX(-50%);margin-left:50%}
+.zl.on{background:#C2F03A}
+.phpin{width:52px;height:44px;position:relative;animation:popin .5s cubic-bezier(.2,1.6,.4,1);cursor:pointer}
+.phpin img{width:52px;height:36px;object-fit:cover;border-radius:7px;border:3px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,.55);display:block}
+.phpin:after{content:"";position:absolute;left:22px;bottom:0;border:4px solid transparent;border-top:8px solid #fff}
+.phpin i{position:absolute;right:-6px;top:-6px;width:18px;height:18px;border-radius:50%;background:#C2F03A;color:#121C3B;padding:3px;border:2px solid #121C3B}
+@keyframes popin{from{transform:scale(.2) translateY(20px);opacity:0}to{transform:none;opacity:1}}
+.eye{width:30px;height:30px;border-radius:50%;background:#C2F03A;color:#121C3B;padding:5px;border:2px solid #121C3B;animation:popin .5s;cursor:pointer}
+.ping{width:60px;height:60px;border-radius:50%;border:4px solid #C2F03A;animation:pr 1.4s ease-out forwards}
+.photocard{position:absolute;left:12px;bottom:12px;z-index:500;width:min(250px,62%);background:#F5F3EE;color:#121C3B;border-radius:12px;overflow:hidden;box-shadow:0 18px 40px -10px rgba(0,0,0,.7);opacity:0;transform:translateY(16px) scale(.96);transition:.35s;pointer-events:none}
+.photocard.on{opacity:1;transform:none}
+.photocard img{width:100%;height:118px;object-fit:cover;display:block}
+.photocard div{padding:10px 12px 12px}
+.photocard b{display:block;font:800 14.5px Sora;line-height:1.2}
+.photocard span{display:block;font-size:12.5px;color:#3B4668;margin-top:3px}
+.photocard em{display:block;font:700 9px Inter;font-style:normal;letter-spacing:.16em;text-transform:uppercase;color:#6F7BA0;margin-top:6px}
+.dimg{position:relative;margin:-16px -16px 12px;border-radius:10px 10px 0 0;overflow:hidden}
+.dimg img{width:100%;height:150px;object-fit:cover;display:block}
+.dimg span{position:absolute;right:8px;bottom:8px;background:rgba(18,28,59,.8);color:#F5F3EE;font:700 9px Inter;letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border-radius:4px}
+@media (max-width:560px){.photocard img{height:105px}.photocard{width:min(230px,72%)}}
+
+/* ===== v5: cifras compactas ===== */
+.stats{grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+.stat{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:12px;row-gap:4px;align-items:center;padding:14px 38px 14px 14px;border-radius:14px}
+.stat .ic{grid-row:1/3;margin:0;width:44px;height:44px}
+.stat b{font-size:40px;line-height:1}
+.stat span.t{line-height:1.3;font-size:14.5px}
+.stat em{position:absolute;top:12px;right:14px;margin:0;font-size:18px;letter-spacing:0;transition:.2s}
+.stat:hover em{transform:translateX(3px)}
+@media (max-width:980px){.stats{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){
+ .stats{grid-template-columns:1fr 1fr;gap:8px}
+ .stat{grid-template-columns:auto 1fr;padding:12px 30px 12px 12px}
+ .stat .ic{grid-row:1;width:36px;height:36px;padding:7px}
+ .stat b{font-size:36px}
+ .stat span.t{grid-column:1/3}
+ .stat em{top:10px;right:11px}
+}
+
+/* ===== v5: rueda conectada con los pasos ===== */
+.ring-wrap{grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+.rhead{font:700 12px Inter;letter-spacing:.18em;text-transform:uppercase;color:#5b6688;margin-bottom:12px}
+.rsteps{display:flex;flex-direction:column;gap:8px}
+.rstep{display:grid;grid-template-columns:46px 1fr auto;gap:0 14px;align-items:center;background:#fff;border-radius:14px;padding:12px 16px 12px 12px;cursor:pointer;border:2px solid transparent;transition:.25s;position:relative;overflow:hidden;text-align:left;font:inherit;color:var(--navy);width:100%}
+.rstep:hover{border-color:var(--grisc)}
+.rstep .bn{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:800 19px Sora;color:var(--navy);transition:.25s}
+.rstep h4{font-size:17px}
+.rstep h4 small{display:block;font:500 13.5px Inter;color:#5b6688;margin-top:3px;letter-spacing:0}
+.rstep .ar{font:700 18px Inter;color:var(--gris);transition:.25s}
+.rstep .more{grid-column:2/4;max-height:0;overflow:hidden;transition:max-height .45s}
+.rstep .more p{font-size:15px;color:#3B4668;margin:10px 0 6px}
+.rstep .more ul{list-style:none}
+.rstep .more li{padding:6px 0 6px 24px;position:relative;font-size:14px;border-top:1px solid #ECE8DD}
+.rstep .more li:before{content:"";position:absolute;left:3px;top:11px;width:10px;height:6px;border-left:3px solid var(--nar);border-bottom:3px solid var(--nar);transform:rotate(-45deg)}
+.rstep.on{border-color:var(--nar);box-shadow:0 18px 36px -24px rgba(18,28,59,.6)}
+.rstep.on .bn{background:var(--nar)!important;transform:scale(1.06)}
+.rstep.on .ar{transform:rotate(90deg);color:var(--nar)}
+.rstep.on .more{max-height:300px}
+.rstep .bar{position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--nar)}
+.rstep.on.auto .bar{animation:rbar 6s linear forwards}
+@keyframes rbar{to{width:100%}}
+#ringsvg .node.hov circle.bg{fill:var(--nar)}
+#ringsvg .prog{transition:stroke-dasharray .6s}
+@media (max-width:980px){.ring-wrap{grid-template-columns:1fr;gap:18px}#ringsvg{max-width:400px}}
+
+/* ===== v5: la página cambia de color según el servicio ===== */
+.mz{transition:background-color .6s,color .6s}
+#pmu.mz,#paquetes.mz{background:var(--navy);color:var(--off)}
+body.m1 .mz{--navy:#0D2452;--navy2:#163A74;--navy3:#245091;--lim:#A9C4FF;--off:#F0F4FB;--cel:#D5E0F6;--grisc:#B9C9E8;--gris:#6E86B5}
+body.m2 .mz{--navy2:#2B2549;--navy3:#40335F;--lim:#FF8F52;--off:#FFF5EE;--cel:#FFE2CE;--grisc:#DCCBC6;--gris:#A07E7A}
+body.m1 #pmu.mz,body.m1 #paquetes.mz{background:radial-gradient(circle at 88% 0,rgba(169,196,255,.26),transparent 50%),var(--navy)}
+body.m2 #pmu.mz,body.m2 #paquetes.mz{background:radial-gradient(circle at 88% 0,rgba(255,106,26,.30),transparent 50%),radial-gradient(circle at 0 100%,rgba(194,240,58,.08),transparent 40%),var(--navy)}
+body.m1 .mz.light .kick,body.m1 .mz.cel .kick{color:#245091}
+body.m1 .mz .or{color:#FF6A1A}
+body.m1 .svc article.star{background:var(--navy)}
+body.m1 .svc article.star h3,body.m1 .svc article.star p,body.m1 .svc article.star li{color:var(--off)}
+body.m1 .svc article.star .n,body.m1 .svc article.star .ic{color:var(--lim)}
+body.m1 .svc article.star li:before{border-color:var(--lim)}
+body.m1 .svc article{border-top-color:#245091}
+body.m1 .svc .n,body.m1 .svc article .ic{color:#245091}
+body.m1 .svc li:before{border-color:#245091}
+body.m2 .svc article.star{background:#C2F03A}
+body.m2 .svc article{border-top-color:var(--nar)}
+body.m1 .mz.dots:before{background-image:radial-gradient(rgba(169,196,255,.22) 1.3px,transparent 1.4px)}
+body.m2 .mz.dots:before{background-image:radial-gradient(rgba(255,143,82,.22) 1.3px,transparent 1.4px)}
+body.m1 .mz .cart .top{background:#0D2452}
+body.m2 .mz .cart .top{background:#2B2549}
+.mode-flag{background:var(--lim)!important}
+body.m1 .mz.light .mode-flag,body.m1 .mz.cel .mode-flag{background:#0D2452!important;color:#F0F4FB}
+body.m2 .mz.light .mode-flag,body.m2 .mz.cel .mode-flag,body.m2 #pmu .mode-flag,body.m2 #paquetes .mode-flag{background:#FF6A1A!important;color:#121C3B}
+
+/* ===== v5: pestañas laterales también en celular ===== */
+@media (max-width:980px){
+ .ftabs{top:50%;bottom:auto;left:auto;right:0;flex-direction:column;transform:translate(110%,-50%);gap:5px;padding:0}
+ .ftabs.show{transform:translate(0,-50%)}
+ .ftabs button{writing-mode:vertical-rl;transform:rotate(180deg);flex:none;border-radius:0 12px 12px 0;padding:14px 7px;font-size:12.5px;margin:0 -4px 0 0;gap:7px}
+ .ftabs button i{transform:rotate(180deg);width:18px;height:18px;font-size:10px}
+ .ftabs button.on{margin:0 4px 0 0;padding:18px 9px}
+ footer{padding-bottom:28px}
+ #ggt .wrap,.mz .wrap{padding-right:46px}
+}
 </style>
 </head>
 <body>
@@ -526,10 +646,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
    <div><b>03</b><h3>Territorio</h3><p>Trabajo de campo, participación ciudadana y lectura fina de cada barrio, comuna y vereda.</p></div>
   </div>
   <div class="stats reveal">
-   <a class="stat" href="#ggt"><span class="ic" data-ic="columns"></span><b data-n="3">0</b><span class="t">servicios: ganar, gobernar y transformar</span><em>VER SERVICIOS →</em></a>
-   <a class="stat" href="#servicios"><span class="ic" data-ic="ballot"></span><b data-n="8">0</b><span class="t">líneas de trabajo para campañas</span><em>VER LÍNEAS →</em></a>
-   <a class="stat" href="#paquetes"><span class="ic" data-ic="doc"></span><b data-n="14">0</b><span class="t">entregables con fecha y criterio de aceptación</span><em>VER ENTREGABLES →</em></a>
-   <a class="stat" href="#equipo"><span class="ic" data-ic="people"></span><b data-n="4">0</b><span class="t">disciplinas en una sola mesa</span><em>VER EQUIPO →</em></a>
+   <a class="stat" href="#ggt"><span class="ic" data-ic="columns"></span><b data-n="3">0</b><span class="t">servicios: ganar, gobernar y transformar</span><em>→</em></a>
+   <a class="stat" href="#servicios"><span class="ic" data-ic="ballot"></span><b data-n="8">0</b><span class="t">líneas de trabajo para campañas</span><em>→</em></a>
+   <a class="stat" href="#paquetes"><span class="ic" data-ic="doc"></span><b data-n="14">0</b><span class="t">entregables con fecha y criterio de aceptación</span><em>→</em></a>
+   <a class="stat" href="#equipo"><span class="ic" data-ic="people"></span><b data-n="4">0</b><span class="t">disciplinas en una sola mesa</span><em>→</em></a>
   </div>
  </div>
 </section>
@@ -540,7 +660,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
    <div><span class="kick">El método Praxis</span><h2>De la teoría a la práctica, <span class="or">y de vuelta.</span></h2></div>
    <p>Cada servicio tiene su propia rueda, pero todas giran alrededor de lo mismo: la teoría que se pone a prueba en la práctica, y la práctica que corrige la teoría. Elija el servicio y toque cada momento.</p>
   </div>
-  <div class="tabs reveal" id="ringtabs" style="margin-bottom:8px"><button class="on" data-r="0">Para ganar</button><button data-r="1">Para gobernar</button><button data-r="2">Para cerrar bien</button></div>
+  <div class="tabs reveal" id="ringtabs" style="margin-bottom:8px"><button class="on" data-r="0">Para ganar</button><button data-r="1">Para gobernar</button><button data-r="2">Para transformar</button></div>
   <div class="ring-wrap reveal">
    <svg id="ringsvg" viewBox="0 0 560 560" role="img" aria-label="Ciclo del método Praxis"></svg>
    <div class="ring-txt" id="ringtxt"></div>
@@ -617,7 +737,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
      </div>
      <div style="display:flex;gap:10px;align-items:center"><div class="basesw" id="basesw"><button data-b="sat" class="on">Satélite</button><button data-b="cal">Calles</button></div><div class="live" id="live"><span class="dot"></span><span id="livetxt">EN PAUSA</span></div></div>
     </div>
-    <div id="pmumap" role="img" aria-label="Mapa de Duitama con zonas y puestos de votación ficticios"></div>
+    <div class="mapbox"><div id="pmumap" role="img" aria-label="Mapa de Duitama con zonas y puntos ficticios"></div><div class="photocard" id="photocard" aria-live="polite"><img alt=""><div><b></b><span></span><em>Imagen ilustrativa</em></div></div></div>
     <div class="mapfoot"><div class="legend" id="legend" style="margin:0"></div><button id="resetmap">Ver todo el municipio</button></div>
    </div>
    <div>
@@ -777,6 +897,71 @@ const E = new Date('2027-10-31T08:00:00-05:00');
 function tick() { let d = Math.max(0, E - new Date()); $('#cd-d').textContent = Math.floor(d / 864e5); $('#cd-h').textContent = Math.floor(d / 36e5) % 24; $('#cd-m').textContent = Math.floor(d / 6e4) % 60; }
 tick(); setInterval(tick, 30000);
 
+/* ---------- ILUSTRACIONES (imágenes ilustrativas en SVG) ---------- */
+const ILLW = 320, ILLH = 190;
+const pers = (x, y, s, shirt, skin = '#C68B59', hair = '#2B2118') => `<g transform="translate(${x},${y}) scale(${s})"><rect x="-6" y="-13" width="5" height="13" rx="2" fill="#121C3B"/><rect x="1" y="-13" width="5" height="13" rx="2" fill="#121C3B"/><rect x="-8" y="-35" width="16" height="24" rx="7" fill="${shirt}"/><circle cx="0" cy="-42" r="7.5" fill="${skin}"/><path d="M-7.5 -44a7.5 7.5 0 0 1 15 0c-3-2-12-2-15 0z" fill="${hair}"/></g>`;
+const back = (x, y, s, shirt, hair = '#2B2118') => `<g transform="translate(${x},${y}) scale(${s})"><rect x="-12" y="-14" width="24" height="22" rx="9" fill="${shirt}"/><circle cx="0" cy="-22" r="9" fill="${hair}"/></g>`;
+const tree = (x, y, s) => `<g transform="translate(${x},${y}) scale(${s})"><rect x="-3" y="-20" width="6" height="20" fill="#7A5A3A"/><circle cx="0" cy="-34" r="16" fill="#7FA33A"/><circle cx="-10" cy="-26" r="10" fill="#8DB246"/><circle cx="10" cy="-27" r="11" fill="#6E922F"/></g>`;
+const house = (x, y, s, c = '#F5F3EE', r = '#FF6A1A') => `<g transform="translate(${x},${y}) scale(${s})"><rect x="-16" y="-22" width="32" height="22" fill="${c}"/><path d="M-20 -21 0 -38 20 -21z" fill="${r}"/><rect x="-4" y="-12" width="8" height="12" fill="#2A3A6B"/><rect x="-13" y="-17" width="6" height="5" fill="#9AA4C4"/><rect x="7" y="-17" width="6" height="5" fill="#9AA4C4"/></g>`;
+function outdoor(inner, sky = ['#BFD0EE', '#F5F3EE']) {
+ return `<defs><linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${sky[0]}"/><stop offset="1" stop-color="${sky[1]}"/></linearGradient></defs>
+ <rect width="320" height="190" fill="url(#sk)"/><circle cx="262" cy="38" r="17" fill="#FFD27A"/>
+ <path d="M0 108 60 66 110 96 170 52 236 98 280 74 320 96V190H0z" fill="#9AA4C4"/><path d="M0 122 70 92 140 116 210 88 320 118V190H0z" fill="#6F7BA0"/>
+ <rect y="124" width="320" height="66" fill="#A9C46A"/><rect y="150" width="320" height="40" fill="#93B356"/>${inner}`;
+}
+function indoor(inner, wall = '#ECE7DB') { return `<rect width="320" height="190" fill="${wall}"/><rect y="150" width="320" height="40" fill="#C9BFA8"/>${inner}`; }
+const SCN = {
+ 'Vía': () => outdoor(`<path d="M138 124h44l120 66H18z" fill="#4A5168"/><path d="M158 128h4l6 14h-6zM157 150h6l6 18h-8zM155 176h10l4 14h-14z" fill="#C2F03A"/>
+  <g transform="translate(222,150)"><rect x="0" y="-26" width="52" height="22" rx="4" fill="#FF6A1A"/><rect x="30" y="-42" width="18" height="18" rx="2" fill="#121C3B"/><circle cx="10" cy="0" r="11" fill="#2A3A6B"/><circle cx="42" cy="0" r="9" fill="#2A3A6B"/></g>
+  <path d="M60 176l7-18 7 18z M88 162l6-15 6 15z" fill="#FF6A1A"/>${pers(112, 170, 1, '#FF6A1A')}`),
+ 'Colegio': () => outdoor(`<rect x="60" y="72" width="200" height="62" fill="#F5F3EE"/><rect x="60" y="64" width="200" height="12" fill="#FF6A1A"/>
+  ${[0, 1, 2, 3, 4].map(i => `<rect x="${74 + i * 38}" y="86" width="22" height="16" fill="#2A3A6B"/>`).join('')}<rect x="146" y="108" width="28" height="26" fill="#121C3B"/>
+  <rect x="270" y="44" width="3" height="90" fill="#6F7BA0"/><rect x="273" y="44" width="26" height="16" fill="#C2F03A"/>${pers(90, 172, .9, '#C2F03A')}${pers(110, 176, .8, '#FF6A1A')}${pers(232, 174, .85, '#2A3A6B')}`),
+ 'Centro de salud': () => outdoor(`<rect x="70" y="68" width="180" height="66" fill="#FFFFFF"/><rect x="70" y="62" width="180" height="10" fill="#121C3B"/>
+  <rect x="140" y="76" width="40" height="40" rx="6" fill="#FF6A1A"/><path d="M155 82h10v10h10v10h-10v10h-10v-10h-10V92h10z" fill="#fff"/>
+  <rect x="84" y="84" width="34" height="18" fill="#9AA4C4"/><rect x="202" y="84" width="34" height="18" fill="#9AA4C4"/><rect x="148" y="118" width="24" height="16" fill="#2A3A6B"/>
+  ${pers(118, 176, .9, '#DDE3F0')}${pers(206, 174, .9, '#C2F03A')}`),
+ 'Acueducto': () => outdoor(`<g transform="translate(96,0)"><rect x="-26" y="40" width="52" height="40" rx="6" fill="#8FB3E8"/><ellipse cx="0" cy="40" rx="26" ry="7" fill="#B9CFF2"/>
+  <path d="M-20 80l-6 50M20 80l6 50M-23 104h46" stroke="#2A3A6B" stroke-width="4"/></g><path d="M122 120H300" stroke="#2A3A6B" stroke-width="5"/>
+  ${house(196, 136, 1)}${house(250, 140, .9, '#DDE3F0')}${house(292, 136, .8)}<path d="M96 54s7 9 7 14a7 7 0 0 1-14 0c0-5 7-14 7-14z" fill="#fff" opacity=".9"/>${pers(150, 176, .9, '#FF6A1A')}`),
+ 'Parque': () => outdoor(`${tree(50, 140, 1.2)}${tree(270, 138, 1.3)}${tree(220, 128, .9)}<path d="M120 100h70M126 100l-10 44M184 100l10 44" stroke="#2A3A6B" stroke-width="4"/>
+  <path d="M140 100v26M164 100v26" stroke="#6F7BA0" stroke-width="2"/><rect x="134" y="124" width="12" height="4" fill="#FF6A1A"/><rect x="158" y="124" width="12" height="4" fill="#FF6A1A"/>
+  <rect x="80" y="158" width="44" height="6" fill="#7A5A3A"/><rect x="84" y="164" width="4" height="10" fill="#7A5A3A"/><rect x="116" y="164" width="4" height="10" fill="#7A5A3A"/>
+  ${pers(196, 178, .8, '#C2F03A')}${pers(152, 182, .7, '#FF6A1A')}`),
+ 'Alcantarillado': () => outdoor(`<path d="M40 150h220l-14 40H54z" fill="#7A5A3A"/>${[0, 1, 2, 3].map(i => `<rect x="${62 + i * 46}" y="156" width="40" height="16" rx="8" fill="#9AA4C4"/>`).join('')}
+  <g transform="translate(240,120)"><rect x="-6" y="-8" width="56" height="26" rx="4" fill="#FF6A1A"/><rect x="18" y="-30" width="22" height="22" fill="#121C3B"/><path d="M0 -4l-36-34-20 30" stroke="#FF6A1A" stroke-width="7" fill="none"/><path d="M-56 -8l-6 14h14z" fill="#2A3A6B"/></g>
+  ${pers(80, 146, .9, '#FF6A1A')}`),
+ 'Cancha': () => outdoor(`<path d="M40 60Q160 10 280 60" stroke="#2A3A6B" stroke-width="5" fill="none"/><path d="M44 60v84M276 60v84" stroke="#2A3A6B" stroke-width="5"/>
+  <rect x="50" y="118" width="220" height="60" fill="#6FA040"/><rect x="58" y="124" width="204" height="48" fill="none" stroke="#fff" stroke-width="2"/><path d="M160 124v48" stroke="#fff" stroke-width="2"/><circle cx="160" cy="148" r="10" fill="none" stroke="#fff" stroke-width="2"/>
+  <rect x="58" y="138" width="12" height="20" fill="none" stroke="#F5F3EE" stroke-width="3"/>${pers(120, 166, .8, '#FF6A1A')}${pers(196, 160, .8, '#C2F03A')}<circle cx="150" cy="160" r="3.5" fill="#fff"/>`),
+ 'Salón comunal': () => outdoor(`<rect x="72" y="76" width="176" height="58" fill="#DDE3F0"/><path d="M62 78 160 40 258 78z" fill="#121C3B"/><rect x="118" y="84" width="84" height="16" rx="3" fill="#C2F03A"/>
+  <text x="160" y="96" text-anchor="middle" font-family="Inter,Arial" font-weight="700" font-size="9" fill="#121C3B">SALÓN COMUNAL</text><rect x="148" y="108" width="24" height="26" fill="#2A3A6B"/>
+  <rect x="90" y="104" width="28" height="16" fill="#9AA4C4"/><rect x="202" y="104" width="28" height="16" fill="#9AA4C4"/>${pers(130, 174, .9, '#FF6A1A')}${pers(186, 176, .9, '#C2F03A')}${pers(214, 172, .85, '#2A3A6B')}`),
+ audiencia: () => indoor(`<rect x="40" y="16" width="240" height="26" rx="4" fill="#121C3B"/><text x="160" y="34" text-anchor="middle" font-family="Inter,Arial" font-weight="700" font-size="11" letter-spacing="2" fill="#C2F03A">RENDICIÓN DE CUENTAS</text>
+  <rect x="96" y="50" width="128" height="62" rx="4" fill="#fff"/><rect x="110" y="88" width="16" height="18" fill="#FF6A1A"/><rect x="134" y="76" width="16" height="30" fill="#121C3B"/><rect x="158" y="66" width="16" height="40" fill="#C2F03A"/><rect x="182" y="58" width="16" height="48" fill="#FF6A1A"/>
+  <rect x="236" y="92" width="30" height="40" fill="#2A3A6B"/>${pers(251, 96, .8, '#DDE3F0')}
+  ${[30, 70, 110, 150, 190, 230, 270].map((x, i) => back(x, 160, 1, ['#FF6A1A', '#2A3A6B', '#C2F03A', '#6F7BA0'][i % 4])).join('')}${[50, 90, 130, 170, 210, 250, 290].map((x, i) => back(x, 186, 1.1, ['#2A3A6B', '#C2F03A', '#6F7BA0', '#FF6A1A'][i % 4], ['#2B2118', '#5A3A22', '#111'][i % 3])).join('')}`),
+ veeduria: () => outdoor(`<rect x="150" y="56" width="120" height="78" fill="#B9C1D9"/><path d="M150 56h120M150 82h120M150 108h120M180 56v78M210 56v78M240 56v78" stroke="#6F7BA0" stroke-width="3"/>
+  <rect x="40" y="72" width="88" height="42" rx="3" fill="#F5F3EE" stroke="#121C3B" stroke-width="3"/><text x="84" y="90" text-anchor="middle" font-family="Inter,Arial" font-weight="800" font-size="9" fill="#121C3B">VEEDURÍA</text><text x="84" y="103" text-anchor="middle" font-family="Inter,Arial" font-weight="700" font-size="8" fill="#FF6A1A">CIUDADANA</text>
+  <path d="M60 114v30M108 114v30" stroke="#121C3B" stroke-width="3"/>${pers(130, 178, 1, '#C2F03A')}<rect x="138" y="140" width="12" height="15" rx="1" fill="#fff" stroke="#121C3B"/>${pers(160, 180, 1, '#FF6A1A', '#8D5A3B')}${pers(190, 176, .95, '#2A3A6B', '#D9A877')}`),
+ mesa: () => indoor(`<rect x="0" y="0" width="320" height="40" fill="#DDE3F0"/><rect x="60" y="112" width="200" height="12" fill="#7A5A3A"/><rect x="70" y="124" width="8" height="30" fill="#7A5A3A"/><rect x="242" y="124" width="8" height="30" fill="#7A5A3A"/>
+  <rect x="136" y="80" width="48" height="34" fill="#F5F3EE" stroke="#121C3B" stroke-width="2"/><rect x="148" y="82" width="24" height="4" fill="#121C3B"/><text x="160" y="104" text-anchor="middle" font-family="Inter,Arial" font-weight="800" font-size="8" fill="#121C3B">VOTO</text>
+  ${pers(92, 112, 1, '#DDE3F0')}${pers(228, 112, 1, '#9AA4C4', '#D9A877')}${pers(280, 170, 1.1, '#FF6A1A', '#8D5A3B')}<rect x="272" y="128" width="16" height="10" rx="2" fill="#C2F03A"/>
+  <text x="280" y="190" text-anchor="middle" font-family="Inter,Arial" font-weight="800" font-size="8" fill="#121C3B">TESTIGO</text>${pers(36, 176, 1.1, '#2A3A6B')}`),
+ alerta: () => SCN.mesa().replace('</svg>', '') + `<path d="M160 6 196 66H124z" fill="#FF6A1A" stroke="#fff" stroke-width="3"/><rect x="157" y="26" width="6" height="22" rx="2" fill="#121C3B"/><circle cx="160" cy="56" r="3.5" fill="#121C3B"/>`,
+ voluntarios: () => outdoor(`${house(50, 134, 1.4)}${house(270, 134, 1.4, '#DDE3F0', '#121C3B')}<rect x="0" y="150" width="320" height="40" fill="#B9C1D9"/>
+  ${pers(120, 176, 1, '#FF6A1A')}${pers(150, 178, 1, '#C2F03A', '#8D5A3B')}${pers(180, 176, 1, '#FF6A1A', '#D9A877')}${pers(210, 178, 1, '#C2F03A')}${pers(64, 144, .8, '#FF6A1A')}
+  <rect x="140" y="134" width="22" height="14" rx="2" fill="#fff"/><rect x="143" y="137" width="16" height="2" fill="#121C3B"/>`),
+ e14: () => indoor(`<rect x="50" y="20" width="150" height="160" rx="4" fill="#fff" transform="rotate(-6 125 100)"/>
+  <g transform="rotate(-6 125 100)"><rect x="50" y="20" width="150" height="20" fill="#121C3B"/><text x="62" y="34" font-family="Inter,Arial" font-weight="800" font-size="10" fill="#C2F03A">FORMULARIO E-14</text>
+  ${[0, 1, 2, 3, 4, 5].map(i => `<rect x="60" y="${52 + i * 18}" width="80" height="6" fill="#DDE3F0"/><rect x="${150}" y="${50 + i * 18}" width="40" height="10" fill="${i === 1 ? '#FF6A1A' : '#9AA4C4'}"/>`).join('')}</g>
+  <rect x="196" y="40" width="82" height="140" rx="12" fill="#121C3B"/><rect x="203" y="54" width="68" height="104" rx="4" fill="#DDE3F0"/><path d="M212 64h14M212 64v14M262 64h-14M262 64v14M212 148h14M212 148v-14M262 148h-14M262 148v-14" stroke="#FF6A1A" stroke-width="3"/>
+  <circle cx="237" cy="106" r="16" fill="#C2F03A"/><path d="M229 106l6 6 10-12" stroke="#121C3B" stroke-width="4" fill="none"/>`)
+};
+const ILLC = {};
+function ILL(t) { return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${ILLW} ${ILLH}">${(SCN[t] || SCN['Parque'])()}</svg>`; }
+function ILLURL(t) { return ILLC[t] || (ILLC[t] = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(ILL(t))); }
+
 /* ---------- PUESTO DE MANDO (mapa real de Duitama, datos ficticios) ---------- */
 const NS = 'http://www.w3.org/2000/svg';
 const el = (t, a, p) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); p.appendChild(e); return e; };
@@ -817,7 +1002,7 @@ ZN.forEach((z, i) => {
 const allPP = zones.flatMap(z => z.pps);
 if (map) {
  allPP.forEach(p => {
-  p.dot = L.circleMarker(p.ll, { radius: 7, color: '#fff', weight: 2, fillOpacity: 1 }).addTo(map);
+  p.dot = L.circleMarker(p.ll, { radius: 7, color: '#fff', weight: 2, fillOpacity: 1 });
   p.dot.on('click', () => showPP(p));
   p.ring = L.marker(p.ll, { icon: L.divIcon({ className: '', html: '<div class="pring"></div>', iconSize: [30, 30], iconAnchor: [15, 15] }), interactive: false });
  });
@@ -848,6 +1033,94 @@ const hhmm = t => { const m = 420 + t; return String(Math.floor(m / 60)).padStar
 const mes = t => 'Mes ' + Math.min(12, Math.floor(t / 30) + 1);
 const anio = t => 'Año ' + Math.min(4, Math.floor(t / 360) + 1) + ' · mes ' + (Math.floor((t % 360) / 30) + 1);
 const ALERTS = ['Testigo no admitido en la mesa', 'Propaganda dentro del puesto', 'Fila sin control de acceso', 'Jurado ausente, mesa abre tarde', 'Denuncia de posible compra de votos', 'Transporte irregular de votantes'];
+/* ---------- capas dinámicas por servicio ---------- */
+const HQ = CEN;
+allPP.forEach((p, i) => { p.idx = i; p.ta = 4 + (i * 7) % 64; });
+const COV = (p, t) => t < p.ta ? 0 : Math.min(1, (t - p.ta) / 28) * p.testigos / p.mesas;
+zones.forEach(z => {
+ const rr = z.rural ? 330 : 520, n = Math.round(z.vol / 14) + 3;
+ z.vols = Array.from({ length: n }, () => { const a = rnd() * Math.PI * 2, d = 60 + rnd() * rr; return { ll: [z.c[0] + mLat(Math.sin(a) * d), z.c[1] + mLng(Math.cos(a) * d)], ct: Math.floor(rnd() * 260) }; });
+ z.peti = Array.from({ length: Math.round(z.pqrs / 2.2) }, () => { const a = rnd() * Math.PI * 2, d = rnd() * rr; return { ll: [z.c[0] + mLat(Math.sin(a) * d), z.c[1] + mLng(Math.cos(a) * d)], t: Math.floor(rnd() * 360), k: Math.floor(rnd() * 4) }; }).sort((a, b) => a.t - b.t);
+ z.eyes = Array.from({ length: z.veed }, (_, k) => { const a = k * 2.1 + rnd(), d = 140 + rnd() * 120; return [z.c[0] + mLat(Math.sin(a) * d), z.c[1] + mLng(Math.cos(a) * d)]; });
+});
+const TICON = { 'Vía': 'route', 'Colegio': 'book', 'Centro de salud': 'cross', 'Acueducto': 'drop', 'Parque': 'tree', 'Alcantarillado': 'pipe', 'Cancha': 'ball', 'Salón comunal': 'home' };
+const PETK = [['#FF6A1A', 'Vías y movilidad'], ['#8FB3E8', 'Agua y servicios'], ['#C2F03A', 'Seguridad'], ['#F5F3EE', 'Otros temas']];
+let dyn = null, cvr = null;
+if (map) { dyn = L.layerGroup().addTo(map); cvr = L.canvas({ padding: .4 }); }
+const ICO = (html, w, h = w, cls = '', ay = h / 2) => L.divIcon({ className: 'mk ' + cls, html, iconSize: [w, h], iconAnchor: [w / 2, ay] });
+const vis = (l, on) => { if (on) { if (!dyn.hasLayer(l)) dyn.addLayer(l); } else if (dyn.hasLayer(l)) dyn.removeLayer(l); };
+const hexS = (fn, op = .45) => zones.forEach(z => z.poly.setStyle(fn ? { fillColor: fn(z), fillOpacity: op, opacity: 1, weight: 2, color: '#121C3B' } : { fillColor: '#121C3B', fillOpacity: .18, opacity: .7, weight: 1.5, color: '#F5F3EE' }));
+const lerp = (a, b, f) => [a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f];
+const hqMarker = (txt, ic) => L.marker(HQ, { icon: ICO(`<div class="hq">${svgI(ic)}</div>`, 40), zIndexOffset: 900 }).bindTooltip(txt, { permanent: true, direction: 'top', offset: [0, -20], className: 'mlab' });
+const elOf = m => m.getElement && m.getElement();
+const zlab = z => L.marker(z.c, { icon: ICO('<div class="zl"></div>', 90, 22, '', -10), interactive: false });
+const V = {
+ /* SERVICIO 1 */
+ res: { leg: [['#FF6A1A', 'Puesto propio (> 50 %)'], ['#C2F03A', 'Disputable (35–50 %)'], ['#6F7BA0', 'Perdido (< 35 %)'], ['#F5F3EE', 'El punto crece con los E-14 contados']],
+  build() { allPP.forEach(p => dyn.addLayer(p.dot)); },
+  upd(t) { hexS(z => z.share > .5 ? '#FF6A1A' : z.share > .4 ? '#FFB27F' : z.share > .33 ? '#DDE3F0' : '#6F7BA0'); allPP.forEach(p => { p.dot.setStyle({ fillColor: p.share > .5 ? '#FF6A1A' : p.share > .35 ? '#C2F03A' : '#6F7BA0' }); p.dot.setRadius(6 + (t >= 480 ? 7 * p.e14 / p.mesas : 0)); }); } },
+ tes: { leg: [['#7FB800', 'Cobertura total'], ['#F5F3EE', 'Parcial'], ['#FF6A1A', 'Crítica (< 70 %)'], ['#C2F03A', 'Testigo en su mesa']],
+  build() { allPP.forEach(p => { p.g = L.marker(p.ll, { icon: ICO('<div class="gauge"><b>0%</b></div>', 40), zIndexOffset: 500 }).on('click', () => showPP(p)); dyn.addLayer(p.g);
+   p.td = Array.from({ length: Math.min(12, p.testigos) }, (_, k) => { const a = k / Math.min(12, p.testigos) * Math.PI * 2, d = 55 + (k % 2) * 22; return L.circleMarker([p.ll[0] + mLat(Math.sin(a) * d), p.ll[1] + mLng(Math.cos(a) * d)], { renderer: cvr, radius: 3.2, color: '#121C3B', weight: 1, fillColor: '#C2F03A', fillOpacity: 1 }); }); }); },
+  upd(t) { hexS(null); allPP.forEach(p => { const c = COV(p, t), full = p.testigos / p.mesas, e = elOf(p.g); if (e) { const g = e.firstChild; g.style.setProperty('--p', Math.round(c * 100)); g.querySelector('b').textContent = Math.round(c * 100) + '%'; g.className = 'gauge ' + (c >= .95 ? 'ok' : c >= .7 ? 'mid' : t > 60 ? 'bad' : 'mid'); }
+   const n = Math.round(p.td.length * (full ? c / full : 0)); p.td.forEach((d, k) => vis(d, k < n)); }); } },
+ ale: { leg: [['#FF6A1A', 'Alerta abierta'], ['#C2F03A', 'Abogado en camino'], ['#7FB800', 'Alerta cerrada y documentada']],
+  build() { dyn.addLayer(hqMarker('Puesto de mando', 'target')); allPP.filter(p => p.alertAt >= 0).forEach(p => {
+   p.w = L.marker(p.ll, { icon: ICO(`<div class="warn">${svgI('warn')}</div>`, 34), zIndexOffset: 600 }).on('click', () => showPP(p));
+   p.rt = L.polyline([HQ, p.ll], { color: '#FF6A1A', weight: 2.5, dashArray: '6 8', className: 'route' });
+   p.lw = L.circleMarker(HQ, { radius: 6, color: '#121C3B', weight: 2, fillColor: '#C2F03A', fillOpacity: 1 });
+   p.ck = L.marker(p.ll, { icon: ICO(`<div class="ok">${svgI('check')}</div>`, 24) }); }); },
+  upd(t) { hexS(z => z.pps.some(isAlert) ? '#FF6A1A' : '#2A3A6B', .35); allPP.filter(p => p.alertAt >= 0).forEach(p => { const open = isAlert(p), done = t >= p.alertAt + 150, f = Math.min(1, Math.max(0, (t - p.alertAt) / 60));
+   vis(p.w, open); vis(p.rt, open && f < 1); vis(p.lw, open); vis(p.ck, done); if (open) p.lw.setLatLng(lerp(HQ, p.ll, f)); }); } },
+ vol: { leg: [['#C2F03A', 'Voluntario reportando'], ['#6F7BA0', 'Inscrito, aún sin reportar'], ['#FF6A1A', 'Coordinación de zona']],
+  build() { zones.forEach(z => { dyn.addLayer(L.marker(z.c, { icon: ICO(`<div class="coord">${svgI('people')}</div>`, 30), zIndexOffset: 400 }).on('click', () => showZone(z)));
+   z.vols.forEach(v => { v.ln = L.polyline([z.c, v.ll], { renderer: cvr, color: '#C2F03A', weight: 1, opacity: .45 }); v.d = L.circleMarker(v.ll, { renderer: cvr, radius: 3.5, weight: 1, color: '#121C3B', fillOpacity: 1, fillColor: '#6F7BA0' }); dyn.addLayer(v.d); v.on = null; }); }); },
+  upd(t) { hexS(z => z.vol > 200 ? '#C2F03A' : z.vol > 80 ? '#F5F3EE' : '#6F7BA0', .16); zones.forEach(z => z.vols.forEach(v => { const on = t >= v.ct && t > 0; if (on !== v.on) { v.on = on; v.d.setStyle({ fillColor: on ? '#C2F03A' : '#6F7BA0' }); vis(v.ln, on); } })); } },
+ /* SERVICIO 2 */
+ av: { leg: [['#C2F03A', 'Entregada'], ['#F5F3EE', 'En ejecución (el anillo muestra el avance)'], ['#FF6A1A', 'Con rezago'], ['#6F7BA0', 'Sin iniciar']],
+  build() { allPP.forEach(p => { p.o = L.marker(p.ll, { icon: ICO(`<div class="obra"><i>${svgI(TICON[p.tipo])}</i></div>`, 38) }).on('click', () => showPP(p)); dyn.addLayer(p.o); }); },
+  upd(t) { hexS(z => { const a = z.pps.reduce((s2, p) => s2 + avance(p, t), 0) / z.pps.length; return a > .7 ? '#C2F03A' : a > .3 ? '#F5F3EE' : '#6F7BA0'; }, .14);
+   allPP.forEach(p => { const e = elOf(p.o); if (!e) return; const a = avance(p, t), o = e.firstChild; o.style.setProperty('--p', Math.round(a * 100)); o.className = 'obra ' + (rezago(p, t) ? 'late' : a >= 1 ? 'done' : a > 0 ? 'run' : 'idle'); }); } },
+ inv: { leg: [['#FF6A1A', 'Inversión ejecutada por obra (el círculo crece)'], ['#F5F3EE', 'Total ejecutado por zona']],
+  build() { allPP.forEach(p => { p.bub = L.circle(p.ll, { renderer: cvr, radius: 10, color: '#FF6A1A', weight: 1.5, fillColor: '#FF6A1A', fillOpacity: .42 }).on('click', () => showPP(p)); dyn.addLayer(p.bub); });
+   zones.forEach(z => { z.lb = zlab(z); dyn.addLayer(z.lb); }); },
+  upd(t) { hexS(null); allPP.forEach(p => p.bub.setRadius(12 + Math.sqrt(p.inv * avance(p, t)) * 3.4)); zones.forEach(z => { const e = elOf(z.lb); if (e) e.firstChild.textContent = '$' + fmt(Math.round(z.pps.reduce((a, p) => a + p.inv * avance(p, t), 0))) + ' M'; }); } },
+ rez: { leg: [['#FF6A1A', 'Obra con rezago'], ['#C2F03A', 'Comité de seguimiento citado'], ['#6F7BA0', 'Al día']],
+  build() { dyn.addLayer(hqMarker('Alcaldía', 'landmark')); allPP.forEach(p => { p.sm = L.circleMarker(p.ll, { renderer: cvr, radius: 4, color: '#F5F3EE', weight: 1, fillColor: '#6F7BA0', fillOpacity: 1 }); dyn.addLayer(p.sm);
+   if (p.late) { p.w = L.marker(p.ll, { icon: ICO(`<div class="warn">${svgI('warn')}</div>`, 34), zIndexOffset: 600 }).on('click', () => showPP(p)).bindTooltip('', { permanent: true, direction: 'right', offset: [16, 0], className: 'mlab' }); p.rt = L.polyline([HQ, p.ll], { color: '#C2F03A', weight: 2, dashArray: '4 7', className: 'route' }); } }); },
+  upd(t) { hexS(z => z.pps.some(p => rezago(p, t)) ? '#FF6A1A' : '#2A3A6B', .22); allPP.forEach(p => { const r = rezago(p, t); p.sm.setStyle({ fillColor: avance(p, t) >= 1 ? '#C2F03A' : '#6F7BA0' }); if (p.late) { vis(p.w, r); vis(p.rt, r); if (r) p.w.setTooltipContent(`Obra ${p.idx + 1} · ${Math.round(avance(p, t) * 100)} %`); } }); } },
+ pq: { leg: PETK, build() { this.n = zones.map(() => 0); },
+  upd(t) { if (this.last != null && t < this.last) { dyn.clearLayers(); this.build(); } this.last = t;
+   zones.forEach((z, i) => { while (this.n[i] < z.peti.length && z.peti[this.n[i]].t <= t) { const q = z.peti[this.n[i]++]; dyn.addLayer(L.circleMarker(q.ll, { renderer: cvr, radius: 4, stroke: false, fillColor: PETK[q.k][0], fillOpacity: .75 })); } });
+   hexS(z => { const n = z.peti.filter(q => q.t <= t).length; return n > 60 ? '#FF6A1A' : n > 30 ? '#FFB27F' : '#DDE3F0'; }, .2); } },
+ /* SERVICIO 3 */
+ ent: { leg: [['#C2F03A', 'Obra entregada, con foto y ficha'], ['#6F7BA0', 'Pendiente']],
+  build() { allPP.forEach(p => { p.sm = L.circleMarker(p.ll, { renderer: cvr, radius: 5, color: '#F5F3EE', weight: 1.5, fillColor: '#6F7BA0', fillOpacity: 1 }); dyn.addLayer(p.sm);
+   p.ph = L.marker(p.ll, { icon: ICO(`<div class="phpin"><img src="${ILLURL(p.tipo)}" alt=""><i>${svgI('check')}</i></div>`, 52, 44, '', 44), zIndexOffset: 300 + p.idx }).on('click', () => showPP(p)); }); },
+  upd(t) { hexS(z => { const f = z.pps.filter(p => t >= p.dq).length / z.pps.length; return f > .7 ? '#C2F03A' : f > .3 ? '#F5F3EE' : '#6F7BA0'; }, .14); allPP.forEach(p => vis(p.ph, t >= p.dq)); } },
+ acu: { leg: [['#FF6A1A', 'Más de $8.000 M'], ['#FFB27F', '$3.000 a $8.000 M'], ['#DDE3F0', 'Menos de $3.000 M']],
+  build() { zones.forEach(z => { z.lb = zlab(z); dyn.addLayer(z.lb); }); },
+  upd(t) { const v = z => z.pps.filter(p => t >= p.dq).reduce((a, p) => a + p.inv, 0); hexS(z => v(z) > 8000 ? '#FF6A1A' : v(z) > 3000 ? '#FFB27F' : '#DDE3F0', .62); zones.forEach(z => { const e = elOf(z.lb); if (e) e.firstChild.textContent = '$' + fmt(v(z)) + ' M'; }); } },
+ rc: { leg: [['#C2F03A', 'Audiencia realizada (tamaño según asistentes)'], ['#F5F3EE', 'Audiencia programada']],
+  build() { zones.forEach(z => { z.ac = L.circle(z.c, { radius: 120 + z.asis * .9, color: '#C2F03A', weight: 2, fillColor: '#C2F03A', fillOpacity: .3 }); z.ap = L.circle(z.c, { radius: 120, color: '#F5F3EE', weight: 2, dashArray: '5 6', fill: false });
+   z.al = L.marker(z.c, { icon: ICO('', 110, 24, '', -14), interactive: false }); dyn.addLayer(z.al); }); },
+  upd(t) { hexS(null); zones.forEach(z => { const d = t >= z.aud; vis(z.ac, d); vis(z.ap, !d); const e = elOf(z.al); if (e) e.innerHTML = `<div class="zl ${d ? 'on' : ''}">${d ? '👥 ' + z.asis : 'Programada'}</div>`; }); } },
+ ve: { leg: [['#C2F03A', 'Veeduría ciudadana'], ['#F5F3EE', 'Obra que vigila']],
+  build() { zones.forEach(z => { z.em = z.eyes.map(ll => L.marker(ll, { icon: ICO(`<div class="eye">${svgI('eye')}</div>`, 30), zIndexOffset: 500 }).on('click', () => showZone(z)));
+   z.el = z.eyes.flatMap((ll, k) => z.pps.filter((p, j) => j % Math.max(1, z.eyes.length) === k % Math.max(1, z.eyes.length)).map(p => ({ p, l: L.polyline([ll, p.ll], { color: '#C2F03A', weight: 1.6, dashArray: '3 5', className: 'route' }) })));
+   z.pps.forEach(p => { p.sm = L.circleMarker(p.ll, { renderer: cvr, radius: 4, color: '#121C3B', weight: 1, fillColor: '#F5F3EE', fillOpacity: 1 }); dyn.addLayer(p.sm); }); }); },
+  upd(t) { hexS(z => { const n = t >= z.veedAt ? z.veed : 0; return n >= 3 ? '#C2F03A' : n >= 1 ? '#F5F3EE' : '#6F7BA0'; }, .14); zones.forEach(z => { const on = t >= z.veedAt; z.em.forEach(m => vis(m, on)); z.el.forEach(o => vis(o.l, on && t >= o.p.dq)); }); } } };
+function buildView() { if (!map) return; dyn.clearLayers(); const v = V[layer]; v.last = null; v.build(); }
+
+/* fotos ilustrativas que aparecen sobre el mapa */
+let phT = 0, phQ = null, phHide = null;
+function ping(ll) { if (!map || !ll) return; const m = L.marker(ll, { icon: ICO('<div class="ping"></div>', 60), interactive: false }).addTo(map); setTimeout(() => map.removeLayer(m), 1500); }
+function photo(type, title, sub, ll) {
+ const now = Date.now(); if (now - phT < 1300) { phQ = [type, title, sub, ll]; return; } phT = now; ping(ll);
+ const c = $('#photocard'); if (!c) return; c.querySelector('img').src = ILLURL(type); c.querySelector('b').innerHTML = title; c.querySelector('span').textContent = sub; c.classList.remove('on'); void c.offsetWidth; c.classList.add('on');
+ clearTimeout(phHide); phHide = setTimeout(() => { if (phQ) { const q = phQ; phQ = null; phT = 0; photo(...q); } else c.classList.remove('on'); }, 2600);
+}
+
 const PM = [
  { kick: 'Servicio 1 · Puesto de mando electoral', h: ['Todo el territorio, ', 'en una sola pantalla.'], p: 'Así se ve el tablero que acompaña una campaña, sobre el mapa real del municipio: dónde están los votos, dónde faltan testigos y qué está pasando, minuto a minuto, el día de elecciones. Pruébelo.',
   max: 540, step: 3, label: hhmm, play: '▶ Simular día E', layers: [['res', 'Resultado histórico'], ['tes', 'Cobertura de testigos'], ['ale', 'Alertas día E'], ['vol', 'Red de voluntarios']],
@@ -858,8 +1131,8 @@ const PM = [
   ring: p => (layer === 'ale' || T > 0) && isAlert(p),
   kpi: t => { const rep = Math.min(1, t / 90) * .97; let e14 = 0, votos = 0; allPP.forEach(p => { p.e14 = t >= 480 ? Math.min(p.mesas, Math.floor(p.mesas * (t - 480) / 55)) : 0; e14 += p.e14; votos += Math.round(p.e14 / p.mesas * p.hab * .62 * p.share); });
    return [[Math.round(rep * 100) + ' %', rep], [fmt(e14) + ' / ' + fmt(totMesas), e14 / totMesas], [allPP.filter(isAlert).length], [fmt(votos)]]; },
-  events: (t, push, seen) => { allPP.forEach((p, i) => { if (p.alertAt >= 0 && t >= p.alertAt && !seen.has('a' + i)) { seen.add('a' + i); push(`<b>${p.zone}</b> · ${p.name}: ${ALERTS[i % ALERTS.length]}. Abogado en camino.`, true); } if (p.alertAt >= 0 && t >= p.alertAt + 150 && !seen.has('c' + i)) { seen.add('c' + i); push(`${p.name}: alerta cerrada y documentada.`); } });
-   if (t === 15) push('Apertura de mesas: 96 % de los testigos reportan desde su puesto.'); if (t === 240) push('Mediodía: participación en puestos propios por encima del promedio.'); if (t === 480) push('Cierre de mesas. Comienza el escrutinio y la recepción de formularios E-14.'); if (t > 480 && t % 12 === 0) push('Llegan formularios E-14 verificados por los testigos.'); },
+  events: (t, push, seen) => { allPP.forEach((p, i) => { if (p.alertAt >= 0 && t >= p.alertAt && !seen.has('a' + i)) { seen.add('a' + i); push(`<b>${p.zone}</b> · ${p.name}: ${ALERTS[i % ALERTS.length]}. Abogado en camino.`, true); photo('alerta', `${p.zone} · ${p.name}`, ALERTS[i % ALERTS.length] + '. Abogado en camino.', p.ll); } if (p.alertAt >= 0 && t >= p.alertAt + 150 && !seen.has('c' + i)) { seen.add('c' + i); push(`${p.name}: alerta cerrada y documentada.`); } });
+   if (t === 15) { push('Apertura de mesas: 96 % de los testigos reportan desde su puesto.'); photo('mesa', 'Apertura de mesas', 'Los testigos reportan desde su puesto.', CEN); } if (t === 102) photo('voluntarios', 'Red de voluntarios en la calle', 'Recordatorios puerta a puerta y transporte autorizado.', zones[4].c); if (t === 240) push('Mediodía: participación en puestos propios por encima del promedio.'); if (t === 480) { push('Cierre de mesas. Comienza el escrutinio y la recepción de formularios E-14.'); photo('e14', 'Cierre de mesas', 'El testigo fotografía el E-14 y lo envía al tablero.', CEN); } if (t > 480 && t % 12 === 0) push('Llegan formularios E-14 verificados por los testigos.'); },
   end: 'Escrutinio completo. Reporte consolidado enviado a la gerencia de campaña.',
   zd: z => { const m = z.pps.reduce((a, p) => a + p.mesas, 0), h = z.pps.reduce((a, p) => a + p.hab, 0), t = z.pps.reduce((a, p) => a + p.testigos, 0); return [['Puestos de votación', z.pps.length], ['Mesas', m], ['Potencial electoral', fmt(h)], ['Votación propia histórica', Math.round(z.share * 100) + ' %'], ['Testigos asignados', t + ' de ' + m], ['Voluntarios activos', z.vol]]; },
   pd: p => [p.name, [['Zona', p.zone], ['Mesas · habilitados', p.mesas + ' · ' + fmt(p.hab)], ['Testigos asignados', p.testigos + ' de ' + p.mesas], ['E-14 recibidos', p.e14 + ' de ' + p.mesas], ['Estado', isAlert(p) ? 'Alerta abierta' : 'Sin novedad']]] },
@@ -872,7 +1145,7 @@ const PM = [
   ring: p => rezago(p, T),
   kpi: t => { const a = allPP.reduce((s2, p) => s2 + avance(p, t), 0) / totObras, ent = allPP.filter(p => avance(p, t) >= 1).length, ej = allPP.reduce((s2, p) => s2 + p.inv * avance(p, t), 0);
    return [[Math.round(a * 100) + ' %', a], [ent + ' / ' + totObras, ent / totObras], [allPP.filter(p => rezago(p, t)).length], ['$' + fmt(Math.round(ej)) + ' M']]; },
-  events: (t, push, seen) => allPP.forEach((p, i) => { if (t >= p.s && !seen.has('s' + i)) { seen.add('s' + i); push(`<b>${p.zone}</b> · Inicia ${p.tipo.toLowerCase()} (obra ${i + 1}) por $${fmt(p.inv)} M.`); } if (avance(p, t) >= 1 && !seen.has('e' + i)) { seen.add('e' + i); push(`<b>${p.zone}</b> · Entregada: ${p.tipo.toLowerCase()} (obra ${i + 1}).`); } if (rezago(p, t) && !seen.has('r' + i)) { seen.add('r' + i); push(`<b>${p.zone}</b> · ${p.tipo} (obra ${i + 1}) con rezago. Comité de seguimiento convocado.`, true); } }),
+  events: (t, push, seen) => allPP.forEach((p, i) => { if (t >= p.s && !seen.has('s' + i)) { seen.add('s' + i); push(`<b>${p.zone}</b> · Inicia ${p.tipo.toLowerCase()} (obra ${i + 1}) por $${fmt(p.inv)} M.`); if (i % 3 === 0) photo(p.tipo, `Inicia obra ${i + 1}: ${p.tipo.toLowerCase()}`, `${p.zone} · $${fmt(p.inv)} millones`, p.ll); } if (avance(p, t) >= 1 && !seen.has('e' + i)) { seen.add('e' + i); push(`<b>${p.zone}</b> · Entregada: ${p.tipo.toLowerCase()} (obra ${i + 1}).`); photo(p.tipo, `Entregada: ${p.tipo.toLowerCase()}`, `Obra ${i + 1} · ${p.zone}`, p.ll); } if (rezago(p, t) && !seen.has('r' + i)) { seen.add('r' + i); push(`<b>${p.zone}</b> · ${p.tipo} (obra ${i + 1}) con rezago. Comité de seguimiento convocado.`, true); photo('veeduria', `Rezago en la obra ${i + 1}`, `${p.zone}: comité de seguimiento convocado.`, p.ll); } }),
   end: 'Cierre del año: informe de avance listo para el consejo de gobierno y el concejo.',
   zd: z => { const v = z.pps.reduce((a, p) => a + p.inv, 0), a = z.pps.reduce((s2, p) => s2 + avance(p, T), 0) / z.pps.length; return [['Obras y proyectos', z.pps.length], ['Inversión programada', '$' + fmt(v) + ' M'], ['Avance promedio', Math.round(a * 100) + ' %'], ['Obras con rezago', z.pps.filter(p => rezago(p, T)).length], ['Peticiones ciudadanas', z.pqrs]]; },
   pd: p => [`Obra ${allPP.indexOf(p) + 1} · ${p.tipo}`, [['Zona', p.zone], ['Inversión', '$' + fmt(p.inv) + ' M'], ['Avance', Math.round(avance(p, T) * 100) + ' %'], ['Estado', rezago(p, T) ? 'Con rezago' : avance(p, T) >= 1 ? 'Entregada' : avance(p, T) > 0 ? 'En ejecución' : 'Sin iniciar'], ['Responsable', 'Sec. de Infraestructura']]] },
@@ -885,22 +1158,19 @@ const PM = [
   ring: p => false,
   kpi: t => { const ent = allPP.filter(p => t >= p.dq).length, met = Math.min(.93, t / 1440 * .93), asis = zones.filter(z => t >= z.aud).reduce((a, z) => a + z.asis, 0), ve = zones.filter(z => t >= z.veedAt).reduce((a, z) => a + z.veed, 0);
    return [[Math.round(met * 100) + ' %', met], [ent + ' / ' + totObras, ent / totObras], [fmt(asis)], [ve]]; },
-  events: (t, push, seen) => { allPP.forEach((p, i) => { if (t >= p.dq && !seen.has('d' + i)) { seen.add('d' + i); push(`<b>${p.zone}</b> · Entrega de ${p.tipo.toLowerCase()} (obra ${i + 1}), $${fmt(p.inv)} M.`); } }); zones.forEach((z, i) => { if (t >= z.aud && !seen.has('a' + i)) { seen.add('a' + i); push(`<b>${z.n}</b> · Audiencia de rendición de cuentas con ${z.asis} asistentes.`, true); } if (t >= z.veedAt && z.veed && !seen.has('v' + i)) { seen.add('v' + i); push(`<b>${z.n}</b> · Se conforman ${z.veed} veedurías ciudadanas.`); } }); },
+  events: (t, push, seen) => { allPP.forEach((p, i) => { if (t >= p.dq && !seen.has('d' + i)) { seen.add('d' + i); push(`<b>${p.zone}</b> · Entrega de ${p.tipo.toLowerCase()} (obra ${i + 1}), $${fmt(p.inv)} M.`); photo(p.tipo, `Entrega de ${p.tipo.toLowerCase()}`, `Obra ${i + 1} · ${p.zone} · $${fmt(p.inv)} M`, p.ll); } }); zones.forEach((z, i) => { if (t >= z.aud && !seen.has('a' + i)) { seen.add('a' + i); push(`<b>${z.n}</b> · Audiencia de rendición de cuentas con ${z.asis} asistentes.`, true); photo('audiencia', `Rendición de cuentas en ${z.n}`, `${z.asis} personas en la audiencia.`, z.c); } if (t >= z.veedAt && z.veed && !seen.has('v' + i)) { seen.add('v' + i); push(`<b>${z.n}</b> · Se conforman ${z.veed} veedurías ciudadanas.`); photo('veeduria', `${z.veed} veedurías en ${z.n}`, 'La ciudadanía sigue vigilando las obras.', z.c); } }); },
   end: 'Fin del cuatrienio: informe de cierre, memoria institucional y empalme listos.',
   zd: z => { const d = z.pps.filter(p => T >= p.dq); return [['Obras entregadas', d.length + ' de ' + z.pps.length], ['Inversión entregada', '$' + fmt(d.reduce((a, p) => a + p.inv, 0)) + ' M'], ['Rendición de cuentas', T >= z.aud ? z.asis + ' asistentes' : 'Pendiente'], ['Veedurías', T >= z.veedAt ? z.veed : 0]]; },
   pd: p => [`Obra ${allPP.indexOf(p) + 1} · ${p.tipo}`, [['Zona', p.zone], ['Inversión', '$' + fmt(p.inv) + ' M'], ['Estado', T >= p.dq ? 'Entregada' : 'Pendiente'], ['Entrega', anio(p.dq)]]] }];
 const pm = () => PM[MODE];
 function paint() {
- const M = pm();
- if (map) {
-  zones.forEach(z => z.poly.setStyle({ fillColor: M.zc(z), fillOpacity: .45 }));
-  allPP.forEach(p => { p.dot.setStyle({ fillColor: M.pc(p) }); const on = M.ring(p); if (on && !map.hasLayer(p.ring)) p.ring.addTo(map); if (!on && map.hasLayer(p.ring)) map.removeLayer(p.ring); });
- }
- $('#legend').innerHTML = (M.leg[layer] || []).map(l => `<span><i style="background:${l[0]}"></i>${l[1]}</span>`).join('');
+ const v = V[layer];
+ if (map && v) v.upd(T);
+ $('#legend').innerHTML = (v ? v.leg : []).map(l => `<span><i style="background:${l[0]}"></i>${l[1]}</span>`).join('');
 }
 const rows = r => r.map(x => `<div class="row"><span>${x[0]}</span><b>${x[1]}</b></div>`).join('');
 function showZone(z) { $('#detail').innerHTML = `<h4>${z.n}</h4>` + rows(pm().zd(z)); }
-function showPP(p) { const d = pm().pd(p); $('#detail').innerHTML = `<h4>${d[0]}</h4>` + rows(d[1]); }
+function showPP(p) { const d = pm().pd(p), im = MODE ? p.tipo : (isAlert(p) ? 'alerta' : 'mesa'); $('#detail').innerHTML = `<div class="dimg"><img src="${ILLURL(im)}" alt=""><span>Imagen ilustrativa</span></div><h4>${d[0]}</h4>` + rows(d[1]); if (map) map.flyTo(p.ll, Math.max(map.getZoom(), 15), { duration: .8 }); }
 let playing = false, timer = null; const feed = $('#feed'), seen = new Set();
 function push(txt, alert) { const li = document.createElement('li'); if (alert) li.className = 'alert'; li.innerHTML = `<time>${pm().label(T).replace('Año ', 'A').replace(' · mes ', '·')}</time><span>${txt}</span>`; feed.prepend(li); while (feed.children.length > 40) feed.lastChild.remove(); }
 function update(t, live) {
@@ -916,9 +1186,9 @@ function setupPMU() {
  const M = pm(); stopSim(); layer = M.layers[0][0]; T = 0; seen.clear();
  const hd = $('#pmu .sec-head'); hd.querySelector('.kick').textContent = M.kick; hd.querySelector('h2').innerHTML = `${M.h[0]}<span class="or">${M.h[1]}</span>`; hd.querySelector('p').textContent = M.p;
  $('#layers').innerHTML = M.layers.map((l, i) => `<button data-l="${l[0]}" class="${i ? '' : 'on'}">${l[1]}</button>`).join('');
- document.querySelectorAll('#layers button').forEach(b => b.onclick = () => { document.querySelectorAll('#layers button').forEach(x => x.classList.remove('on')); b.classList.add('on'); layer = b.dataset.l; paint(); });
+ document.querySelectorAll('#layers button').forEach(b => b.onclick = () => { document.querySelectorAll('#layers button').forEach(x => x.classList.remove('on')); b.classList.add('on'); layer = b.dataset.l; buildView(); paint(); });
  document.querySelectorAll('.kpi > span').forEach((s2, i) => s2.textContent = M.kl[i]);
- $('#slider').max = M.max; $('#play').textContent = M.play;
+ $('#slider').max = M.max; $('#play').textContent = M.play; buildView();
  $('#detail').innerHTML = `<h4>Seleccione una zona o un punto</h4><p class="hint">${M.hint}</p>`;
  feed.innerHTML = `<li><time>—</time><span>${M.feed0}</span></li>`;
  update(0, false);
@@ -959,6 +1229,14 @@ const IC = {
  book:'<path d="M3 5c3-1.5 6-1.5 9 0v15c-3-1.5-6-1.5-9 0zM21 5c-3-1.5-6-1.5-9 0v15c3-1.5 6-1.5 9 0z"/>',
  pen:'<path d="M4 20h4L19 9l-4-4L4 16zM14 6l4 4M13 20h7"/>',
  trophy:'<path d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H4c0 3 1.5 5 4 5M16 6h4c0 3-1.5 5-4 5M12 13v4M8 21h8M9 17h6"/>',
+ cross:'<path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/>',
+ drop:'<path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/>',
+ tree:'<path d="M12 22v-6M12 16c-4 0-7-2.5-7-6a7 7 0 0 1 14 0c0 3.5-3 6-7 6z"/>',
+ pipe:'<path d="M3 8h10a4 4 0 0 1 4 4v9M3 13h8a1 1 0 0 1 1 1v7M3 6v9M15 21h5"/>',
+ ball:'<circle cx="12" cy="12" r="9"/><path d="M12 7l4 3-1.5 4.5h-5L8 10zM12 3v4M21 10h-5M3 10h5M7 20l2-5.5M17 20l-2-5.5"/>',
+ home:'<path d="M3 11 12 4l9 7M5 10v10h14V10M10 20v-5h4v5"/>',
+ warn:'<path d="M12 3 2 20h20zM12 10v4M12 17v.5"/>',
+ check:'<path d="M5 12l5 5 9-10"/>',
  rocket:'<path d="M5 15c-1.5 1-2 4-2 6 2 0 5-.5 6-2M14 4h6v6c-2 4-6 7-8 8l-6-6c1-2 4-6 8-8zM9 14l-2-2"/><circle cx="15" cy="9" r="1.6"/>'};
 const svgI = n => `<svg viewBox="0 0 24 24" aria-hidden="true">${IC[n]}</svg>`;
 const addIcons = (sel, names, cls = 'ic', where = 'afterbegin') => document.querySelectorAll(sel).forEach((e, i) => names[i] && e.insertAdjacentHTML(where, `<span class="${cls}">${svgI(names[i])}</span>`));
@@ -988,38 +1266,46 @@ const WHEELS = [
   ['Proyectos', 'Conseguir la plata.', 'Formulación y gestión de proyectos ante el Sistema General de Regalías, la Nación y la cooperación.', ['Proyectos de regalías viables', 'Cofinanciación nacional', 'Banco de proyectos']],
   ['Implementación', 'Que las cosas pasen.', 'Rutas, responsables, cronogramas y articulación con la Nación y el departamento.', ['Hojas de ruta por política', 'Comités de seguimiento', 'Articulación interinstitucional']],
   ['Monitoreo', 'Corregir a tiempo.', 'Tableros e indicadores para saber qué funciona y qué no, antes de que sea tarde.', ['Tablero del plan de desarrollo', 'Alertas tempranas', 'Evaluación de políticas']]] },
- { name: 'Cerrar bien', color: '#FF6A1A', alt: '#FFD9C2', steps: [
+ { name: 'Transformar', color: '#FF6A1A', alt: '#FFD9C2', steps: [
   ['Teoría', 'Rendir cuentas es un deber, no un evento.', 'Estándares de transparencia, rendición de cuentas y gobierno abierto.', ['Marco legal de rendición de cuentas', 'Estándares de datos abiertos', 'Experiencias comparadas']],
   ['Evidencia', 'Cada logro con soporte.', 'Consolidamos metas, contratos y resultados con fuentes verificables.', ['Balance del plan de desarrollo', 'Banco de logros con soporte', 'Hallazgos y pendientes']],
   ['Resultados', 'Que la gente lo entienda.', 'Esquemas visuales e informes claros para cada público.', ['Informe de gestión', 'Piezas por comunidad', 'Tablero público']],
   ['Diálogo', 'Escuchar también al final.', 'Audiencias públicas y encuentros con comunidades para explicar y responder.', ['Audiencias de rendición de cuentas', 'Encuentros sectoriales', 'Respuesta a preguntas ciudadanas']],
   ['Organización', 'Dejar ciudadanía activa.', 'Veedurías y espacios de participación que siguen vigilando lo que se hizo.', ['Veedurías ciudadanas', 'Pactos de seguimiento', 'Redes comunitarias']],
   ['Legado', 'Entregar en orden.', 'Empalme, memoria institucional y continuidad de las políticas que funcionan.', ['Informe de empalme', 'Memoria institucional', 'Recomendaciones de continuidad']]] }];
-const rs = $('#ringsvg'), C0 = 280, RR = 200; let ri = 0, wi = 0, nodes = [];
+const rs = $('#ringsvg'), C0 = 280, RR = 200; let ri = 0, wi = 0, nodes = [], autoOn = true, prog = null, t3 = null;
+const ncol = i => i % 2 ? WHEELS[wi].color : WHEELS[wi].alt;
 function drawWheel() {
  rs.innerHTML = ''; const W0 = WHEELS[wi];
  el('circle', { cx: C0, cy: C0, r: RR, fill: 'none', stroke: '#121C3B', 'stroke-width': 3, 'stroke-dasharray': '2 10', 'stroke-linecap': 'round' }, rs);
+ prog = el('circle', { class: 'prog', cx: C0, cy: C0, r: RR, fill: 'none', stroke: '#FF6A1A', 'stroke-width': 7, 'stroke-linecap': 'round', pathLength: 60, 'stroke-dasharray': '0 60', transform: `rotate(-90 ${C0} ${C0})` }, rs);
  el('circle', { cx: C0, cy: C0, r: 112, fill: '#121C3B' }, rs);
- const t1 = el('text', { x: C0, y: C0 - 22, 'text-anchor': 'middle', fill: wi === 1 ? '#FFC7A6' : W0.color, style: 'font:700 11px Inter;letter-spacing:.2em' }, rs); t1.textContent = 'TEORÍA ⇄ PRAXIS';
- const t2 = el('text', { x: C0, y: C0 + 12, 'text-anchor': 'middle', fill: '#F5F3EE', style: 'font:800 28px Sora' }, rs); t2.textContent = W0.name;
- const t3 = el('text', { x: C0, y: C0 + 38, 'text-anchor': 'middle', fill: '#9AA4C4', style: 'font:700 10px Inter;letter-spacing:.18em' }, rs); t3.textContent = 'SERVICIO ' + (wi + 1);
+ const t1 = el('text', { x: C0, y: C0 - 30, 'text-anchor': 'middle', fill: wi === 1 ? '#FFC7A6' : W0.color, style: 'font:700 11px Inter;letter-spacing:.2em' }, rs); t1.textContent = 'TEORÍA ⇄ PRAXIS';
+ const t2 = el('text', { x: C0, y: C0 + 4, 'text-anchor': 'middle', fill: '#F5F3EE', style: 'font:800 28px Sora' }, rs); t2.textContent = W0.name;
+ t3 = el('text', { x: C0, y: C0 + 36, 'text-anchor': 'middle', fill: '#FF6A1A', style: 'font:800 13px Sora' }, rs);
  nodes = W0.steps.map((r, i) => {
   const a = -Math.PI / 2 + i * Math.PI / 3, x = C0 + RR * Math.cos(a), y = C0 + RR * Math.sin(a);
   const g = el('g', { class: 'node', tabindex: 0 }, rs);
-  el('circle', { class: 'bg', cx: x, cy: y, r: 54, fill: i % 2 ? W0.color : W0.alt, stroke: '#F5F3EE', 'stroke-width': 6 }, g);
+  el('circle', { class: 'bg', cx: x, cy: y, r: 54, fill: ncol(i), stroke: '#F5F3EE', 'stroke-width': 6 }, g);
   const n = el('text', { x, y: y - 4, 'text-anchor': 'middle', fill: '#121C3B', style: 'font:800 22px Sora' }, g); n.textContent = i + 1;
   const t = el('text', { x, y: y + 18, 'text-anchor': 'middle', fill: '#121C3B', style: 'font:700 11px Inter' }, g); t.textContent = r[0];
-  g.onclick = () => { stopAuto(); ringShow(i); }; g.onkeydown = e => e.key === 'Enter' && ringShow(i);
+  g.onclick = () => { stopAuto(); ringShow(i); }; g.onkeydown = e => e.key === 'Enter' && (stopAuto(), ringShow(i));
   return g;
  });
+ const W1 = WHEELS[wi];
+ $('#ringtxt').innerHTML = `<div class="rhead">Servicio ${wi + 1} · ${W1.name}: seis momentos</div><div class="rsteps">${W1.steps.map((r, i) => `<button class="rstep" data-i="${i}"><span class="bn" style="background:${ncol(i)}">${i + 1}</span><h4>${r[0]}<small>${r[1]}</small></h4><span class="ar">›</span>
+  <div class="more"><p>${r[2]}</p><ul>${r[3].map(x => `<li>${x}</li>`).join('')}</ul></div><span class="bar"></span></button>`).join('')}</div>`;
+ document.querySelectorAll('.rstep').forEach((b, i) => { b.onclick = () => { stopAuto(); ringShow(i); }; b.onmouseenter = () => nodes[i].classList.add('hov'); b.onmouseleave = () => nodes[i].classList.remove('hov'); });
+ nodes.forEach((g, i) => { g.onmouseenter = () => document.querySelectorAll('.rstep')[i].style.borderColor = 'var(--grisc)'; g.onmouseleave = () => document.querySelectorAll('.rstep')[i].style.borderColor = ''; });
 }
 function ringShow(i) {
- ri = (i + 6) % 6; nodes.forEach((g, k) => g.classList.toggle('on', k === ri)); const r = WHEELS[wi].steps[ri];
- $('#ringtxt').innerHTML = `<div class="num">0${ri + 1}</div><h3>${r[0]}: ${r[1]}</h3><p>${r[2]}</p><ul>${r[3].map(x => `<li>${x}</li>`).join('')}</ul>
- <div class="ring-nav"><button aria-label="Anterior" onclick="stopAuto();ringShow(ri-1)">←</button><button aria-label="Siguiente" onclick="stopAuto();ringShow(ri+1)">→</button></div>`;
+ ri = (i + 6) % 6; nodes.forEach((g, k) => g.classList.toggle('on', k === ri));
+ document.querySelectorAll('.rstep').forEach((b, k) => { b.classList.toggle('on', k === ri); b.classList.toggle('auto', k === ri && autoOn); });
+ if (prog) prog.setAttribute('stroke-dasharray', `${ri * 10} 60`);
+ if (t3) t3.textContent = `Paso ${ri + 1} de 6 · ${WHEELS[wi].steps[ri][0]}`;
 }
 let ringAuto = setInterval(() => ringShow(ri + 1), 6000);
-function stopAuto() { clearInterval(ringAuto); }
+function stopAuto() { clearInterval(ringAuto); autoOn = false; document.querySelectorAll('.rstep.auto').forEach(x => x.classList.remove('auto')); }
 document.querySelectorAll('#ringtabs button').forEach(b => b.onclick = () => {
  document.querySelectorAll('#ringtabs button').forEach(x => x.classList.remove('on')); b.classList.add('on');
  wi = +b.dataset.r; stopAuto(); drawWheel(); ringShow(0);
@@ -1055,8 +1341,8 @@ const SHOWS = [
    m: () => `<div class="cart">${top2('Plan de desarrollo 2028-2031', 'PLAN PLURIANUAL')}<div class="bd"><div class="row2"><div><h5>$412.000 millones en cuatro años</h5><p class="sub2">5 ejes · 22 programas · 120 metas</p>
    ${hb('Seguridad y convivencia', 54, '22 %', '#FF6A1A')}${hb('Empleo y economía', 44, '18 %')}${hb('Educación', 62, '25 %', '#A6D61E')}${hb('Agua y saneamiento', 50, '20 %')}${hb('Gobierno abierto', 36, '15 %')}</div>
    <div><div class="donut" style="--a:38%;--b:66%" data-c="$412.000 M"></div><div class="leg3"><span><i style="background:#FF6A1A"></i>SGP 38 %</span><span><i style="background:#C2F03A"></i>Regalías 28 %</span><span><i style="background:#121C3B"></i>Propios y crédito 34 %</span></div></div></div>${note('Cifras ilustrativas.')}</div></div>` },
-  { b: 'Proyecto de regalías', tag: 'FICHA DE PROYECTO', h: 'Proyectos que sí se aprueban.', p: 'Formulación en la metodología oficial, con estudios, presupuesto y cronograma, y acompañamiento hasta la aprobación ante el Sistema General de Regalías.',
-   m: () => `<div class="cart">${top2('Ficha de proyecto', 'SISTEMA GENERAL DE REGALÍAS')}<div class="bd"><h5>Acueducto veredal de la zona norte</h5><p class="sub2">Agua potable para 1.840 hogares rurales</p>
+  { b: 'Proyecto de regalías', tag: 'FICHA DE PROYECTO', h: 'Proyectos que sí se aprueban.', p: 'Formulación en la metodología oficial, con estudios, presupuesto y cronograma, y acompañamiento hasta la aprobación ante el Sistema General de Regalías.', map: [5.835, -73.06, 'red'],
+   m: () => `<div class="cart">${top2('Ficha de proyecto', 'SISTEMA GENERAL DE REGALÍAS')}<div class="bd"><h5>Acueducto veredal de la zona norte</h5><p class="sub2">Agua potable para 1.840 hogares rurales</p><div id="minimap" style="height:230px;margin-bottom:12px"></div><p style="font-size:11px;color:#6F7BA0;margin:-6px 0 10px">Mapa real (zona rural de Boyacá). Trazado, veredas y cifras ficticios.</p>
    <div class="kp3"><div><b>$7.900 M</b><span>valor total</span></div><div><b>14 meses</b><span>de ejecución</span></div><div><b>1.840</b><span>hogares beneficiados</span></div></div>
    <div class="rlist"><div><span class="rk">✓</span>Estudios y diseños de detalle</div><div><span class="rk">✓</span>Permisos ambientales y predios</div><div><span class="rk">✓</span>Presupuesto y análisis de precios</div><div><span class="rk">→</span>Viabilidad y aprobación</div></div>${note('Ejemplo ilustrativo.')}</div></div>` },
   { b: 'Tablero de gobierno', tag: 'TABLERO DE GOBIERNO', h: 'Gobernar a la vista de todos.', p: 'Seguimiento del plan de desarrollo meta por meta, listo para el consejo de gobierno, el concejo y la rendición de cuentas.',
@@ -1090,12 +1376,29 @@ function tab(i) {
  if (s2.map && window.L) {
   const C2 = [s2.map[0], s2.map[1]];
   mini = L.map('minimap', { scrollWheelZoom: false, zoomControl: false }).setView(C2, 14);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '© OpenStreetMap' }).addTo(mini);
-  let sd = 11; const r2 = () => (sd = (sd * 16807) % 2147483647) / 2147483647;
-  for (let k = 0; k < 34; k++) {
-   const a = r2() * Math.PI * 2, d = 250 + r2() * 1500, v = r2();
-   const col = s2.map[2] === 'elec' ? (v < .45 ? '#FF6A1A' : v < .75 ? '#A6D61E' : '#6F7BA0') : (v < .7 ? '#FF6A1A' : '#121C3B');
-   L.circleMarker([C2[0] + d * Math.sin(a) / 111320, C2[1] + d * Math.cos(a) / 111000], { radius: 6 + r2() * 5, color: '#fff', weight: 2, fillOpacity: .95, fillColor: col }).addTo(mini);
+  (s2.map[2] === 'elec' ? L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '© OpenStreetMap' }) : L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 19, attribution: 'Imágenes © Esri, Maxar' })).addTo(mini);
+  if (s2.map[2] === 'red') mini.setView(C2, 13);
+  let sd = 11; const r2 = () => (sd = (sd * 16807) % 2147483647) / 2147483647, LL = (d, a) => [C2[0] + d * Math.sin(a) / 111320, C2[1] + d * Math.cos(a) / 111000];
+  const ty = s2.map[2];
+  if (ty === 'elec') {
+   [['Comuna 1', .9, '#FF6A1A', '54 %'], ['Comuna 2', 2.5, '#C2F03A', '41 %'], ['Comuna 3', 4.1, '#6F7BA0', '29 %'], ['Comuna 4', 5.5, '#FFB27F', '47 %']].forEach(c => {
+    const cc = LL(950, c[1]); L.circle(cc, { radius: 820, color: '#121C3B', weight: 2, dashArray: '4 6', fillColor: c[2], fillOpacity: .18 }).addTo(mini);
+    L.marker(cc, { icon: L.divIcon({ className: 'mk', html: `<div class="zl" style="background:${c[2]}">${c[0]} · ${c[3]}</div>`, iconSize: [110, 22], iconAnchor: [55, 11] }) }).addTo(mini); });
+   for (let k = 0; k < 40; k++) { const a = r2() * Math.PI * 2, d = 150 + r2() * 1700, v = r2();
+    L.circleMarker(LL(d, a), { radius: 4 + r2() * 7, color: '#fff', weight: 1.5, fillOpacity: .95, fillColor: v < .45 ? '#FF6A1A' : v < .75 ? '#A6D61E' : '#6F7BA0' }).addTo(mini); }
+  } else if (ty === 'obras') {
+   const T8 = Object.keys(TICON);
+   for (let k = 0; k < 14; k++) { const a = r2() * Math.PI * 2, d = 250 + r2() * 1400, t = T8[k % 8];
+    L.marker(LL(d, a), { icon: L.divIcon({ className: 'mk', html: `<div class="phpin" style="animation-delay:${k * .08}s"><img src="${ILLURL(t)}" alt=""><i>${svgI('check')}</i></div>`, iconSize: [52, 44], iconAnchor: [26, 44] }) }).addTo(mini); }
+  } else if (ty === 'red') {
+   const tank = LL(300, 2.2), ver = [];
+   L.polyline([tank, LL(900, 1.5), LL(1700, 1.2), LL(2500, 1.0)], { color: '#FF6A1A', weight: 6 }).addTo(mini);
+   [[900, 1.5, 1.9], [1700, 1.2, .6], [2500, 1.0, 1.6], [1700, 1.2, 1.9], [2500, 1.0, .4], [900, 1.5, .9]].forEach((b, k) => {
+    const p0 = LL(b[0], b[1]), p1 = [p0[0] + 600 * Math.sin(b[2]) / 111320, p0[1] + 600 * Math.cos(b[2]) / 111000];
+    L.polyline([p0, p1], { color: '#C2F03A', weight: 3.5, dashArray: '8 6', className: 'route' }).addTo(mini);
+    L.marker(p1, { icon: L.divIcon({ className: 'mk', html: `<div class="zl">${'Vereda ' + (k + 1)} · ${[210, 340, 280, 360, 410, 240][k]} hogares</div>`, iconSize: [150, 22], iconAnchor: [75, -6] }) }).addTo(mini);
+    L.circleMarker(p1, { radius: 7, color: '#121C3B', weight: 2, fillColor: '#C2F03A', fillOpacity: 1 }).addTo(mini); });
+   L.marker(tank, { icon: L.divIcon({ className: 'mk', html: `<div class="hq" style="width:36px;height:36px">${svgI('drop')}</div>`, iconSize: [36, 36], iconAnchor: [18, 18] }) }).addTo(mini);
   }
   setTimeout(() => mini && mini.invalidateSize(), 50);
  }
@@ -1187,7 +1490,7 @@ const LINES = [
    ['Comunicación de gobierno', 'Narrativa de gestión, vocerías y manejo de crisis.', ['Estrategia de comunicación', 'Protocolo de crisis'], 'mega'],
    ['Participación y presupuestos participativos', 'La gente decide parte de la inversión y vigila su ejecución.', ['Metodología de participación', 'Relatorías y acuerdos'], 'people'],
    ['Tablero de gestión', 'Avance de obras, inversión y alertas de rezago en un solo mapa.', ['Tablero meta por meta', 'Alertas tempranas'], 'pulse']] },
- { kick: 'Servicio 3 · Para cerrar bien', h: ['Ocho líneas para mostrar resultados ', 'y cerrar en orden.'], p: 'Para gobiernos que quieren rendir cuentas con claridad, evaluar lo que hicieron y entregar el cargo en orden.',
+ { kick: 'Servicio 3 · Para transformar', h: ['Ocho líneas para mostrar resultados ', 'y cerrar en orden.'], p: 'Para gobiernos que quieren rendir cuentas con claridad, evaluar lo que hicieron y entregar el cargo en orden.',
   l: [['Monitoreo de políticas', 'Indicadores para saber qué funciona y qué corregir a tiempo.', ['Batería de indicadores', 'Alertas de rezago'], 'pulse'],
    ['Evaluación de resultados', 'Qué funcionó, por qué y qué conviene continuar.', ['Informe de evaluación', 'Recomendaciones'], 'search'],
    ['Informe de gestión', 'Cuatro años en cifras, con esquemas visuales que la gente entiende.', ['Informe con soportes', 'Resumen ciudadano'], 'board'],
@@ -1198,10 +1501,10 @@ const LINES = [
    ['Empalme de salida y legado', 'Informe de cierre y memoria institucional para el gobierno entrante.', ['Informe de empalme', 'Memoria institucional'], 'swap']] }];
 const ENTH = [['Entregables', 'Lo que usted recibe, ', 'así se ve.', 'Cada producto tiene objetivo, método, responsable, fecha y criterio de aceptación. Estos son algunos ejemplos para campañas.'],
  ['Entregables · Gobernar', 'Lo que recibe su gobierno, ', 'así se ve.', 'Ejemplos de productos para gobernar: del empalme al plan de desarrollo, los proyectos y el seguimiento.'],
- ['Entregables · Cerrar bien', 'Lo que queda al cerrar, ', 'así se ve.', 'Ejemplos de productos para mostrar resultados, rendir cuentas y entregar en orden.']];
+ ['Entregables · Transformar', 'Lo que queda al cerrar, ', 'así se ve.', 'Ejemplos de productos para mostrar resultados, rendir cuentas y entregar en orden.']];
 const PKH = [['Paquetes para campañas · Servicio 1', 'Tres formas ', 'de trabajar juntos.', 'Precios por cuatro meses de trabajo, antes de IVA, según el tamaño del municipio. Elija el suyo.'],
  ['Tarifas · Servicio 2 · Gobernar', 'Productos para gobernar, ', 'con precio claro.', 'Se contratan por producto o como asesoría permanente. Precios antes de IVA según el tamaño del municipio o departamento.'],
- ['Tarifas · Servicio 3 · Cerrar bien', 'Productos para cerrar bien, ', 'con precio claro.', 'Se contratan por producto. Precios antes de IVA según el tamaño del municipio o departamento.']];
+ ['Tarifas · Servicio 3 · Transformar', 'Productos para cerrar bien, ', 'con precio claro.', 'Se contratan por producto. Precios antes de IVA según el tamaño del municipio o departamento.']];
 const setHead = (sel, h) => { const hd = $(sel + ' .sec-head'); hd.querySelector('.kick').textContent = h[0]; hd.querySelector('h2').innerHTML = `${h[1]}<span class="or">${h[2]}</span>`; hd.querySelector('p').textContent = h[3]; };
 function renderLineas(k) {
  const L2 = LINES[k]; setHead('#servicios', [L2.kick, L2.h[0], L2.h[1], L2.p]);
@@ -1223,12 +1526,12 @@ function renderTarifas(k) {
 }
 const MODEC = ['#C2F03A', '#F5F3EE', '#FF6A1A'];
 function setMode(k, scroll) {
- MODE = k; document.body.dataset.mode = k;
+ MODE = k; document.body.dataset.mode = k; document.body.classList.remove('m0', 'm1', 'm2'); document.body.classList.add('m' + k);
  document.querySelectorAll('.ftabs button').forEach((b, i) => b.classList.toggle('on', i === k));
  document.querySelectorAll('.ggt .col').forEach((c, i) => c.classList.toggle('sel', i === k));
  renderLineas(k); setupPMU(); renderVitrina(k); setHead('#entregables', ENTH[k]); renderTarifas(k);
- const rt = document.querySelectorAll('#ringtabs button'); if (rt[k]) rt[k].click();
- document.querySelectorAll('.mode-flag').forEach(f => { f.textContent = ['Viendo: Servicio 1 · Ganar', 'Viendo: Servicio 2 · Gobernar', 'Viendo: Servicio 3 · Cerrar bien'][k]; f.style.background = MODEC[k]; });
+ document.querySelectorAll('#ringtabs button').forEach((x, i) => x.classList.toggle('on', i === k)); wi = k; drawWheel(); ringShow(0);
+ document.querySelectorAll('.mode-flag').forEach(f => { f.textContent = ['Viendo: Servicio 1 · Ganar', 'Viendo: Servicio 2 · Gobernar', 'Viendo: Servicio 3 · Transformar'][k];  });
  if (scroll) $('#servicios').scrollIntoView({ behavior: 'smooth' });
 }
 document.body.insertAdjacentHTML('beforeend', `<div class="ftabs" aria-label="Elegir servicio">
@@ -1238,6 +1541,7 @@ document.querySelectorAll('.ftabs button').forEach(b => b.onclick = () => setMod
 document.querySelectorAll('.ggt .more').forEach(b => { b.textContent = 'Ver productos, entregables y tarifas →'; b.onclick = () => setMode(+b.dataset.sd, true); });
 const ftabs = document.querySelector('.ftabs');
 addEventListener('scroll', () => { const g = $('#ggt').getBoundingClientRect().top, c = $('#contacto').getBoundingClientRect().top; ftabs.classList.toggle('show', g < innerHeight * .5 && c > innerHeight * .4); }, { passive: true });
+['#servicios', '#pmu', '#entregables', '#paquetes'].forEach(id => $(id).classList.add('mz'));
 setMode(0);
 </script>
 </body>
