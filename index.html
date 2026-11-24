@@ -66,7 +66,7 @@ nav.top .wrap{display:flex;align-items:center;justify-content:space-between;heig
 .triad{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,.08);border-radius:var(--r);overflow:hidden}
 .triad div{background:var(--navy2);padding:40px 34px}
 .triad b{font:800 54px Sora;color:var(--nar)}
-.triad h3{font-size:24px;margin:10px 0}
+.triad h3{font-size:24px;margin:10px 0;color:var(--off)}
 .triad p{color:var(--grisc)}
 .manifesto{display:grid;grid-template-columns:1.1fr 1fr;gap:70px;align-items:start}
 .manifesto h2{font-size:clamp(34px,4.4vw,56px)}
@@ -154,15 +154,15 @@ nav.top .wrap{display:flex;align-items:center;justify-content:space-between;heig
 .voc{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .voc div{background:var(--off);border-radius:10px;padding:14px;font-size:13px}
 .voc div b{display:block;font:700 12px Inter;letter-spacing:.12em;color:var(--nar);margin-bottom:6px}
-.ent{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:70px}
-.ent .it{display:flex;background:var(--navy);color:var(--off);border-radius:10px;overflow:hidden}
+.ent{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
+.ent .it{display:flex;background:var(--navy2);color:var(--off);border-radius:10px;overflow:hidden}
 .ent .id{width:64px;display:flex;align-items:center;justify-content:center;font:800 16px Sora;color:var(--navy);flex:none}
 .ent .bd{padding:12px 14px;flex:1}
 .ent .bd b{font:700 15px Sora}
 .ent .bd p{font-size:13px;color:var(--grisc);margin-top:3px}
 .ent .pk{display:flex;gap:4px;padding:12px 12px 0 0}
 .ent .pk i{font:700 10px Inter;font-style:normal;width:22px;height:20px;display:flex;align-items:center;justify-content:center;border-radius:4px;background:var(--navy3);color:var(--gris)}
-.legend2{display:flex;gap:18px;font:700 12px Inter;letter-spacing:.1em;margin-top:20px;flex-wrap:wrap;color:var(--navy)}
+.legend2{display:flex;gap:18px;font:700 12px Inter;letter-spacing:.1em;margin-top:20px;flex-wrap:wrap;color:var(--off)}
 .legend2 i{display:inline-block;width:13px;height:13px;border-radius:3px;margin-right:7px;vertical-align:-2px}
 /* PACKAGES */
 .pk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -236,6 +236,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
 .ggt .col.a{background:var(--navy2)}
 .ggt .col.b{background:var(--off);color:var(--navy)}
 .ggt .col.c{background:var(--nar);color:var(--navy)}
+.ggt .svcn{font:700 11px Inter;letter-spacing:.2em;display:inline-block;padding:5px 10px;border-radius:6px;background:rgba(127,127,127,.18);margin-bottom:12px}
 .ggt .verb{font:800 46px Sora;letter-spacing:-.03em}
 .ggt .col.a .verb{color:var(--lim)}
 .ggt .when{font:700 11px Inter;letter-spacing:.18em;text-transform:uppercase;opacity:.75;margin:6px 0 20px}
@@ -314,7 +315,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
    <div>
     <p><b>Praxis</b> es una consultoría política boutique. Unimos ciencia política, derecho, comunicación y análisis de datos para que una candidatura llegue preparada, gane y gobierne con un programa que se puede cumplir.</p>
     <p>Tenemos una mirada progresista y democrática, y un método riguroso: cada cifra con fuente, cada riesgo revisado por un abogado, cada mensaje probado antes de salir.</p>
-    <div class="principles"><span>Justicia social</span><span>Democracia participativa</span><span>Derechos humanos</span><span>Defensa de lo público</span><span>Transparencia</span><span>Rigor técnico</span></div>
    </div>
   </div>
   <div class="triad reveal" style="margin-top:70px">
@@ -329,8 +329,9 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
  <div class="wrap">
   <div class="sec-head reveal">
    <div><span class="kick">El método Praxis</span><h2>De la teoría a la práctica, <span class="or">y de vuelta.</span></h2></div>
-   <p>Seis momentos que se repiten en cada campaña y en cada gobierno. La práctica corrige la teoría; los datos aterrizan en la realidad; la gente organizada sostiene el cambio. Toque cada momento.</p>
+   <p>Cada servicio tiene su propia rueda, pero todas giran alrededor de lo mismo: la teoría que se pone a prueba en la práctica, y la práctica que corrige la teoría. Elija el servicio y toque cada momento.</p>
   </div>
+  <div class="tabs reveal" id="ringtabs" style="margin-bottom:8px"><button class="on" data-r="0">Para ganar</button><button data-r="1">Para gobernar</button><button data-r="2">Para cerrar bien</button></div>
   <div class="ring-wrap reveal">
    <svg id="ringsvg" viewBox="0 0 560 560" role="img" aria-label="Ciclo del método Praxis"></svg>
    <div class="ring-txt" id="ringtxt"></div>
@@ -341,25 +342,26 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
 <section id="ggt">
  <div class="wrap">
   <div class="sec-head reveal">
-   <div><span class="kick">Lo que hacemos</span><h2>Ganar. Gobernar. <span class="or">Transformar.</span></h2></div>
-   <p>No acompañamos solo la campaña. Acompañamos el ciclo completo: llegar, gobernar bien y dejar resultados que la gente pueda ver y medir.</p>
+   <div><span class="kick">Tres servicios</span><h2>Ganar. Gobernar. <span class="or">Transformar.</span></h2></div>
+   <p>Son tres servicios distintos. Lo asesoramos si quiere ganar, si quiere gobernar bien o si quiere cerrar bien su gobierno. Puede contratar uno, dos o los tres.</p>
   </div>
   <div class="ggt reveal">
-   <div class="col a"><div class="verb">Ganar</div><div class="when">La campaña</div>
+   <div class="col a"><div class="svcn">SERVICIO 1</div><div class="verb">Ganar</div><div class="when">Si quiere ganar la elección</div>
     <div class="it"><b>Construcción de candidaturas</b><span>Perfil, idea fuerza, entrenamiento y agenda pública.</span></div>
     <div class="it"><b>Investigación electoral</b><span>Mapa por mesa y puesto, encuestas con ficha técnica.</span></div>
     <div class="it"><b>Comunicación y vocerías</b><span>Consignas, mensajes por público y defensa rápida.</span></div>
     <div class="it"><b>Derecho electoral</b><span>Inhabilidades, aval, financiación y datos personales.</span></div>
     <div class="it"><b>Puesto de mando</b><span>Testigos, alertas y conteo el día de elecciones.</span></div></div>
-   <div class="col b"><div class="verb">Gobernar</div><div class="when">El plan y la ejecución</div>
+   <div class="col b"><div class="svcn">SERVICIO 2</div><div class="verb">Gobernar</div><div class="when">Si quiere gobernar bien</div>
     <div class="it"><b>Empalme y primeros 100 días</b><span>Diagnóstico de lo que se recibe y agenda de arranque.</span></div>
     <div class="it"><b>Plan de desarrollo territorial</b><span>Del programa de gobierno al plan: metas, indicadores y presupuesto.</span></div>
     <div class="it"><b>Proyectos y regalías</b><span>Formulación y gestión de proyectos de inversión ante el Sistema General de Regalías.</span></div>
     <div class="it"><b>Implementación de políticas públicas</b><span>Rutas, responsables, cronogramas y articulación con la Nación.</span></div></div>
-   <div class="col c"><div class="verb">Transformar</div><div class="when">Los resultados</div>
+   <div class="col c"><div class="svcn">SERVICIO 3</div><div class="verb">Transformar</div><div class="when">Si quiere cerrar bien su gobierno</div>
     <div class="it"><b>Monitoreo de políticas públicas</b><span>Tableros e indicadores para saber qué funciona y qué corregir.</span></div>
     <div class="it"><b>Presentación de resultados</b><span>Informes de gestión y esquemas visuales que la gente entiende.</span></div>
     <div class="it"><b>Rendición de cuentas</b><span>Audiencias, tableros abiertos y piezas para cada comunidad.</span></div>
+    <div class="it"><b>Empalme y legado</b><span>Informe de cierre, memoria institucional y entrega ordenada.</span></div>
     <div class="it"><b>Organización social</b><span>Participación, veedurías y presupuestos participativos.</span></div></div>
   </div>
  </div>
@@ -444,16 +446,14 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
    <div class="mock" id="mock"></div>
   </div>
 
-  <div class="ent reveal" id="entlist"></div>
-  <div class="legend2"><span><i style="background:#9AA4C4"></i>DESDE ESENCIAL</span><span><i style="background:var(--nar)"></i>DESDE INTEGRAL</span><span><i style="background:var(--lim)"></i>SOLO ESPECIALIZADA</span></div>
  </div>
 </section>
 
 <section id="paquetes">
  <div class="wrap">
   <div class="sec-head reveal">
-   <div><span class="kick">Paquetes</span><h2>Tres formas <span class="or">de trabajar juntos.</span></h2></div>
-   <p>Precios por cuatro meses de trabajo, antes de IVA, según el tamaño del municipio. Elija el suyo.</p>
+   <div><span class="kick">Paquetes para campañas · Servicio 1</span><h2>Tres formas <span class="or">de trabajar juntos.</span></h2></div>
+   <p>Precios por cuatro meses de trabajo, antes de IVA, según el tamaño del municipio. Los servicios para gobernar y para cerrar bien el gobierno se cotizan a la medida.</p>
   </div>
   <div class="sizes reveal" id="sizes">
    <button data-s="0">Menos de 30.000 hab.</button>
@@ -473,6 +473,9 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
     <ul><li>Todo lo de Integral</li><li>Entrenamiento de la candidatura</li><li>Protocolo de cumplimiento y controversias</li><li>Red digital y de mensajería</li><li>Mesas territoriales y tablero</li></ul>
     <a class="btn" style="background:var(--navy);color:var(--off)" href="#contacto">Cotizar</a></div>
   </div>
+  <div style="margin-top:70px" class="reveal"><span class="kick">Qué incluye cada paquete</span><h3 style="font-size:clamp(26px,3vw,38px);margin:14px 0 6px">14 entregables, <span class="or">con fecha y criterio de aceptación.</span></h3></div>
+  <div class="ent reveal" id="entlist"></div>
+  <div class="legend2"><span><i style="background:#9AA4C4"></i>DESDE ESENCIAL</span><span><i style="background:var(--nar)"></i>DESDE INTEGRAL</span><span><i style="background:var(--lim)"></i>SOLO ESPECIALIZADA</span></div>
   <p class="note">Precios orientativos para 2027 en millones de pesos. Ajustes por complejidad territorial, número de corregimientos, disponibilidad de datos, enfoque étnico o plazos cortos. Precio mínimo: $15 millones. No incluye trabajo de campo de encuestas ni pauta.</p>
  </div>
 </section>
@@ -481,7 +484,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
  <div class="wrap">
   <div class="sec-head reveal">
    <div><span class="kick">Equipo</span><h2>Gente que ha estado <span class="or">del otro lado del escritorio.</span></h2></div>
-   <p>Hemos planeado, ejecutado y rendido cuentas desde el Estado. Por eso sabemos qué se puede prometer, cómo se financia y cómo se cumple.</p>
+   <p>Nuestro equipo está formado por profesionales que se han desempeñado en cargos de asesoría de alto nivel en las siguientes entidades. Por eso sabemos qué se puede prometer, cómo se financia y cómo se cumple.</p>
   </div>
   <div class="xp reveal">
    <div><b>DNP</b><h4>Dirección del Departamento Nacional de Planeación</h4><p>Asesoría en la dirección de la entidad que planea la inversión del país y evalúa sus políticas.</p></div>
@@ -670,38 +673,59 @@ $('#play').onclick = () => {
 paint();
 
 
-/* ---------- MÉTODO: anillo ---------- */
-const RING = [
- ['Teoría', 'Partimos de lo que se sabe.', 'Cada estrategia empieza con un marco: qué ha funcionado en otros territorios, qué dice la evidencia y qué dicen las normas.', ['Experiencias comparadas y buenas prácticas', 'Marco legal y competencias de cada nivel de gobierno', 'Hipótesis explícitas que luego se ponen a prueba']],
- ['Datos', 'Rigor antes que intuición.', 'Las decisiones se toman con fuentes oficiales, estadística y verificación. Ninguna cifra sale sin fuente.', ['Resultados por mesa, censo, DANE, SECOP, regalías', 'Encuestas con ficha técnica', 'Bases y cálculos entregados al cliente']],
- ['Realidad', 'De los datos al territorio.', 'Los números se contrastan con la gente: recorridos, entrevistas y mesas en barrios y veredas. Lo que el dato no ve, el territorio lo cuenta.', ['Trabajo de campo y escucha', 'Lectura fina por comuna y corregimiento', 'Ajuste del diagnóstico con lo encontrado']],
- ['Organización', 'La gente organizada sostiene el cambio.', 'Ninguna campaña ni ningún gobierno transforma solo. Construimos redes, participación y veedurías que dan fuerza a las decisiones.', ['Redes territoriales y de voluntarios', 'Presupuestos participativos y mesas', 'Veedurías ciudadanas']],
- ['Política pública', 'Planear para poder cumplir.', 'Convertimos las propuestas en planes, proyectos y rutas de implementación con metas, costos y responsables.', ['Plan de desarrollo y fichas de proyecto', 'Formulación ante el Sistema General de Regalías', 'Rutas de implementación y articulación con la Nación']],
- ['Rendición de cuentas', 'Mostrar resultados, aprender y corregir.', 'Monitoreamos cada meta y la presentamos de forma clara. Lo que no funciona vuelve a la teoría para corregirse: así se cierra el ciclo.', ['Tableros de seguimiento de políticas', 'Informes de gestión y esquemas visuales', 'Audiencias públicas y datos abiertos']]];
-const rs = $('#ringsvg'), C0 = 280, RR = 200; let ri = 0;
-el('circle', { cx: C0, cy: C0, r: RR, fill: 'none', stroke: '#121C3B', 'stroke-width': 3, 'stroke-dasharray': '2 10', 'stroke-linecap': 'round' }, rs);
-const cen = el('g', {}, rs);
-el('circle', { cx: C0, cy: C0, r: 112, fill: '#121C3B' }, cen);
-const cT = el('text', { x: C0, y: C0 - 6, 'text-anchor': 'middle', fill: '#C2F03A', style: 'font:700 12px Inter;letter-spacing:.2em' }, cen); cT.textContent = 'TEORÍA ⇄ PRÁCTICA';
-const cB = el('text', { x: C0, y: C0 + 26, 'text-anchor': 'middle', fill: '#F5F3EE', style: 'font:800 26px Sora' }, cen); cB.textContent = 'Praxis';
-const nodes = RING.map((r, i) => {
- const a = -Math.PI / 2 + i * Math.PI / 3, x = C0 + RR * Math.cos(a), y = C0 + RR * Math.sin(a);
- const g = el('g', { class: 'node', tabindex: 0 }, rs);
- el('circle', { class: 'bg', cx: x, cy: y, r: 54, fill: i % 2 ? '#C2F03A' : '#DDE3F0', stroke: '#F5F3EE', 'stroke-width': 6 }, g);
- const n = el('text', { x, y: y - 6, 'text-anchor': 'middle', fill: '#121C3B', style: 'font:800 22px Sora' }, g); n.textContent = i + 1;
- const t = el('text', { x, y: y + 16, 'text-anchor': 'middle', fill: '#121C3B', style: 'font:700 11px Inter' }, g); t.textContent = r[0].length > 12 ? r[0].split(' ')[0] : r[0];
- if (r[0].length > 12) { const t2 = el('text', { x, y: y + 29, 'text-anchor': 'middle', fill: '#121C3B', style: 'font:700 11px Inter' }, g); t2.textContent = r[0].split(' ').slice(1).join(' '); }
- g.onclick = () => ringShow(i); g.onkeydown = e => e.key === 'Enter' && ringShow(i);
- return g;
-});
-function ringShow(i) {
- ri = (i + 6) % 6; nodes.forEach((g, k) => g.classList.toggle('on', k === ri)); const r = RING[ri];
- $('#ringtxt').innerHTML = `<div class="num">0${ri + 1}</div><h3>${r[0]}: ${r[1]}</h3><p>${r[2]}</p><ul>${r[3].map(x => `<li>${x}</li>`).join('')}</ul>
- <div class="ring-nav"><button aria-label="Anterior" onclick="ringShow(ri-1)">←</button><button aria-label="Siguiente" onclick="ringShow(ri+1)">→</button></div>`;
+/* ---------- MÉTODO: tres ruedas ---------- */
+const WHEELS = [
+ { name: 'Ganar', color: '#C2F03A', alt: '#DDE3F0', steps: [
+  ['Teoría', 'Leer el contexto antes de moverse.', 'Partimos de cómo vota el territorio, qué ha funcionado en campañas parecidas y qué permite la ley.', ['Historia electoral y comportamiento del votante', 'Reglas: inhabilidades, aval, financiación', 'Hipótesis de campaña explícitas']],
+  ['Datos', 'Saber dónde están los votos.', 'Resultados por mesa y puesto, censo electoral y encuestas con ficha técnica. Ninguna decisión sin dato.', ['Mapa de puestos propios, disputables y perdidos', 'Encuesta de línea base', 'Tablero de seguimiento']],
+  ['Territorio', 'Escuchar antes de hablar.', 'Recorridos, conversaciones y mesas en barrios y veredas para ajustar el diagnóstico con la gente.', ['Ruta de escucha por comuna', 'Historias reales para la comunicación', 'Ajuste del programa']],
+  ['Mensaje', 'Una idea fuerza que todos repitan.', 'Concepto, consignas y mensajes por público, probados antes de salir.', ['Idea fuerza y consignas', 'Manual de voceros', 'Entrenamiento de la candidatura']],
+  ['Organización', 'Gente en la calle, con datos autorizados.', 'Red de voluntarios, coordinación por comuna y red digital de mensajería.', ['Red territorial y digital', 'Metas de puertas y de contactos', 'Protocolo de datos personales']],
+  ['Día E', 'Cuidar cada voto.', 'Puesto de mando unificado: testigos, alertas y conteo en tiempo real.', ['Testigos en cada mesa', 'Abogados de reacción', 'Conteo de formularios E-14']]] },
+ { name: 'Gobernar', color: '#FFC7A6', alt: '#DDE3F0', steps: [
+  ['Teoría', 'Saber qué funciona y qué se puede hacer.', 'Competencias de cada nivel de gobierno, evidencia comparada y marco normativo de cada política.', ['Competencias y restricciones legales', 'Buenas prácticas comparadas', 'Hipótesis de política']],
+  ['Diagnóstico', 'Saber qué se recibe.', 'Empalme y línea base con datos oficiales: finanzas, contratos, regalías e indicadores.', ['Informe de empalme', 'Línea base de indicadores', 'Mapa de riesgos fiscales y jurídicos']],
+  ['Planeación', 'Del programa al plan.', 'Plan de desarrollo con metas, indicadores, costos y fuentes de financiación.', ['Plan de desarrollo territorial', 'Plan plurianual de inversiones', 'Fichas de proyecto']],
+  ['Proyectos', 'Conseguir la plata.', 'Formulación y gestión de proyectos ante el Sistema General de Regalías, la Nación y la cooperación.', ['Proyectos de regalías viables', 'Cofinanciación nacional', 'Banco de proyectos']],
+  ['Implementación', 'Que las cosas pasen.', 'Rutas, responsables, cronogramas y articulación con la Nación y el departamento.', ['Hojas de ruta por política', 'Comités de seguimiento', 'Articulación interinstitucional']],
+  ['Monitoreo', 'Corregir a tiempo.', 'Tableros e indicadores para saber qué funciona y qué no, antes de que sea tarde.', ['Tablero del plan de desarrollo', 'Alertas tempranas', 'Evaluación de políticas']]] },
+ { name: 'Cerrar bien', color: '#FF6A1A', alt: '#FFD9C2', steps: [
+  ['Teoría', 'Rendir cuentas es un deber, no un evento.', 'Estándares de transparencia, rendición de cuentas y gobierno abierto.', ['Marco legal de rendición de cuentas', 'Estándares de datos abiertos', 'Experiencias comparadas']],
+  ['Evidencia', 'Cada logro con soporte.', 'Consolidamos metas, contratos y resultados con fuentes verificables.', ['Balance del plan de desarrollo', 'Banco de logros con soporte', 'Hallazgos y pendientes']],
+  ['Resultados', 'Que la gente lo entienda.', 'Esquemas visuales e informes claros para cada público.', ['Informe de gestión', 'Piezas por comunidad', 'Tablero público']],
+  ['Diálogo', 'Escuchar también al final.', 'Audiencias públicas y encuentros con comunidades para explicar y responder.', ['Audiencias de rendición de cuentas', 'Encuentros sectoriales', 'Respuesta a preguntas ciudadanas']],
+  ['Organización', 'Dejar ciudadanía activa.', 'Veedurías y espacios de participación que siguen vigilando lo que se hizo.', ['Veedurías ciudadanas', 'Pactos de seguimiento', 'Redes comunitarias']],
+  ['Legado', 'Entregar en orden.', 'Empalme, memoria institucional y continuidad de las políticas que funcionan.', ['Informe de empalme', 'Memoria institucional', 'Recomendaciones de continuidad']]] }];
+const rs = $('#ringsvg'), C0 = 280, RR = 200; let ri = 0, wi = 0, nodes = [];
+function drawWheel() {
+ rs.innerHTML = ''; const W0 = WHEELS[wi];
+ el('circle', { cx: C0, cy: C0, r: RR, fill: 'none', stroke: '#121C3B', 'stroke-width': 3, 'stroke-dasharray': '2 10', 'stroke-linecap': 'round' }, rs);
+ el('circle', { cx: C0, cy: C0, r: 112, fill: '#121C3B' }, rs);
+ const t1 = el('text', { x: C0, y: C0 - 22, 'text-anchor': 'middle', fill: wi === 1 ? '#FFC7A6' : W0.color, style: 'font:700 11px Inter;letter-spacing:.2em' }, rs); t1.textContent = 'TEORÍA ⇄ PRAXIS';
+ const t2 = el('text', { x: C0, y: C0 + 12, 'text-anchor': 'middle', fill: '#F5F3EE', style: 'font:800 28px Sora' }, rs); t2.textContent = W0.name;
+ const t3 = el('text', { x: C0, y: C0 + 38, 'text-anchor': 'middle', fill: '#9AA4C4', style: 'font:700 10px Inter;letter-spacing:.18em' }, rs); t3.textContent = 'SERVICIO ' + (wi + 1);
+ nodes = W0.steps.map((r, i) => {
+  const a = -Math.PI / 2 + i * Math.PI / 3, x = C0 + RR * Math.cos(a), y = C0 + RR * Math.sin(a);
+  const g = el('g', { class: 'node', tabindex: 0 }, rs);
+  el('circle', { class: 'bg', cx: x, cy: y, r: 54, fill: i % 2 ? W0.color : W0.alt, stroke: '#F5F3EE', 'stroke-width': 6 }, g);
+  const n = el('text', { x, y: y - 4, 'text-anchor': 'middle', fill: '#121C3B', style: 'font:800 22px Sora' }, g); n.textContent = i + 1;
+  const t = el('text', { x, y: y + 18, 'text-anchor': 'middle', fill: '#121C3B', style: 'font:700 11px Inter' }, g); t.textContent = r[0];
+  g.onclick = () => { stopAuto(); ringShow(i); }; g.onkeydown = e => e.key === 'Enter' && ringShow(i);
+  return g;
+ });
 }
-ringShow(0);
+function ringShow(i) {
+ ri = (i + 6) % 6; nodes.forEach((g, k) => g.classList.toggle('on', k === ri)); const r = WHEELS[wi].steps[ri];
+ $('#ringtxt').innerHTML = `<div class="num">0${ri + 1}</div><h3>${r[0]}: ${r[1]}</h3><p>${r[2]}</p><ul>${r[3].map(x => `<li>${x}</li>`).join('')}</ul>
+ <div class="ring-nav"><button aria-label="Anterior" onclick="stopAuto();ringShow(ri-1)">←</button><button aria-label="Siguiente" onclick="stopAuto();ringShow(ri+1)">→</button></div>`;
+}
 let ringAuto = setInterval(() => ringShow(ri + 1), 6000);
-rs.addEventListener('click', () => clearInterval(ringAuto)); $('#ringtxt').addEventListener('click', () => clearInterval(ringAuto));
+function stopAuto() { clearInterval(ringAuto); }
+document.querySelectorAll('#ringtabs button').forEach(b => b.onclick = () => {
+ document.querySelectorAll('#ringtabs button').forEach(x => x.classList.remove('on')); b.classList.add('on');
+ wi = +b.dataset.r; stopAuto(); drawWheel(); ringShow(0);
+});
+drawWheel(); ringShow(0);
 
 /* ---------- ENTREGABLES: vitrina ---------- */
 const SHOW = [
