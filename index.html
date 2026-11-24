@@ -601,6 +601,124 @@ body.m2 .mz.light .mode-flag,body.m2 .mz.cel .mode-flag,body.m2 #pmu .mode-flag,
  .ftabs button.on{padding:26px 12px}
  #ggt .wrap,.mz .wrap{padding-right:56px}
 }
+/* PRAXIS LAB */
+.lab{background:radial-gradient(1200px 500px at 80% 0%,#1B2A5E 0%,transparent 60%),#0A1230}
+.lab .sec-head p{color:var(--grisc)}
+.lab .ltag{display:inline-flex;align-items:center;gap:8px;font:700 11px Inter;letter-spacing:.16em;color:var(--navy);background:var(--lim);padding:6px 11px;border-radius:4px}
+.stage{display:grid;grid-template-columns:minmax(0,1fr) 96px;background:#0B1433;border:1px solid rgba(255,255,255,.09);border-radius:22px;overflow:hidden;box-shadow:0 60px 120px -50px #000;position:relative}
+.st-main{padding:20px 22px 22px;min-width:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:34px 34px}
+.st-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:6px;flex-wrap:wrap}
+.st-top .lx-ttl{font:800 13px Sora;letter-spacing:.12em;color:#E7EBF7}
+.st-top .lx-ttl em{font-style:normal;color:var(--lim)}
+.st-top .lx-stat{display:flex;gap:8px;align-items:center;font:700 11px Inter;letter-spacing:.14em;color:var(--grisc)}
+.st-top .lx-stat i{width:9px;height:9px;border-radius:50%;background:#3BE07A;box-shadow:0 0 0 0 rgba(59,224,122,.7);animation:pulse 1.4s infinite}
+.st-cards{display:flex;gap:20px;perspective:900px;padding:18px 6px 26px;overflow-x:auto;scrollbar-width:none}
+.st-cards::-webkit-scrollbar{display:none}
+.st-card{flex:0 0 168px;height:116px;background:#fff;color:var(--navy);border:0;border-radius:10px;cursor:pointer;text-align:left;padding:0;overflow:hidden;transform:rotateX(24deg) rotateZ(-7deg);box-shadow:0 24px 30px -12px rgba(0,0,0,.7);transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .3s;font-family:Inter}
+.st-card:nth-child(even){transform:rotateX(24deg) rotateZ(5deg)}
+.st-card:hover{transform:rotateX(10deg) rotateZ(0) translateY(-4px)}
+.st-card.on{transform:rotateX(0) rotateZ(0) translateY(-8px) scale(1.04);box-shadow:0 0 0 3px var(--lim),0 30px 40px -14px rgba(0,0,0,.8)}
+.st-card .lx-band{display:flex;justify-content:space-between;align-items:center;padding:7px 10px;font:800 10px Inter;letter-spacing:.14em;color:#fff}
+.st-card .lx-band b{font:800 9px Inter;background:rgba(255,255,255,.22);padding:2px 5px;border-radius:3px}
+.st-card .lx-art{height:58px;display:flex;align-items:center;justify-content:center;padding:4px 10px}
+.st-card .lx-art svg{width:100%;height:100%}
+.st-card .lx-nm{font:800 13px Sora;padding:0 10px;letter-spacing:-.01em}
+.st-view{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:14px;min-height:430px}
+.st-box{background:rgba(9,16,44,.86);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:16px;min-width:0;position:relative}
+.st-box h4{font:800 12px Inter;letter-spacing:.14em;text-transform:uppercase;color:var(--grisc);margin-bottom:10px;display:flex;justify-content:space-between;gap:8px}
+.st-box h4 span{color:var(--lim)}
+.lx-need{display:inline-flex;align-items:stretch;margin:2px 0 14px;box-shadow:0 10px 24px -10px #000}
+.lx-need b{background:var(--lim);color:var(--navy);font:800 36px/1 Sora;padding:8px 14px;letter-spacing:-.02em}
+.lx-need span{background:#fff;color:var(--navy);font:800 10.5px/1.25 Inter;padding:6px 10px;display:flex;flex-direction:column;justify-content:center;letter-spacing:.1em;text-transform:uppercase}
+.lx-need span small{font:600 10px Inter;letter-spacing:.04em;color:var(--gris);text-transform:none}
+.lx-donut{display:flex;align-items:center;gap:14px}
+.lx-donut svg{width:132px;height:132px;flex:none}
+.lx-donut ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.lx-donut li{display:flex;align-items:center;gap:8px;font-size:12.5px;color:#D5DAEA}
+.lx-pill{font:800 11px Inter;color:var(--navy);padding:3px 7px;border-radius:3px;min-width:44px;text-align:center}
+.lx-hexmap{width:100%;height:auto;display:block}
+.lx-hexmap path{stroke:#0B1433;stroke-width:2;cursor:pointer;transition:opacity .2s}
+.lx-hexmap path:hover{opacity:.75}
+.lx-hexmap path.sel{stroke:#fff;stroke-width:3}
+.lx-scale{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--grisc);margin-top:8px}
+.lx-scale i{height:8px;flex:1;border-radius:4px;background:linear-gradient(90deg,#24325F,#3F5BA8,#FF9A5C,#FF6A1A)}
+.lx-tip{font-size:13px;color:#E7EBF7;background:#18224A;border-radius:10px;padding:10px 12px;margin-top:10px;min-height:58px}
+.lx-tip b{color:var(--lim);font-family:Sora}
+.lx-bigs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.lx-bigs div{background:#18224A;border-radius:10px;padding:10px 12px}
+.lx-bigs b{display:block;font:800 26px/1.1 Sora;color:#fff}
+.lx-bigs span{font-size:11px;color:var(--grisc)}
+.lx-bigs .lx-w b{color:var(--nar)}
+.lx-lchart{width:100%;height:auto;display:block}
+.lx-ticker{list-style:none;font-size:12.5px;max-height:170px;overflow:hidden}
+.lx-ticker li{display:flex;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.07);color:#D5DAEA;animation:fadein .4s}
+.lx-ticker time{color:var(--lim);font-weight:700;min-width:42px}
+.lx-ticker li.lx-a time{color:var(--nar)}
+.lx-hbar{margin:9px 0}
+.lx-hbar .lx-l{display:flex;justify-content:space-between;font-size:12.5px;color:#D5DAEA;margin-bottom:4px}
+.lx-hbar .lx-l b{font-family:Sora;color:#fff}
+.lx-hbar .lx-t{height:10px;background:#18224A;border-radius:5px;position:relative;overflow:hidden}
+.lx-hbar .lx-t i{position:absolute;left:0;top:0;bottom:0;border-radius:5px;transition:width 1s cubic-bezier(.2,.8,.2,1)}
+.lx-hbar .lx-t em{position:absolute;top:-3px;bottom:-3px;width:2px;background:#fff}
+.lx-chips{display:flex;flex-direction:column;gap:8px}
+.lx-chip{display:flex;gap:10px;align-items:flex-start;background:#18224A;border-radius:10px;padding:9px 11px;font-size:12.5px;color:#D5DAEA}
+.lx-chip b{font:800 10px Inter;letter-spacing:.1em;padding:3px 6px;border-radius:3px;color:var(--navy);flex:none;margin-top:1px}
+.lx-gauges{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.lx-gauges div{background:#18224A;border-radius:10px;padding:8px 6px 10px;text-align:center}
+.lx-gauges svg{width:100%;max-width:120px;height:auto}
+.lx-gauges span{display:block;font-size:11px;color:var(--grisc);line-height:1.25}
+.lx-mt{width:100%;border-collapse:collapse;font-size:12.5px}
+.lx-mt td{padding:7px 4px;border-bottom:1px solid rgba(255,255,255,.07);color:#D5DAEA}
+.lx-mt td:last-child{text-align:right}
+.lx-st{font:800 10px Inter;letter-spacing:.08em;padding:3px 7px;border-radius:3px;color:var(--navy);white-space:nowrap}
+.lx-act{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
+.lx-act button{background:transparent;border:1.5px solid rgba(245,243,238,.35);color:var(--off);border-radius:999px;font:700 12px Inter;padding:8px 14px;cursor:pointer}
+.lx-act button:hover{border-color:var(--lim);color:var(--lim)}
+.lx-act button.lx-p{background:var(--nar);border-color:var(--nar);color:var(--navy)}
+.st-bar{background:#070D24;border-left:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;gap:7px;padding:14px 10px;align-items:stretch}
+.st-bar .lx-lg{display:flex;justify-content:center;margin-bottom:6px}
+.st-bar .lx-lg svg{height:30px}
+.st-bar .lx-gl{font:700 8.5px Inter;letter-spacing:.16em;color:var(--gris);text-align:center;margin:6px 0 0}
+.st-bar button{background:#18224A;color:#E7EBF7;border:0;border-radius:6px;font:800 11.5px Sora;padding:9px 4px;letter-spacing:.03em;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;transition:.2s}
+.st-bar button:hover{background:#24325F}
+.st-bar button.on{background:var(--off);color:var(--navy)}
+.st-bar button .ic{width:18px;height:18px}
+.st-bar .lx-md.on{background:var(--lim)}
+.st-bar .lx-rec{background:#D93A2B;color:#fff;font:800 10px Inter;letter-spacing:.08em}
+.st-bar .lx-rec:hover{background:#F0503F}
+.st-lock{position:absolute;inset:0;background:rgba(7,13,36,.78);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;z-index:5;padding:20px}
+.st-lock.on{display:flex;animation:fadein .25s}
+.st-lock .lx-bx{background:var(--off);color:var(--navy);border-radius:16px;padding:26px 26px 22px;max-width:430px;box-shadow:0 30px 60px -20px #000;border-top:6px solid var(--nar)}
+.st-lock h4{font:800 22px Sora;margin:10px 0 8px;letter-spacing:-.02em}
+.st-lock p{font-size:14.5px;color:#3B4668;margin-bottom:16px}
+.st-lock .lx-row{display:flex;gap:10px;flex-wrap:wrap}
+.st-lock .lx-x{background:transparent;border:2px solid var(--navy);color:var(--navy);border-radius:999px;font:700 14px Inter;padding:12px 18px;cursor:pointer}
+.lab-cta{display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;background:var(--off);color:var(--navy);border-radius:18px;padding:24px 28px;margin-top:22px}
+.lab-cta .ic{width:46px;height:46px;color:var(--nar)}
+.lab-cta h3{font-size:22px;margin-bottom:4px}
+.lab-cta p{font-size:15px;color:#3B4668}
+.lab-use{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+.lab-use>div{background:var(--navy2);border-radius:var(--r);padding:24px;border-top:5px solid var(--lim)}
+.lab-use>div:nth-child(2){border-top-color:var(--off)}
+.lab-use>div:nth-child(3){border-top-color:var(--nar)}
+.lab-use small{font:700 11px Inter;letter-spacing:.18em;color:var(--grisc)}
+.lab-use h3{font-size:21px;margin:8px 0 12px}
+.lab-use ul{list-style:none}
+.lab-use li{font-size:14px;color:#D5DAEA;padding-left:24px;position:relative;margin:8px 0}
+.lab-use li:before{content:"";position:absolute;left:3px;top:5px;width:10px;height:6px;border-left:3px solid var(--lim);border-bottom:3px solid var(--lim);transform:rotate(-45deg)}
+@media(min-width:901px){#lab .wrap{padding-right:64px}}
+@media(max-width:900px){
+ .stage{grid-template-columns:1fr}
+ .st-bar{order:-1;flex-direction:row;overflow-x:auto;border-left:0;border-bottom:1px solid rgba(255,255,255,.08);padding:10px}
+ .st-bar button{flex:0 0 auto;min-width:74px}
+ .st-bar .lx-lg,.st-bar .lx-gl{display:none}
+ .st-view{grid-template-columns:1fr}
+ .st-main{padding:14px}
+ .lx-gauges{grid-template-columns:repeat(2,1fr)}
+ .lab-cta{grid-template-columns:1fr}
+ .lab-use{grid-template-columns:1fr}
+ .lx-need b{font-size:28px}
+}
 </style>
 </head>
 <body>
@@ -616,6 +734,7 @@ body.m2 .mz.light .mode-flag,body.m2 .mz.cel .mode-flag,body.m2 #pmu .mode-flag,
    <a href="#metodo">Método</a>
    <a href="#ggt">Servicios</a>
    <a href="#pmu">Puesto de mando</a>
+   <a href="#lab">Praxis Lab</a>
    <a href="#entregables">Entregables</a>
    <a href="#paquetes">Paquetes</a>
    <a href="#equipo">Equipo</a>
@@ -664,7 +783,7 @@ body.m2 .mz.light .mode-flag,body.m2 .mz.cel .mode-flag,body.m2 #pmu .mode-flag,
   </div>
   <div class="stats reveal">
    <a class="stat" href="#ggt"><span class="ic" data-ic="columns"></span><b data-n="3">0</b><span class="t">servicios: ganar, gobernar y transformar</span><em>→</em></a>
-   <a class="stat" href="#servicios"><span class="ic" data-ic="ballot"></span><b data-n="8">0</b><span class="t">líneas de trabajo para campañas</span><em>→</em></a>
+   <a class="stat" href="#servicios"><span class="ic" data-ic="ballot"></span><b data-n="8">0</b><span class="t">capacidades estratégicas para campañas</span><em>→</em></a>
    <a class="stat" href="#paquetes"><span class="ic" data-ic="doc"></span><b data-n="14">0</b><span class="t">entregables con fecha y criterio de aceptación</span><em>→</em></a>
    <a class="stat" href="#equipo"><span class="ic" data-ic="people"></span><b data-n="4">0</b><span class="t">disciplinas en una sola mesa</span><em>→</em></a>
   </div>
@@ -720,7 +839,7 @@ body.m2 .mz.light .mode-flag,body.m2 .mz.cel .mode-flag,body.m2 #pmu .mode-flag,
  <div class="wrap">
   <span class="mode-flag"></span>
   <div class="sec-head reveal">
-   <div><span class="kick">Para ganar</span><h2>Ocho líneas para la campaña, <span class="or">un solo equipo.</span></h2></div>
+   <div><span class="kick">Para ganar</span><h2>Ocho capacidades estratégicas. <span class="or">Una dirección integrada.</span></h2></div>
    <p>Se contratan solas o en paquete. Del diagnóstico al día de elecciones, con las mismas personas.</p>
   </div>
   <div class="svc reveal">
@@ -778,11 +897,60 @@ body.m2 .mz.light .mode-flag,body.m2 .mz.cel .mode-flag,body.m2 #pmu .mode-flag,
  </div>
 </section>
 
+<section id="lab" class="lab">
+ <div class="wrap">
+  <div class="sec-head reveal">
+   <div><span class="kick">Praxis Lab · Tecnología propia</span><h2>Su campaña, su gobierno y su rendición de cuentas, <span class="or">en una sola plataforma.</span></h2></div>
+   <p>Praxis Lab es nuestra herramienta propia para gestionar lo que pasa en el territorio: dónde están los votos, qué ocurre el día de elecciones, cómo va el presupuesto y si las metas del plan se están cumpliendo. Cada cliente la recibe configurada con los datos de su municipio o departamento. Explore la pantalla.</p>
+  </div>
+  <div class="stage reveal" id="stage">
+   <div class="st-main">
+    <div class="st-top"><span class="lx-ttl">PRAXIS LAB · <em id="stmode">MODO CAMPAÑA</em></span><span class="lx-stat"><i></i>SISTEMA EN LÍNEA · <span id="stclock">--:--</span></span></div>
+    <div class="st-cards" id="stcards"></div>
+    <div class="st-view" id="stview"></div>
+   </div>
+   <aside class="st-bar" aria-label="Controles de la plataforma">
+    <div class="lx-lg"><svg viewBox="0 0 96 110"><rect width="34" height="110" fill="#C2F03A"/><path d="M34 0H62A34 34 0 0 1 62 68H34Z" fill="#FF6A1A"/></svg></div>
+    <div class="lx-gl">MODO</div>
+    <button class="lx-md on" data-md="0">CAMPAÑA</button>
+    <button class="lx-md" data-md="1">GOBIERNO</button>
+    <button class="lx-md" data-md="2">CUENTAS</button>
+    <div class="lx-gl">MÓDULO</div>
+    <button class="lx-mo on" data-mo="0"><span class="ic"></span>ATLAS</button>
+    <button class="lx-mo" data-mo="1"><span class="ic"></span>MANDO</button>
+    <button class="lx-mo" data-mo="2"><span class="ic"></span>RADAR</button>
+    <button class="lx-mo" data-mo="3"><span class="ic"></span>GESTIÓN</button>
+    <div class="lx-gl">ACCESO</div>
+    <button class="lx-lk" data-lk="exportar"><span class="ic"></span>EXPORTAR</button>
+    <button class="lx-rec lx-lk" data-lk="demo">PEDIR DEMO</button>
+   </aside>
+   <div class="st-lock" id="stlock" role="dialog" aria-modal="true" aria-labelledby="stlockh">
+    <div class="lx-bx"><span class="kick" style="color:var(--nar)">Acceso con licencia</span>
+     <h4 id="stlockh">Esta función se activa en su plataforma.</h4>
+     <p id="stlockp">Configuramos Praxis Lab con los datos de su territorio y capacitamos a su equipo para usarla. Escríbanos y le mostramos cómo funciona en una demostración guiada.</p>
+     <div class="lx-row"><a class="btn btn-nar" href="mailto:praxis_info@gmail.com?subject=Quiero%20una%20demostraci%C3%B3n%20de%20Praxis%20Lab">Agendar demostración →</a><button class="lx-x" id="stlockx">Seguir explorando</button></div>
+    </div>
+   </div>
+  </div>
+  <div class="lab-cta reveal">
+   <span class="ic" data-ic="rocket"></span>
+   <div><h3>¿Quiere verla con los datos de su territorio?</h3><p>La plataforma se entrega con licencia, configurada para su campaña o su gobierno, con capacitación a su equipo y soporte durante todo el contrato. Le mostramos su uso en una demostración guiada sin costo.</p></div>
+   <a class="btn btn-nar" href="mailto:praxis_info@gmail.com?subject=Quiero%20una%20demostraci%C3%B3n%20de%20Praxis%20Lab">Agendar demostración →</a>
+  </div>
+  <div class="lab-use reveal">
+   <div><small>PARA GANAR</small><h3>Gestione su campaña</h3><ul><li>Mapa de votos por mesa, puesto y comuna</li><li>Metas de votos y avance de la red de voluntarios</li><li>Puesto de mando con testigos y E-14 el día de elecciones</li></ul></div>
+   <div><small>PARA GOBERNAR</small><h3>Gestione su gobierno</h3><ul><li>Ejecución presupuestal por sector y fuente</li><li>Contratos, plazos y alertas normativas</li><li>Proyectos de regalías y su estado</li></ul></div>
+   <div><small>PARA TRANSFORMAR</small><h3>Rinda cuentas</h3><ul><li>Avance de las metas del plan de desarrollo</li><li>Informes de gestión generados desde los datos</li><li>Tableros abiertos para la ciudadanía</li></ul></div>
+  </div>
+  <p class="demo-note">Pantallas de demostración con datos ficticios. En cada contrato la plataforma se construye con fuentes oficiales y los datos del cliente.</p>
+ </div>
+</section>
+
 <section id="entregables" class="cel">
  <div class="wrap">
   <span class="mode-flag"></span>
   <div class="sec-head reveal">
-   <div><span class="kick">Entregables</span><h2>Lo que usted recibe, <span class="or">así se ve.</span></h2></div>
+   <div><span class="kick">Entregables</span><h2>Productos concretos. <span class="or">Resultados verificables.</span></h2></div>
    <p>Cada producto tiene objetivo, método, responsable, fecha y criterio de aceptación. Estos son algunos ejemplos.</p>
   </div>
   <div class="tabs reveal" id="tabs">
@@ -805,7 +973,7 @@ body.m2 .mz.light .mode-flag,body.m2 .mz.cel .mode-flag,body.m2 #pmu .mode-flag,
  <div class="wrap">
   <span class="mode-flag"></span>
   <div class="sec-head reveal">
-   <div><span class="kick">Paquetes para campañas · Servicio 1</span><h2>Tres formas <span class="or">de trabajar juntos.</span></h2></div>
+   <div><span class="kick">Paquetes para campañas · Servicio 1</span><h2>Modalidades de <span class="or">acompañamiento estratégico.</span></h2></div>
    <p>Precios por cuatro meses de trabajo, antes de IVA, según el tamaño del municipio. Las tarifas de los servicios para gobernar y para cerrar bien el gobierno están en la sección de servicios.</p>
   </div>
   <div id="pkganar">
@@ -837,7 +1005,7 @@ body.m2 .mz.light .mode-flag,body.m2 .mz.cel .mode-flag,body.m2 #pmu .mode-flag,
    <div>Complejidad territorial<b>+5 a 15 %</b></div><div>Más de 10 corregimientos<b>+5 a 10 %</b></div><div>Datos escasos<b>+5 a 10 %</b></div><div>Enfoque étnico<b>+10 %</b></div>
    <div>Entrega en menos de 8 semanas<b>+15 %</b></div><div>Tres o más municipios<b>−10 %</b></div><div>Contratar dos servicios<b>−8 %</b></div><div>Desplazamientos<b>a costo</b></div>
   </div>
-  <div style="margin-top:60px" class="reveal"><span class="kick">Garantías</span><h3 style="font-size:clamp(24px,2.6vw,34px);margin:14px 0 4px">Trabajar con nosotros <span class="or">es seguro.</span></h3></div>
+  <div style="margin-top:60px" class="reveal"><span class="kick">Garantías</span><h3 style="font-size:clamp(24px,2.6vw,34px);margin:14px 0 4px">Compromisos de integridad <span class="or">y calidad profesional.</span></h3></div>
   <div class="guar reveal">
    <div><span class="ic" data-ic="eye"></span><h4>Acuerdo de confidencialidad</h4><p>Firmamos un acuerdo de confidencialidad antes de la primera reunión de fondo. Vale durante el contrato y cinco años después.</p></div>
    <div><span class="ic" data-ic="target"></span><h4>Exclusividad</h4><p>No asesoramos a otra candidatura al mismo cargo en el mismo territorio.</p></div>
@@ -853,7 +1021,7 @@ body.m2 .mz.light .mode-flag,body.m2 .mz.cel .mode-flag,body.m2 #pmu .mode-flag,
 <section id="equipo" class="light">
  <div class="wrap">
   <div class="sec-head reveal">
-   <div><span class="kick">Equipo</span><h2>Gente que ha estado <span class="or">del otro lado del escritorio.</span></h2></div>
+   <div><span class="kick">Equipo</span><h2>Experiencia en los lugares <span class="or">donde se toman las decisiones.</span></h2></div>
    <p>Nuestro equipo está conformado por profesionales que se han desempeñado en cargos de asesoría de alto nivel en las siguientes entidades. Por eso sabemos qué se puede prometer, cómo se financia y cómo se cumple.</p>
   </div>
   <div class="xp reveal">
@@ -871,7 +1039,7 @@ body.m2 .mz.light .mode-flag,body.m2 .mz.cel .mode-flag,body.m2 #pmu .mode-flag,
  </div>
 </section>
 
-<div class="marquee alt" aria-hidden="true"><div class="tr"><span>¡Vamos pa’lante!</span><span>La teoría sirve si cambia la realidad</span><span>Cada cifra con fuente</span><span>Juego limpio</span><span>¡Vamos pa’lante!</span><span>La teoría sirve si cambia la realidad</span><span>Cada cifra con fuente</span><span>Juego limpio</span></div></div>
+<div class="marquee alt" aria-hidden="true"><div class="tr"><span>Las ideas se convierten en resultados</span><span>La teoría sirve si cambia la realidad</span><span>Cada cifra con fuente</span><span>Juego limpio</span><span>Las ideas se convierten en resultados</span><span>La teoría sirve si cambia la realidad</span><span>Cada cifra con fuente</span><span>Juego limpio</span></div></div>
 <section id="contacto" class="dots" style="overflow:hidden">
  <svg class="orbit spin" viewBox="0 0 600 600" style="right:-180px;top:-120px;width:620px"><circle cx="300" cy="300" r="290"/><circle class="o2" cx="300" cy="300" r="220"/><circle cx="300" cy="300" r="150"/></svg>
  <div class="wrap contact" style="position:relative">
@@ -1489,7 +1657,7 @@ document.querySelectorAll('#sizes button').forEach(b => b.onclick = () => {
  PR[+b.dataset.s].forEach((v, i) => $('#p' + i).textContent = /\d/.test(v) ? '$' + v + ' M' : v);
 });
 const LINES = [
- { kick: 'Servicio 1 · Para ganar', h: ['Ocho líneas para la campaña, ', 'un solo equipo.'], p: 'Se contratan solas o en paquete. Del diagnóstico al día de elecciones, con las mismas personas.',
+ { kick: 'Servicio 1 · Para ganar', h: ['Ocho capacidades estratégicas. ', 'Una dirección integrada.'], p: 'Se contratan solas o en paquete. Del diagnóstico al día de elecciones, con las mismas personas.',
   l: [['Construcción de candidaturas', 'Perfilamiento, posicionamiento y potenciamiento: quién es, qué representa y cómo crece.', ['Perfil e idea fuerza', 'Entrenamiento y agenda pública'], 'ballot'],
    ['Investigación electoral', 'Resultados por mesa y puesto, censo electoral y opinión pública.', ['Mapa electoral y tablero', 'Encuestas con ficha técnica'], 'chart'],
    ['Programa de gobierno', 'Diagnóstico, metas, indicadores, costos y fuentes de financiación.', ['Programa costeado', 'Fichas de proyecto'], 'doc'],
@@ -1498,7 +1666,7 @@ const LINES = [
    ['Inteligencia documental', 'Fuentes oficiales, verificación y análisis de controversias.', ['Dossier con fuentes', 'Matriz de riesgos'], 'search'],
    ['Participación ciudadana', 'Mesas territoriales, consultas y construcción colectiva del programa.', ['Metodología y relatorías', 'Matriz de aportes'], 'people'],
    ['Puesto de mando electoral', 'Testigos, alertas y conteo en tiempo real el día de elecciones.', ['Tablero unificado', 'Protocolo de defensa del voto'], 'target']] },
- { kick: 'Servicio 2 · Para gobernar', h: ['Ocho líneas para gobernar, ', 'del empalme a la ejecución.'], p: 'Para alcaldías, gobernaciones y equipos de gobierno. Se contratan por producto o como asesoría permanente.',
+ { kick: 'Servicio 2 · Para gobernar', h: ['Ocho capacidades para gobernar. ', 'Del empalme a la ejecución.'], p: 'Para alcaldías, gobernaciones y equipos de gobierno. Se contratan por producto o como asesoría permanente.',
   l: [['Empalme y primeros 100 días', 'Lo que se recibe y las decisiones urgentes del arranque.', ['Informe de empalme', 'Agenda de 100 días'], 'calendar'],
    ['Plan de desarrollo territorial', 'Del programa de gobierno al plan, con metas y presupuesto.', ['Parte estratégica', 'Plan plurianual de inversiones'], 'map'],
    ['Proyectos y regalías', 'Formulación y gestión de proyectos ante el Sistema General de Regalías.', ['Fichas de proyecto', 'Acompañamiento a la viabilidad'], 'coins'],
@@ -1507,7 +1675,7 @@ const LINES = [
    ['Comunicación de gobierno', 'Narrativa de gestión, vocerías y manejo de crisis.', ['Estrategia de comunicación', 'Protocolo de crisis'], 'mega'],
    ['Participación y presupuestos participativos', 'La gente decide parte de la inversión y vigila su ejecución.', ['Metodología de participación', 'Relatorías y acuerdos'], 'people'],
    ['Tablero de gestión', 'Avance de obras, inversión y alertas de rezago en un solo mapa.', ['Tablero meta por meta', 'Alertas tempranas'], 'pulse']] },
- { kick: 'Servicio 3 · Para transformar', h: ['Ocho líneas para mostrar resultados ', 'y cerrar en orden.'], p: 'Para gobiernos que quieren rendir cuentas con claridad, evaluar lo que hicieron y entregar el cargo en orden.',
+ { kick: 'Servicio 3 · Para transformar', h: ['Ocho capacidades para mostrar resultados ', 'y cerrar en orden.'], p: 'Para gobiernos que quieren rendir cuentas con claridad, evaluar lo que hicieron y entregar el cargo en orden.',
   l: [['Monitoreo de políticas', 'Indicadores para saber qué funciona y qué corregir a tiempo.', ['Batería de indicadores', 'Alertas de rezago'], 'pulse'],
    ['Evaluación de resultados', 'Qué funcionó, por qué y qué conviene continuar.', ['Informe de evaluación', 'Recomendaciones'], 'search'],
    ['Informe de gestión', 'Cuatro años en cifras, con esquemas visuales que la gente entiende.', ['Informe con soportes', 'Resumen ciudadano'], 'board'],
@@ -1516,10 +1684,10 @@ const LINES = [
    ['Difusión de resultados', 'Piezas para medios, redes, impresos y vallas, informativas y sin promoción personal.', ['Artes para vallas', 'Video de resultados'], 'mega'],
    ['Veedurías y organización social', 'Ciudadanía organizada que sigue vigilando lo que se hizo.', ['Formación de veedurías', 'Pactos de seguimiento'], 'hands'],
    ['Empalme de salida y legado', 'Informe de cierre y memoria institucional para el gobierno entrante.', ['Informe de empalme', 'Memoria institucional'], 'swap']] }];
-const ENTH = [['Entregables', 'Lo que usted recibe, ', 'así se ve.', 'Cada producto tiene objetivo, método, responsable, fecha y criterio de aceptación. Estos son algunos ejemplos para campañas.'],
- ['Entregables · Gobernar', 'Lo que recibe su gobierno, ', 'así se ve.', 'Ejemplos de productos para gobernar: del empalme al plan de desarrollo, los proyectos y el seguimiento.'],
- ['Entregables · Transformar', 'Lo que queda al cerrar, ', 'así se ve.', 'Ejemplos de productos para mostrar resultados, rendir cuentas y entregar en orden.']];
-const PKH = [['Paquetes para campañas · Servicio 1', 'Tres formas ', 'de trabajar juntos.', 'Precios por cuatro meses de trabajo, antes de IVA, según el tamaño del municipio. Elija el suyo.'],
+const ENTH = [['Entregables', 'Productos concretos. ', 'Resultados verificables.', 'Cada producto tiene objetivo, método, responsable, fecha y criterio de aceptación. Estos son algunos ejemplos para campañas.'],
+ ['Entregables · Gobernar', 'Productos concretos para gobernar. ', 'Resultados verificables.', 'Ejemplos de productos para gobernar: del empalme al plan de desarrollo, los proyectos y el seguimiento.'],
+ ['Entregables · Transformar', 'Productos concretos para cerrar bien. ', 'Resultados verificables.', 'Ejemplos de productos para mostrar resultados, rendir cuentas y entregar en orden.']];
+const PKH = [['Paquetes para campañas · Servicio 1', 'Modalidades de ', 'acompañamiento estratégico.', 'Precios por cuatro meses de trabajo, antes de IVA, según el tamaño del municipio. Elija el suyo.'],
  ['Tarifas · Servicio 2 · Gobernar', 'Productos para gobernar, ', 'con precio claro.', 'Se contratan por producto o como asesoría permanente. Precios antes de IVA según el tamaño del municipio o departamento.'],
  ['Tarifas · Servicio 3 · Transformar', 'Productos para cerrar bien, ', 'con precio claro.', 'Se contratan por producto. Precios antes de IVA según el tamaño del municipio o departamento.']];
 const setHead = (sel, h) => { const hd = $(sel + ' .sec-head'); hd.querySelector('.kick').textContent = h[0]; hd.querySelector('h2').innerHTML = `${h[1]}<span class="or">${h[2]}</span>`; hd.querySelector('p').textContent = h[3]; };
@@ -1569,6 +1737,107 @@ const ftabs = document.querySelector('.ftabs');
 addEventListener('scroll', () => { const g = $('#ggt').getBoundingClientRect().top, c = $('#contacto').getBoundingClientRect().top; ftabs.classList.toggle('show', g < innerHeight * .5 && c > innerHeight * .4); }, { passive: true });
 ['#servicios', '#pmu', '#entregables', '#paquetes'].forEach(id => $(id).classList.add('mz'));
 setMode(0);
+
+/* ===== PRAXIS LAB ===== */
+(function () {
+ const st = document.getElementById('stage'); if (!st) return;
+ const V = document.getElementById('stview'), CARDS = document.getElementById('stcards');
+ let MD = 0, MO = 0, timer = null;
+ const rnd = (s => () => (s = (s * 9301 + 49297) % 233280) / 233280);
+ const COL = ['#24325F', '#3F5BA8', '#FF9A5C', '#FF6A1A'];
+ const MODES = ['MODO CAMPAÑA', 'MODO GOBIERNO', 'MODO RENDICIÓN DE CUENTAS'];
+ const MODS = [
+  { k: 'ATLAS', d: 'Inteligencia territorial', c: '#9BC82A', art: '<svg viewBox="0 0 140 50"><g fill="#3F5BA8"><path d="M8 30l10-6 12 4 8-10 14 6 10-4 12 8-6 12-16 2-12-4-14 6-12-4z"/></g><g fill="#FF6A1A"><path d="M52 24l14 6 10-4 12 8-6 12-16 2z"/></g><g fill="#C2F03A"><path d="M90 14l16 4 14-6 12 10-8 12-14 2-10-8z"/></g></svg>' },
+  { k: 'MANDO', d: 'Día de elecciones', c: '#FF6A1A', art: '<svg viewBox="0 0 140 50"><rect x="6" y="6" width="56" height="38" rx="4" fill="#121C3B"/><text x="34" y="33" text-anchor="middle" font-family="Sora" font-weight="800" font-size="19" fill="#C2F03A">4 PM</text><path d="M72 40l12-10 10 6 12-16 12 8 12-18" fill="none" stroke="#FF6A1A" stroke-width="4" stroke-linecap="round"/></svg>' },
+  { k: 'RADAR', d: 'Presupuesto y contratos', c: '#3F5BA8', art: '<svg viewBox="0 0 140 50"><g fill="#3F5BA8"><rect x="8" y="22" width="16" height="24"/><rect x="30" y="12" width="16" height="34"/><rect x="52" y="28" width="16" height="18"/><rect x="74" y="6" width="16" height="40"/></g><rect x="96" y="16" width="16" height="30" fill="#FF6A1A"/><path d="M4 18h132" stroke="#121C3B" stroke-width="2" stroke-dasharray="4 3"/></svg>' },
+  { k: 'GESTIÓN', d: 'Metas y rendición de cuentas', c: '#121C3B', art: '<svg viewBox="0 0 140 50"><path d="M20 44a30 30 0 0 1 60 0" fill="none" stroke="#DDE3F0" stroke-width="10"/><path d="M20 44a30 30 0 0 1 49-23" fill="none" stroke="#9BC82A" stroke-width="10"/><g fill="#121C3B"><rect x="92" y="10" width="40" height="6" rx="3"/><rect x="92" y="22" width="30" height="6" rx="3"/><rect x="92" y="34" width="36" height="6" rx="3"/></g></svg>' }];
+ CARDS.innerHTML = MODS.map((m, i) => `<button class="st-card${i ? '' : ' on'}" data-mo="${i}"><div class="lx-band" style="background:${m.c}">PRAXIS<b>${String(i + 1).padStart(2, '0')}</b></div><div class="lx-art">${m.art}</div><div class="lx-nm">${m.k[0] + m.k.slice(1).toLowerCase()} · <span style="font:600 11px Inter;color:#6F7BA0">${m.d}</span></div></button>`).join('');
+ st.querySelectorAll('.st-bar .lx-mo .ic').forEach((e, i) => e.innerHTML = svgI(['map', 'pulse', 'chart', 'board'][i]));
+ st.querySelector('.st-bar [data-lk="exportar"] .ic').innerHTML = svgI('doc');
+
+ // ---------- helpers ----------
+ const donut = (parts) => { let a = -Math.PI / 2, out = ''; const R = 52, r = 30, cx = 66, cy = 66, tot = parts.reduce((s, p) => s + p[1], 0);
+  parts.forEach(([, v, c]) => { const b = a + v / tot * Math.PI * 2, L = b - a > Math.PI ? 1 : 0, p = (ang, rad) => [cx + rad * Math.cos(ang), cy + rad * Math.sin(ang)];
+   const [x1, y1] = p(a, R), [x2, y2] = p(b, R), [x3, y3] = p(b, r), [x4, y4] = p(a, r);
+   out += `<path d="M${x1} ${y1}A${R} ${R} 0 ${L} 1 ${x2} ${y2}L${x3} ${y3}A${r} ${r} 0 ${L} 0 ${x4} ${y4}Z" fill="${c}" stroke="#0B1433" stroke-width="2"/>`; a = b; });
+  return `<div class="lx-donut"><svg viewBox="0 0 132 132">${out}</svg><ul>${parts.map(([n, v, c]) => `<li><span class="lx-pill" style="background:${c}">${v} %</span>${n}</li>`).join('')}</ul></div>`; };
+ const gauge = (v, c) => { const a = Math.PI * (1 - v / 100), x = 60 + 44 * Math.cos(a), y = 58 - 44 * Math.sin(a);
+  return `<svg viewBox="0 0 120 70"><path d="M16 58a44 44 0 0 1 88 0" fill="none" stroke="#24325F" stroke-width="11" stroke-linecap="round"/><path d="M16 58A44 44 0 0 1 ${x.toFixed(1)} ${y.toFixed(1)}" fill="none" stroke="${c}" stroke-width="11" stroke-linecap="round"/><text x="60" y="56" text-anchor="middle" font-family="Sora" font-weight="800" font-size="20" fill="#fff">${v}%</text></svg>`; };
+ const lock = (t, p) => { document.getElementById('stlockh').textContent = t || 'Esta función se activa en su plataforma.';
+  document.getElementById('stlockp').textContent = p || 'Configuramos Praxis Lab con los datos de su territorio y capacitamos a su equipo para usarla. Escríbanos y le mostramos cómo funciona en una demostración guiada.';
+  document.getElementById('stlock').classList.add('on'); };
+ document.getElementById('stlockx').onclick = () => document.getElementById('stlock').classList.remove('on');
+ st.querySelectorAll('.lx-lk').forEach(b => b.onclick = () => b.dataset.lk === 'demo' ? lock('Le mostramos Praxis Lab funcionando.', 'En una demostración guiada de 40 minutos vemos los cuatro módulos con datos de un territorio parecido al suyo y le explicamos cómo se configura para su campaña o su gobierno.') : lock('Exportar requiere una licencia activa.', 'Con su licencia, cada tablero se descarga en PDF, Excel o como enlace público para la ciudadanía. Escríbanos para conocer cómo usarlo.'));
+
+ // ---------- ATLAS ----------
+ function atlas() {
+  const R = rnd(7 + MD * 13), s = 15, hx = [];
+  for (let q = -6; q <= 6; q++) for (let r = -5; r <= 5; r++) { const x = s * 1.5 * q, y = s * Math.sqrt(3) * (r + q / 2), d = Math.hypot(x / 1.35, y);
+   if (d < 88 - R() * 22) hx.push({ x, y, v: Math.min(3, Math.floor((R() * .7 + (1 - d / 100) * .6) * 4)), id: hx.length + 1 }); }
+  const hp = (x, y) => Array.from({ length: 6 }, (_, k) => { const a = Math.PI / 3 * k; return `${(x + s * .96 * Math.cos(a)).toFixed(1)},${(y + s * .96 * Math.sin(a)).toFixed(1)}`; }).join(' ');
+  const T = [['Potencial electoral por zona', 'Votos para ganar', '12.480', 'faltan 3.215 por asegurar', 'Intensidad del apoyo', [['Fuerte', 41, '#C2F03A'], ['Media', 27, '#FF6A1A'], ['Poca', 18, '#3F5BA8'], ['Ninguna', 14, '#B9C1D9']], 'potencial'],
+   ['Brecha de cobertura por comuna', 'Cobertura acueducto rural', '68 %', 'meta del plan: 85 %', 'Necesidades priorizadas', [['Vías', 34, '#FF6A1A'], ['Agua', 28, '#C2F03A'], ['Salud', 22, '#3F5BA8'], ['Educación', 16, '#B9C1D9']], 'brecha'],
+   ['Percepción de la gestión por comuna', 'Aprobación de la gestión', '61 %', '+7 puntos en el último año', 'Calificación ciudadana', [['Buena', 38, '#C2F03A'], ['Aceptable', 29, '#3F5BA8'], ['Regular', 21, '#FF6A1A'], ['Mala', 12, '#B9C1D9']], 'aprobación']][MD];
+  V.innerHTML = `<div class="st-box"><h4>${T[0]}<span>${hx.length} zonas</span></h4><svg class="lx-hexmap" viewBox="-110 -100 220 200">${hx.map(h => `<path data-i="${h.id}" data-v="${h.v}" d="M${hp(h.x, h.y)}Z" fill="${COL[h.v]}"/>`).join('')}</svg><div class="lx-scale">Bajo<i></i>Alto</div><div class="lx-tip" id="sttip">Toque una zona para ver su detalle.</div></div>
+   <div class="st-box"><div class="lx-need"><b>${T[2]}</b><span>${T[1]}<small>${T[3]}</small></span></div><h4>${T[4]}</h4>${donut(T[5])}
+   <div class="lx-act"><button class="lx-lk2">Cruzar con censo electoral</button><button class="lx-lk2 lx-p">Ver por mesa</button></div></div>`;
+  V.querySelectorAll('.lx-hexmap path').forEach(p => p.onclick = () => { V.querySelectorAll('.lx-hexmap .sel').forEach(x => x.classList.remove('sel')); p.classList.add('sel'); const v = +p.dataset.v, i = +p.dataset.i;
+   document.getElementById('sttip').innerHTML = `<b>Zona ${i}</b> · comuna ${1 + i % 7} · ${T[6]} <b>${['bajo', 'medio', 'alto', 'muy alto'][v]}</b><br>${MD ? 'Prioridad de inversión: ' + ['baja', 'media', 'alta', 'urgente'][v] : (980 + i * 37 % 900) + ' votantes · ' + (40 + v * 9) + ' % de participación en 2023'}`; });
+ }
+ // ---------- MANDO ----------
+ function mando() {
+  const T = [['Día de elecciones · conteo en vivo', ['Mesas reportando', 'E-14 recibidos', 'Alertas abiertas'], ['Votos propios', 'Segundo lugar'], [['Testigo reporta apertura en I.E. Santa Teresa', 0], ['Alerta: mesa 12 sin testigo en puesto Norte', 1], ['E-14 cargado · mesa 7, puesto Centro', 0], ['Reclamación radicada en mesa 3', 1], ['Ruta de transporte 4 completa', 0]]],
+   ['Sala de situación · solicitudes ciudadanas', ['PQRS atendidas', 'Solicitudes hoy', 'Casos urgentes'], ['Atendidas', 'Recibidas'], [['Reporte de vía en vereda La Esperanza', 1], ['Secretaría de Salud cierra caso 2241', 0], ['Nueva solicitud: alumbrado comuna 5', 0], ['Vence término de respuesta de 3 PQRS', 1], ['Respuesta enviada a junta de acción comunal', 0]]],
+   ['Audiencia pública de rendición de cuentas', ['Asistentes conectados', 'Preguntas recibidas', 'Sin responder'], ['Respondidas', 'Recibidas'], [['Pregunta sobre obra del puente, comuna 2', 0], ['Pico de conexiones: transmisión en redes', 0], ['Pregunta sin responder: plazos del acueducto', 1], ['Secretaría de Hacienda presenta ejecución', 0], ['Encuesta de satisfacción abierta', 0]]]][MD];
+  V.innerHTML = `<div class="st-box"><h4>${T[0]}<span id="mhr">08:00</span></h4><div class="lx-bigs"><div><b id="mb1">0</b><span>${T[1][0]}</span></div><div><b id="mb2">0</b><span>${T[1][1]}</span></div><div class="lx-w"><b id="mb3">0</b><span>${T[1][2]}</span></div></div>
+   <svg class="lx-lchart" viewBox="0 0 400 170"><g stroke="rgba(255,255,255,.07)">${[30, 70, 110, 150].map(y => `<line x1="0" x2="400" y1="${y}" y2="${y}"/>`).join('')}</g><path id="ml2" fill="none" stroke="#3F5BA8" stroke-width="3"/><path id="ml1" fill="none" stroke="#C2F03A" stroke-width="3.5"/><g font-size="10" fill="#6F7BA0">${['8', '10', '12', '2 PM', '4 PM'].map((t, i) => `<text x="${i * 95 + 4}" y="166">${t}</text>`).join('')}</g></svg>
+   <div class="lx-scale" style="gap:14px"><span style="color:#C2F03A">━ ${T[2][0]}</span><span style="color:#6F8BD8">━ ${T[2][1]}</span></div></div>
+   <div class="st-box"><h4>Reportes en vivo<span>●</span></h4><ul class="lx-ticker" id="mtk"></ul><div class="lx-act"><button class="lx-lk2 lx-p">Asignar respuesta</button><button class="lx-lk2">Enviar alerta al equipo</button></div></div>`;
+  let t = 0; const N = 40, a = [], b = [], R = rnd(3 + MD);
+  for (let i = 0; i <= N; i++) { a.push((a[i - 1] || 0) + 2 + R() * 6); b.push((b[i - 1] || 0) + 1.6 + R() * 5); }
+  const mx = Math.max(a[N], b[N]) * 1.08, pth = (arr, k) => arr.slice(0, k + 1).map((v, i) => `${i ? 'L' : 'M'}${(i * 400 / N).toFixed(1)} ${(155 - v / mx * 140).toFixed(1)}`).join('');
+  const tk = document.getElementById('mtk');
+  clearInterval(timer);
+  timer = setInterval(() => { if (t > N) { t = 0; tk.innerHTML = ''; }
+   document.getElementById('ml1').setAttribute('d', pth(MD === 1 ? b : a, t)); document.getElementById('ml2').setAttribute('d', pth(MD === 1 ? a : b, t));
+   const h = 8 + t * 8 / N; document.getElementById('mhr').textContent = `${String(Math.floor(h)).padStart(2, '0')}:${String(Math.floor(h % 1 * 60)).padStart(2, '0')}`;
+   const f = t / N; document.getElementById('mb1').textContent = MD === 2 ? Math.round(120 + f * 1340).toLocaleString('es-CO') : MD === 1 ? Math.round(f * 86) + ' %' : Math.round(f * 97) + ' %';
+   document.getElementById('mb2').textContent = Math.round(MD === 2 ? f * 214 : MD === 1 ? 40 + f * 152 : f * 412).toLocaleString('es-CO');
+   document.getElementById('mb3').textContent = Math.max(0, Math.round((MD === 2 ? 12 : 9) * Math.sin(f * 3) + 2));
+   if (t % 4 === 0) { const e = T[3][(t / 4) % T[3].length]; tk.insertAdjacentHTML('afterbegin', `<li class="${e[1] ? 'lx-a' : ''}"><time>${document.getElementById('mhr').textContent}</time><span>${e[0]}</span></li>`); while (tk.children.length > 6) tk.lastChild.remove(); }
+   t++; }, 450);
+ }
+ // ---------- RADAR ----------
+ function radar() {
+  const T = [['Gasto de campaña frente al tope legal', [['Publicidad', 82, 100], ['Eventos', 61, 100], ['Transporte', 47, 100], ['Personal', 70, 100]], 'del tope', [['TOPE', '#FF6A1A', 'Publicidad al 82 % del tope de gastos autorizado'], ['CNE', '#C2F03A', 'Informe de ingresos y gastos en Cuentas Claras: 18 días'], ['DATOS', '#B9C1D9', '3 autorizaciones de tratamiento de datos por renovar']]],
+   ['Ejecución presupuestal por sector', [['Educación', 72, 80], ['Salud', 64, 75], ['Vías', 41, 70], ['Agua potable', 55, 70], ['Seguridad', 80, 75]], 'ejecutado · línea blanca: meta a la fecha', [['CONTRATO', '#FF6A1A', 'Contrato de interventoría vence en 9 días sin prórroga tramitada'], ['REGALÍAS', '#C2F03A', 'Proyecto de vías terciarias: ajuste pendiente antes del giro'], ['NORMA', '#B9C1D9', 'Calendario de restricciones de la Ley de Garantías cargado']]],
+   ['Recursos comprometidos por fuente', [['SGP', 88, 90], ['Regalías', 57, 80], ['Recursos propios', 74, 85], ['Crédito', 33, 60]], 'comprometido · línea blanca: meta', [['CONCEJO', '#FF6A1A', 'Informe de gestión al Concejo: entrega en 12 días'], ['CONTRALORÍA', '#C2F03A', '3 hallazgos con plan de mejoramiento abierto'], ['AUDIENCIA', '#B9C1D9', 'Convocatoria a la audiencia pública publicada']]]][MD];
+  V.innerHTML = `<div class="st-box"><h4>${T[0]}<span>corte de hoy</span></h4>${T[1].map(([n, v, m]) => `<div class="lx-hbar"><div class="lx-l"><span>${n}</span><b>${v} %</b></div><div class="lx-t"><i style="width:0;background:${v >= m ? '#C2F03A' : v < m - 15 ? '#FF6A1A' : '#3F5BA8'}" data-w="${v}"></i><em style="left:${m}%"></em></div></div>`).join('')}<div class="lx-scale">% ${T[2]}</div><div class="lx-act"><button class="lx-lk2 lx-p">Ver contratos</button><button class="lx-lk2">Descargar informe</button></div></div>
+   <div class="st-box"><h4>Alertas y vencimientos<span>${T[3].length} activas</span></h4><div class="lx-chips">${T[3].map(([k, c, t]) => `<div class="lx-chip"><b style="background:${c}">${k}</b><span>${t}</span></div>`).join('')}</div>
+   <h4 style="margin-top:16px">Próximos 30 días</h4><div class="lx-chips"><div class="lx-chip"><b style="background:#DDE3F0">CAL</b><span>${['Debate de candidatos · rueda de prensa · cierre de inscripción de testigos', 'Comité de seguimiento · pago de nómina · sesión del Concejo', 'Audiencia pública · cierre de vigencia · informe a la Contraloría'][MD]}</span></div></div></div>`;
+  requestAnimationFrame(() => setTimeout(() => V.querySelectorAll('.lx-hbar i').forEach(i => i.style.width = i.dataset.w + '%'), 60));
+ }
+ // ---------- GESTIÓN ----------
+ function gestion() {
+  const T = [['Avance del plan de campaña', [['Programa', 78], ['Territorio', 64], ['Comunicación', 71], ['Jurídica', 92]], [['Programa de gobierno costeado', 'Entregado', '#C2F03A'], ['Mesas territoriales (12 de 15)', 'En curso', '#3F5BA8'], ['Manual de voceros', 'Entregado', '#C2F03A'], ['Red de testigos (68 %)', 'En riesgo', '#FF6A1A']], 'Generar informe semanal'],
+   ['Metas del plan de desarrollo', [['Social', 58], ['Económico', 47], ['Ambiental', 62], ['Institucional', 71]], [['Cupos en educación inicial', 'En meta', '#C2F03A'], ['Kilómetros de vía terciaria', 'Rezagada', '#FF6A1A'], ['Hogares con agua potable', 'En riesgo', '#3F5BA8'], ['Trámites en línea', 'En meta', '#C2F03A']], 'Generar informe para el Concejo'],
+   ['Resultados para rendir cuentas', [['Metas cumplidas', 64], ['Presupuesto', 81], ['Compromisos', 57], ['Satisfacción', 61]], [['Informe de gestión 2027', 'Listo', '#C2F03A'], ['Tablero ciudadano abierto', 'Publicado', '#C2F03A'], ['Respuestas a la audiencia', 'En curso', '#3F5BA8'], ['Informe de empalme', 'Pendiente', '#FF6A1A']], 'Generar informe de rendición de cuentas']][MD];
+  const gc = ['#C2F03A', '#FF6A1A', '#6F8BD8', '#F5F3EE'];
+  V.innerHTML = `<div class="st-box"><h4>${T[0]}<span>corte de hoy</span></h4><div class="lx-gauges">${T[1].map(([n, v], i) => `<div>${gauge(v, gc[i])}<span>${n}</span></div>`).join('')}</div>
+   <table class="lx-mt">${T[2].map(([n, s, c]) => `<tr><td>${n}</td><td><span class="lx-st" style="background:${c}">${s.toUpperCase()}</span></td></tr>`).join('')}</table></div>
+   <div class="st-box"><div class="lx-need"><b>${Math.round(T[1].reduce((s, x) => s + x[1], 0) / 4)} %</b><span>Avance general<small>${['de la campaña', 'del plan de desarrollo', 'de los compromisos del gobierno'][MD]}</small></span></div>
+   <h4>Del dato al informe</h4><p style="font-size:13.5px;color:#D5DAEA">Cada meta se alimenta de las secretarías y de fuentes oficiales. Con un clic, el avance se convierte en informe, en tablero abierto o en piezas para cada comunidad.</p>
+   <div class="lx-act"><button class="lx-lk2 lx-p">${T[3]}</button><button class="lx-lk2">Publicar tablero ciudadano</button></div></div>`;
+ }
+ const VIEWS = [atlas, mando, radar, gestion];
+ function render() { clearInterval(timer); document.getElementById('stmode').textContent = MODES[MD]; VIEWS[MO]();
+  V.querySelectorAll('.lx-lk2').forEach(b => b.onclick = () => lock('«' + b.textContent + '» se activa con su licencia.', 'Esta pantalla usa datos de demostración. Con su plataforma configurada, esta función trabaja sobre los datos reales de su territorio. Escríbanos y le mostramos cómo usarla.')); }
+ const setMo = k => { MO = k; st.querySelectorAll('[data-mo]').forEach(b => b.classList.toggle('on', +b.dataset.mo === k)); render(); };
+ st.querySelectorAll('[data-mo]').forEach(b => b.onclick = () => setMo(+b.dataset.mo));
+ st.querySelectorAll('.st-bar .lx-md').forEach(b => b.onclick = () => { MD = +b.dataset.md; st.querySelectorAll('.st-bar .lx-md').forEach(x => x.classList.toggle('on', x === b)); render(); });
+ const ck = () => { const d = new Date(); document.getElementById('stclock').textContent = d.toLocaleTimeString('es-CO', { hour: '2-digit', minute: '2-digit' }); }; ck(); setInterval(ck, 30000);
+ render();
+})();
 </script>
 </body>
 </html>
