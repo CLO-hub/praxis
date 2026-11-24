@@ -442,6 +442,28 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
 @media (max-width:560px){.stats,.prods,.sd-notes,.guar,.factors{grid-template-columns:1fr}.kp3{grid-template-columns:1fr}}
 .hbar em{white-space:nowrap}
 .cart .hbar span{min-width:120px}
+
+/* PESTAÑAS DE ARCHIVADOR */
+.ftabs{position:fixed;right:0;top:50%;transform:translate(110%,-50%);z-index:60;display:flex;flex-direction:column;gap:6px;transition:transform .4s}
+.ftabs.show{transform:translate(0,-50%)}
+.ftabs .fl{writing-mode:vertical-rl;transform:rotate(180deg);font:700 9.5px Inter;letter-spacing:.2em;color:var(--grisc);align-self:flex-end;margin:0 8px 4px 0}
+.ftabs button{writing-mode:vertical-rl;transform:rotate(180deg);border:0;cursor:pointer;font:800 15px Sora;padding:18px 11px;border-radius:0 14px 14px 0;box-shadow:0 8px 20px rgba(0,0,0,.35);transition:.25s;display:flex;align-items:center;gap:10px;color:var(--navy);margin-right:-6px}
+.ftabs button i{font-style:normal;writing-mode:horizontal-tb;transform:rotate(180deg);width:22px;height:22px;border-radius:50%;background:var(--navy);color:var(--off);font:800 11px Sora;display:flex;align-items:center;justify-content:center}
+.ftabs button:nth-of-type(1){background:var(--lim)}.ftabs button:nth-of-type(2){background:var(--off)}.ftabs button:nth-of-type(3){background:var(--nar)}
+.ftabs button:hover{margin-right:0}
+.ftabs button.on{margin-right:6px;padding:24px 13px;outline:3px solid var(--navy);outline-offset:-3px}
+.mode-flag{display:inline-block;font:700 11px Inter;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);padding:7px 12px;border-radius:999px;margin-bottom:14px;background:var(--lim)}
+#pkgov .prod{color:var(--navy)}
+@media (max-width:980px){
+ .ftabs{top:auto;bottom:0;left:0;right:0;flex-direction:row;transform:translateY(110%);gap:4px;padding:0 8px}
+ .ftabs.show{transform:none}
+ .ftabs .fl{display:none}
+ .ftabs button{writing-mode:horizontal-tb;transform:none;flex:1;justify-content:center;border-radius:14px 14px 0 0;padding:12px 6px;font-size:14px;margin:0;margin-top:8px}
+ .ftabs button i{transform:none}
+ .ftabs button.on{margin-top:0;padding:16px 6px;margin-right:0}
+ .ftabs button:hover{margin-right:0}
+ footer{padding-bottom:90px}
+}
 </style>
 </head>
 <body>
@@ -554,12 +576,12 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
     <div class="it"><b>Organización social</b><span>Participación, veedurías y presupuestos participativos.</span></div>
     <button class="more" data-sd="2">Ver productos y tarifas →</button></div>
   </div>
-  <div class="sdetail" id="sdetail"></div>
  </div>
 </section>
 
 <section id="servicios" class="light">
  <div class="wrap">
+  <span class="mode-flag"></span>
   <div class="sec-head reveal">
    <div><span class="kick">Para ganar</span><h2>Ocho líneas para la campaña, <span class="or">un solo equipo.</span></h2></div>
    <p>Se contratan solas o en paquete. Del diagnóstico al día de elecciones, con las mismas personas.</p>
@@ -579,6 +601,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
 
 <section id="pmu" class="dots">
  <div class="wrap">
+  <span class="mode-flag"></span>
   <div class="sec-head reveal">
    <div><span class="kick">Puesto de mando unificado</span><h2>Todo el territorio, <span class="or">en una sola pantalla.</span></h2></div>
    <p>Así se ve el tablero que acompaña una campaña, sobre el mapa real del municipio: dónde están los votos, dónde faltan testigos y qué está pasando, minuto a minuto, el día de elecciones. Pruébelo.</p>
@@ -620,6 +643,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
 
 <section id="entregables" class="cel">
  <div class="wrap">
+  <span class="mode-flag"></span>
   <div class="sec-head reveal">
    <div><span class="kick">Entregables</span><h2>Lo que usted recibe, <span class="or">así se ve.</span></h2></div>
    <p>Cada producto tiene objetivo, método, responsable, fecha y criterio de aceptación. Estos son algunos ejemplos.</p>
@@ -642,10 +666,12 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
 
 <section id="paquetes">
  <div class="wrap">
+  <span class="mode-flag"></span>
   <div class="sec-head reveal">
    <div><span class="kick">Paquetes para campañas · Servicio 1</span><h2>Tres formas <span class="or">de trabajar juntos.</span></h2></div>
    <p>Precios por cuatro meses de trabajo, antes de IVA, según el tamaño del municipio. Las tarifas de los servicios para gobernar y para cerrar bien el gobierno están en la sección de servicios.</p>
   </div>
+  <div id="pkganar">
   <div class="sizes reveal" id="sizes">
    <button data-s="0">Menos de 30.000 hab.</button>
    <button data-s="1">30.000 a 100.000</button>
@@ -667,6 +693,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
   <div style="margin-top:70px" class="reveal"><span class="kick">Qué incluye cada paquete</span><h3 style="font-size:clamp(26px,3vw,38px);margin:14px 0 6px">14 entregables, <span class="or">con fecha y criterio de aceptación.</span></h3></div>
   <div class="ent reveal" id="entlist"></div>
   <div class="legend2"><span><i style="background:#9AA4C4"></i>DESDE ESENCIAL</span><span><i style="background:var(--nar)"></i>DESDE INTEGRAL</span><span><i style="background:var(--lim)"></i>SOLO ESPECIALIZADA</span></div>
+  </div>
+  <div id="pkgov" style="display:none"></div>
   <div style="margin-top:60px" class="reveal"><span class="kick">Factores de ajuste</span><h3 style="font-size:clamp(24px,2.6vw,34px);margin:14px 0 4px">Cada territorio es distinto, <span class="or">y el precio también.</span></h3></div>
   <div class="factors reveal">
    <div>Complejidad territorial<b>+5 a 15 %</b></div><div>Más de 10 corregimientos<b>+5 a 10 %</b></div><div>Datos escasos<b>+5 a 10 %</b></div><div>Enfoque étnico<b>+10 %</b></div>
@@ -803,88 +831,105 @@ if (map) {
  new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { map.invalidateSize(); map.fitBounds(allBounds, { padding: [10, 10] }); o.disconnect(); } })).observe($('#pmumap'));
 }
 const totMesas = allPP.reduce((a, p) => a + p.mesas, 0);
-let layer = 'res', T = 0;
-const LEG = {
- res: [['#FF6A1A', 'Puesto propio (> 50 %)'], ['#C2F03A', 'Disputable (35–50 %)'], ['#6F7BA0', 'Perdido (< 35 %)']],
- tes: [['#7FB800', 'Cobertura total'], ['#DDE3F0', 'Parcial'], ['#FF6A1A', 'Crítica (< 70 %)']],
- ale: [['#FF6A1A', 'Alerta abierta'], ['#DDE3F0', 'Sin novedad']],
- vol: [['#C2F03A', 'Más de 200 voluntarios'], ['#F5F3EE', '80 a 200'], ['#6F7BA0', 'Menos de 80']] };
+/* datos de gestión (ficticios) para los modos de gobierno */
+const TIPOS = ['Vía', 'Colegio', 'Centro de salud', 'Acueducto', 'Parque', 'Alcantarillado', 'Cancha', 'Salón comunal'];
+allPP.forEach((p, i) => {
+ p.tipo = TIPOS[i % TIPOS.length]; p.inv = Math.round(400 + rnd() * 5200);
+ p.s = Math.floor(rnd() * 200); p.dur = 90 + Math.floor(rnd() * 200); p.late = rnd() < .25;
+ p.dq = 120 + Math.floor(rnd() * 1250);
+});
+zones.forEach(z => { z.pqrs = 20 + Math.floor(rnd() * 190); z.aud = 300 + Math.floor(rnd() * 1000); z.asis = 120 + Math.floor(rnd() * 380); z.veed = Math.floor(rnd() * 5); z.veedAt = 200 + Math.floor(rnd() * 900); });
+const totObras = allPP.length, totInv = allPP.reduce((a, p) => a + p.inv, 0);
+const avance = (p, t) => { const r = (t - p.s) / (p.dur * (p.late ? 1.6 : 1)); return Math.max(0, Math.min(1, r)); };
+const rezago = (p, t) => p.late && t > p.s + p.dur && avance(p, t) < 1;
+let T = 0, MODE = 0, layer = 'res';
 const isAlert = p => p.alertAt >= 0 && T >= p.alertAt && T < p.alertAt + 150;
-const ppColor = p => {
- if (layer === 'res') return p.share > .5 ? '#FF6A1A' : p.share > .35 ? '#C2F03A' : '#6F7BA0';
- if (layer === 'tes') { const c = p.testigos / p.mesas; return c > .95 ? '#7FB800' : c > .7 ? '#DDE3F0' : '#FF6A1A'; }
- if (layer === 'ale') return isAlert(p) ? '#FF6A1A' : '#DDE3F0';
- return '#121C3B';
-};
-const zoneColor = z => {
- if (layer === 'res') { const s2 = z.share; return s2 > .5 ? '#FF6A1A' : s2 > .4 ? '#FFB27F' : s2 > .33 ? '#DDE3F0' : '#6F7BA0'; }
- if (layer === 'tes') { const c = z.pps.reduce((a, p) => a + p.testigos, 0) / z.pps.reduce((a, p) => a + p.mesas, 0); return c > .9 ? '#C2F03A' : c > .75 ? '#F5F3EE' : '#FF6A1A'; }
- if (layer === 'ale') return z.pps.some(isAlert) ? '#FF6A1A' : '#2A3A6B';
- return z.vol > 200 ? '#C2F03A' : z.vol > 80 ? '#F5F3EE' : '#6F7BA0';
-};
-function paint() {
- if (map) {
-  zones.forEach(z => z.poly.setStyle({ fillColor: zoneColor(z), fillOpacity: layer === 'ale' && !z.pps.some(isAlert) ? .25 : .45 }));
-  allPP.forEach(p => { p.dot.setStyle({ fillColor: ppColor(p) }); const on = (layer === 'ale' || T > 0) && isAlert(p); if (on && !map.hasLayer(p.ring)) p.ring.addTo(map); if (!on && map.hasLayer(p.ring)) map.removeLayer(p.ring); });
- }
- $('#legend').innerHTML = LEG[layer].map(l => `<span><i style="background:${l[0]}"></i>${l[1]}</span>`).join('');
-}
-document.querySelectorAll('#layers button').forEach(b => b.onclick = () => { document.querySelectorAll('#layers button').forEach(x => x.classList.remove('on')); b.classList.add('on'); layer = b.dataset.l; paint(); });
-function showZone(z) {
- const m = z.pps.reduce((a, p) => a + p.mesas, 0), h = z.pps.reduce((a, p) => a + p.hab, 0), t = z.pps.reduce((a, p) => a + p.testigos, 0);
- $('#detail').innerHTML = `<h4>${z.n}</h4>
- <div class="row"><span>Puestos de votación</span><b>${z.pps.length}</b></div>
- <div class="row"><span>Mesas</span><b>${m}</b></div>
- <div class="row"><span>Potencial electoral</span><b>${fmt(h)}</b></div>
- <div class="row"><span>Votación propia histórica</span><b>${Math.round(z.share * 100)} %</b></div>
- <div class="row"><span>Testigos asignados</span><b>${t} de ${m}</b></div>
- <div class="row"><span>Voluntarios activos</span><b>${z.vol}</b></div>`;
-}
-function showPP(p) {
- const st = p.share > .5 ? '<span class="pill p-hi">Propio</span>' : p.share > .35 ? '<span class="pill p-md">Disputable</span>' : '<span class="pill p-lo">Perdido</span>';
- $('#detail').innerHTML = `<h4>${p.name}</h4>
- <div class="row"><span>${p.zone}</span>${st}</div>
- <div class="row"><span>Mesas · habilitados</span><b>${p.mesas} · ${fmt(p.hab)}</b></div>
- <div class="row"><span>Testigos asignados</span><b>${p.testigos} de ${p.mesas}</b></div>
- <div class="row"><span>E-14 recibidos</span><b>${p.e14} de ${p.mesas}</b></div>
- <div class="row"><span>Estado</span><b style="color:${isAlert(p) ? '#D4520E' : '#4C6400'}">${isAlert(p) ? 'Alerta abierta' : 'Sin novedad'}</b></div>`;
-}
-
-/* simulación del día E: 07:00 a 16:00 votación; luego escrutinio */
+const hhmm = t => { const m = 420 + t; return String(Math.floor(m / 60)).padStart(2, '0') + ':' + String(Math.floor(m % 60)).padStart(2, '0'); };
+const mes = t => 'Mes ' + Math.min(12, Math.floor(t / 30) + 1);
+const anio = t => 'Año ' + Math.min(4, Math.floor(t / 360) + 1) + ' · mes ' + (Math.floor((t % 360) / 30) + 1);
 const ALERTS = ['Testigo no admitido en la mesa', 'Propaganda dentro del puesto', 'Fila sin control de acceso', 'Jurado ausente, mesa abre tarde', 'Denuncia de posible compra de votos', 'Transporte irregular de votantes'];
-let playing = false, timer = null; const feed = $('#feed'), seen = new Set();
-const hhmm = t => { const m = 420 + t; return String(Math.floor(m / 60)).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0'); };
-function push(t, txt, alert) { if (feed.firstChild && feed.firstChild.textContent.includes('Presione')) feed.innerHTML = ''; const li = document.createElement('li'); if (alert) li.className = 'alert'; li.innerHTML = `<time>${hhmm(t)}</time><span>${txt}</span>`; feed.prepend(li); while (feed.children.length > 40) feed.lastChild.remove(); }
-function update(t, live) {
- T = t; $('#clk').textContent = hhmm(t); $('#slider').value = t;
- const rep = Math.min(1, t / 90) * 0.97;
- $('#k1').textContent = Math.round(rep * 100) + ' %'; $('#b1').style.width = rep * 100 + '%';
- let e14 = 0, votos = 0;
- allPP.forEach(p => { p.e14 = t >= 480 ? Math.min(p.mesas, Math.floor(p.mesas * (t - 480) / 55)) : 0; e14 += p.e14; votos += Math.round(p.e14 / p.mesas * p.hab * .62 * p.share); });
- $('#k2').textContent = fmt(e14) + ' / ' + fmt(totMesas); $('#b2').style.width = e14 / totMesas * 100 + '%';
- $('#k4').textContent = fmt(votos);
- const open = allPP.filter(isAlert); $('#k3').textContent = open.length;
- if (live) {
-  allPP.forEach((p, i) => {
-   if (p.alertAt >= 0 && t >= p.alertAt && !seen.has('a' + i)) { seen.add('a' + i); push(t, `<b>${p.zone}</b> · ${p.name.split(' · ')[0]}: ${ALERTS[i % ALERTS.length]}. Abogado en camino.`, true); }
-   if (p.alertAt >= 0 && t >= p.alertAt + 150 && !seen.has('c' + i)) { seen.add('c' + i); push(t, `${p.name.split(' · ')[0]}: alerta cerrada y documentada.`); }
-  });
-  if (t === 15) push(t, 'Apertura de mesas: 96 % de los testigos reportan desde su puesto.');
-  if (t === 240) push(t, 'Mediodía: participación estimada en puestos propios por encima del promedio.');
-  if (t === 480) push(t, 'Cierre de mesas. Comienza el escrutinio y la recepción de formularios E-14.');
-  if (t > 480 && t % 12 === 0) push(t, `Llegan E-14: ${fmt(e14)} mesas verificadas por los testigos.`);
+const PM = [
+ { kick: 'Servicio 1 · Puesto de mando electoral', h: ['Todo el territorio, ', 'en una sola pantalla.'], p: 'Así se ve el tablero que acompaña una campaña, sobre el mapa real del municipio: dónde están los votos, dónde faltan testigos y qué está pasando, minuto a minuto, el día de elecciones. Pruébelo.',
+  max: 540, step: 3, label: hhmm, play: '▶ Simular día E', layers: [['res', 'Resultado histórico'], ['tes', 'Cobertura de testigos'], ['ale', 'Alertas día E'], ['vol', 'Red de voluntarios']],
+  leg: { res: [['#FF6A1A', 'Puesto propio (> 50 %)'], ['#C2F03A', 'Disputable (35–50 %)'], ['#6F7BA0', 'Perdido (< 35 %)']], tes: [['#7FB800', 'Cobertura total'], ['#DDE3F0', 'Parcial'], ['#FF6A1A', 'Crítica (< 70 %)']], ale: [['#FF6A1A', 'Alerta abierta'], ['#DDE3F0', 'Sin novedad']], vol: [['#C2F03A', 'Más de 200 voluntarios'], ['#F5F3EE', '80 a 200'], ['#6F7BA0', 'Menos de 80']] },
+  kl: ['Mesas con testigo reportando', 'Formularios E-14 recibidos', 'Alertas abiertas', 'Votos propios contados'], hint: 'Haga clic sobre el mapa para ver mesas, potencial electoral, testigos y último reporte.', feed0: 'Presione «Simular día E» para ver llegar los reportes.',
+  pc: p => { if (layer === 'res') return p.share > .5 ? '#FF6A1A' : p.share > .35 ? '#C2F03A' : '#6F7BA0'; if (layer === 'tes') { const c = p.testigos / p.mesas; return c > .95 ? '#7FB800' : c > .7 ? '#DDE3F0' : '#FF6A1A'; } if (layer === 'ale') return isAlert(p) ? '#FF6A1A' : '#DDE3F0'; return '#121C3B'; },
+  zc: z => { if (layer === 'res') { const s2 = z.share; return s2 > .5 ? '#FF6A1A' : s2 > .4 ? '#FFB27F' : s2 > .33 ? '#DDE3F0' : '#6F7BA0'; } if (layer === 'tes') { const c = z.pps.reduce((a, p) => a + p.testigos, 0) / z.pps.reduce((a, p) => a + p.mesas, 0); return c > .9 ? '#C2F03A' : c > .75 ? '#F5F3EE' : '#FF6A1A'; } if (layer === 'ale') return z.pps.some(isAlert) ? '#FF6A1A' : '#2A3A6B'; return z.vol > 200 ? '#C2F03A' : z.vol > 80 ? '#F5F3EE' : '#6F7BA0'; },
+  ring: p => (layer === 'ale' || T > 0) && isAlert(p),
+  kpi: t => { const rep = Math.min(1, t / 90) * .97; let e14 = 0, votos = 0; allPP.forEach(p => { p.e14 = t >= 480 ? Math.min(p.mesas, Math.floor(p.mesas * (t - 480) / 55)) : 0; e14 += p.e14; votos += Math.round(p.e14 / p.mesas * p.hab * .62 * p.share); });
+   return [[Math.round(rep * 100) + ' %', rep], [fmt(e14) + ' / ' + fmt(totMesas), e14 / totMesas], [allPP.filter(isAlert).length], [fmt(votos)]]; },
+  events: (t, push, seen) => { allPP.forEach((p, i) => { if (p.alertAt >= 0 && t >= p.alertAt && !seen.has('a' + i)) { seen.add('a' + i); push(`<b>${p.zone}</b> · ${p.name}: ${ALERTS[i % ALERTS.length]}. Abogado en camino.`, true); } if (p.alertAt >= 0 && t >= p.alertAt + 150 && !seen.has('c' + i)) { seen.add('c' + i); push(`${p.name}: alerta cerrada y documentada.`); } });
+   if (t === 15) push('Apertura de mesas: 96 % de los testigos reportan desde su puesto.'); if (t === 240) push('Mediodía: participación en puestos propios por encima del promedio.'); if (t === 480) push('Cierre de mesas. Comienza el escrutinio y la recepción de formularios E-14.'); if (t > 480 && t % 12 === 0) push('Llegan formularios E-14 verificados por los testigos.'); },
+  end: 'Escrutinio completo. Reporte consolidado enviado a la gerencia de campaña.',
+  zd: z => { const m = z.pps.reduce((a, p) => a + p.mesas, 0), h = z.pps.reduce((a, p) => a + p.hab, 0), t = z.pps.reduce((a, p) => a + p.testigos, 0); return [['Puestos de votación', z.pps.length], ['Mesas', m], ['Potencial electoral', fmt(h)], ['Votación propia histórica', Math.round(z.share * 100) + ' %'], ['Testigos asignados', t + ' de ' + m], ['Voluntarios activos', z.vol]]; },
+  pd: p => [p.name, [['Zona', p.zone], ['Mesas · habilitados', p.mesas + ' · ' + fmt(p.hab)], ['Testigos asignados', p.testigos + ' de ' + p.mesas], ['E-14 recibidos', p.e14 + ' de ' + p.mesas], ['Estado', isAlert(p) ? 'Alerta abierta' : 'Sin novedad']]] },
+ { kick: 'Servicio 2 · Tablero de gestión', h: ['Gobernar con el mapa ', 'en la mano.'], p: 'El mismo tablero, ahora para gobernar: dónde va cada obra, cuánto se ha invertido por zona, qué proyectos se están rezagando y qué está pidiendo la gente. Simule un año de gobierno.',
+  max: 360, step: 2, label: mes, play: '▶ Simular un año de gobierno', layers: [['av', 'Avance de obras'], ['inv', 'Inversión por zona'], ['rez', 'Alertas de rezago'], ['pq', 'Peticiones ciudadanas']],
+  leg: { av: [['#C2F03A', 'Entregada'], ['#DDE3F0', 'En ejecución'], ['#FF6A1A', 'Con rezago'], ['#6F7BA0', 'Sin iniciar']], inv: [['#FF6A1A', 'Más de $9.000 M'], ['#FFB27F', '$4.000 a $9.000 M'], ['#DDE3F0', 'Menos de $4.000 M']], rez: [['#FF6A1A', 'Obra con rezago'], ['#DDE3F0', 'Al día']], pq: [['#FF6A1A', 'Más de 150 peticiones'], ['#FFB27F', '80 a 150'], ['#DDE3F0', 'Menos de 80']] },
+  kl: ['Avance del plan de inversiones', 'Obras entregadas', 'Alertas de rezago', 'Inversión ejecutada'], hint: 'Haga clic sobre una zona o una obra para ver inversión, avance y responsable.', feed0: 'Presione «Simular un año de gobierno» para ver avanzar las obras.',
+  pc: p => { if (layer === 'av' || layer === 'rez') { const a = avance(p, T); if (rezago(p, T)) return '#FF6A1A'; return a >= 1 ? '#C2F03A' : a > 0 ? '#DDE3F0' : '#6F7BA0'; } return '#121C3B'; },
+  zc: z => { if (layer === 'inv') { const v = z.pps.reduce((a, p) => a + p.inv, 0); return v > 9000 ? '#FF6A1A' : v > 4000 ? '#FFB27F' : '#DDE3F0'; } if (layer === 'pq') return z.pqrs > 150 ? '#FF6A1A' : z.pqrs > 80 ? '#FFB27F' : '#DDE3F0'; if (layer === 'rez') return z.pps.some(p => rezago(p, T)) ? '#FF6A1A' : '#2A3A6B'; const a = z.pps.reduce((s2, p) => s2 + avance(p, T), 0) / z.pps.length; return a > .7 ? '#C2F03A' : a > .3 ? '#F5F3EE' : '#6F7BA0'; },
+  ring: p => rezago(p, T),
+  kpi: t => { const a = allPP.reduce((s2, p) => s2 + avance(p, t), 0) / totObras, ent = allPP.filter(p => avance(p, t) >= 1).length, ej = allPP.reduce((s2, p) => s2 + p.inv * avance(p, t), 0);
+   return [[Math.round(a * 100) + ' %', a], [ent + ' / ' + totObras, ent / totObras], [allPP.filter(p => rezago(p, t)).length], ['$' + fmt(Math.round(ej)) + ' M']]; },
+  events: (t, push, seen) => allPP.forEach((p, i) => { if (t >= p.s && !seen.has('s' + i)) { seen.add('s' + i); push(`<b>${p.zone}</b> · Inicia ${p.tipo.toLowerCase()} (obra ${i + 1}) por $${fmt(p.inv)} M.`); } if (avance(p, t) >= 1 && !seen.has('e' + i)) { seen.add('e' + i); push(`<b>${p.zone}</b> · Entregada: ${p.tipo.toLowerCase()} (obra ${i + 1}).`); } if (rezago(p, t) && !seen.has('r' + i)) { seen.add('r' + i); push(`<b>${p.zone}</b> · ${p.tipo} (obra ${i + 1}) con rezago. Comité de seguimiento convocado.`, true); } }),
+  end: 'Cierre del año: informe de avance listo para el consejo de gobierno y el concejo.',
+  zd: z => { const v = z.pps.reduce((a, p) => a + p.inv, 0), a = z.pps.reduce((s2, p) => s2 + avance(p, T), 0) / z.pps.length; return [['Obras y proyectos', z.pps.length], ['Inversión programada', '$' + fmt(v) + ' M'], ['Avance promedio', Math.round(a * 100) + ' %'], ['Obras con rezago', z.pps.filter(p => rezago(p, T)).length], ['Peticiones ciudadanas', z.pqrs]]; },
+  pd: p => [`Obra ${allPP.indexOf(p) + 1} · ${p.tipo}`, [['Zona', p.zone], ['Inversión', '$' + fmt(p.inv) + ' M'], ['Avance', Math.round(avance(p, T) * 100) + ' %'], ['Estado', rezago(p, T) ? 'Con rezago' : avance(p, T) >= 1 ? 'Entregada' : avance(p, T) > 0 ? 'En ejecución' : 'Sin iniciar'], ['Responsable', 'Sec. de Infraestructura']]] },
+ { kick: 'Servicio 3 · Mapa de resultados', h: ['Lo que se hizo, ', 'barrio por barrio.'], p: 'Al cierre del gobierno, el mapa muestra lo entregado, la inversión acumulada, dónde se rindieron cuentas y qué veedurías siguen vigilando. Simule el cuatrienio completo.',
+  max: 1440, step: 8, label: anio, play: '▶ Simular el cuatrienio', layers: [['ent', 'Obras entregadas'], ['acu', 'Inversión acumulada'], ['rc', 'Rendición de cuentas'], ['ve', 'Veedurías']],
+  leg: { ent: [['#C2F03A', 'Entregada'], ['#6F7BA0', 'Pendiente']], acu: [['#FF6A1A', 'Más de $8.000 M'], ['#FFB27F', '$3.000 a $8.000 M'], ['#DDE3F0', 'Menos de $3.000 M']], rc: [['#C2F03A', 'Audiencia realizada'], ['#6F7BA0', 'Pendiente']], ve: [['#C2F03A', '3 o más veedurías'], ['#F5F3EE', '1 o 2'], ['#6F7BA0', 'Ninguna']] },
+  kl: ['Metas del plan cumplidas', 'Obras entregadas', 'Ciudadanos en rendición de cuentas', 'Veedurías activas'], hint: 'Haga clic sobre una zona o una obra para ver qué se entregó y cuándo.', feed0: 'Presione «Simular el cuatrienio» para ver los resultados acumularse.',
+  pc: p => layer === 'ent' ? (T >= p.dq ? '#C2F03A' : '#6F7BA0') : '#121C3B',
+  zc: z => { if (layer === 'acu') { const v = z.pps.filter(p => T >= p.dq).reduce((a, p) => a + p.inv, 0); return v > 8000 ? '#FF6A1A' : v > 3000 ? '#FFB27F' : '#DDE3F0'; } if (layer === 'rc') return T >= z.aud ? '#C2F03A' : '#6F7BA0'; if (layer === 've') { const n = T >= z.veedAt ? z.veed : 0; return n >= 3 ? '#C2F03A' : n >= 1 ? '#F5F3EE' : '#6F7BA0'; } const f = z.pps.filter(p => T >= p.dq).length / z.pps.length; return f > .7 ? '#C2F03A' : f > .3 ? '#F5F3EE' : '#6F7BA0'; },
+  ring: p => false,
+  kpi: t => { const ent = allPP.filter(p => t >= p.dq).length, met = Math.min(.93, t / 1440 * .93), asis = zones.filter(z => t >= z.aud).reduce((a, z) => a + z.asis, 0), ve = zones.filter(z => t >= z.veedAt).reduce((a, z) => a + z.veed, 0);
+   return [[Math.round(met * 100) + ' %', met], [ent + ' / ' + totObras, ent / totObras], [fmt(asis)], [ve]]; },
+  events: (t, push, seen) => { allPP.forEach((p, i) => { if (t >= p.dq && !seen.has('d' + i)) { seen.add('d' + i); push(`<b>${p.zone}</b> · Entrega de ${p.tipo.toLowerCase()} (obra ${i + 1}), $${fmt(p.inv)} M.`); } }); zones.forEach((z, i) => { if (t >= z.aud && !seen.has('a' + i)) { seen.add('a' + i); push(`<b>${z.n}</b> · Audiencia de rendición de cuentas con ${z.asis} asistentes.`, true); } if (t >= z.veedAt && z.veed && !seen.has('v' + i)) { seen.add('v' + i); push(`<b>${z.n}</b> · Se conforman ${z.veed} veedurías ciudadanas.`); } }); },
+  end: 'Fin del cuatrienio: informe de cierre, memoria institucional y empalme listos.',
+  zd: z => { const d = z.pps.filter(p => T >= p.dq); return [['Obras entregadas', d.length + ' de ' + z.pps.length], ['Inversión entregada', '$' + fmt(d.reduce((a, p) => a + p.inv, 0)) + ' M'], ['Rendición de cuentas', T >= z.aud ? z.asis + ' asistentes' : 'Pendiente'], ['Veedurías', T >= z.veedAt ? z.veed : 0]]; },
+  pd: p => [`Obra ${allPP.indexOf(p) + 1} · ${p.tipo}`, [['Zona', p.zone], ['Inversión', '$' + fmt(p.inv) + ' M'], ['Estado', T >= p.dq ? 'Entregada' : 'Pendiente'], ['Entrega', anio(p.dq)]]] }];
+const pm = () => PM[MODE];
+function paint() {
+ const M = pm();
+ if (map) {
+  zones.forEach(z => z.poly.setStyle({ fillColor: M.zc(z), fillOpacity: .45 }));
+  allPP.forEach(p => { p.dot.setStyle({ fillColor: M.pc(p) }); const on = M.ring(p); if (on && !map.hasLayer(p.ring)) p.ring.addTo(map); if (!on && map.hasLayer(p.ring)) map.removeLayer(p.ring); });
  }
+ $('#legend').innerHTML = (M.leg[layer] || []).map(l => `<span><i style="background:${l[0]}"></i>${l[1]}</span>`).join('');
+}
+const rows = r => r.map(x => `<div class="row"><span>${x[0]}</span><b>${x[1]}</b></div>`).join('');
+function showZone(z) { $('#detail').innerHTML = `<h4>${z.n}</h4>` + rows(pm().zd(z)); }
+function showPP(p) { const d = pm().pd(p); $('#detail').innerHTML = `<h4>${d[0]}</h4>` + rows(d[1]); }
+let playing = false, timer = null; const feed = $('#feed'), seen = new Set();
+function push(txt, alert) { const li = document.createElement('li'); if (alert) li.className = 'alert'; li.innerHTML = `<time>${pm().label(T).replace('Año ', 'A').replace(' · mes ', '·')}</time><span>${txt}</span>`; feed.prepend(li); while (feed.children.length > 40) feed.lastChild.remove(); }
+function update(t, live) {
+ const M = pm(); T = t; $('#clk').textContent = M.label(t); $('#slider').value = t;
+ const k = M.kpi(t);
+ ['#k1', '#k2', '#k3', '#k4'].forEach((id, i) => $(id).textContent = k[i][0]);
+ $('#b1').style.width = (k[0][1] || 0) * 100 + '%'; $('#b2').style.width = (k[1][1] || 0) * 100 + '%';
+ if (live) { if (feed.firstChild && feed.firstChild.textContent.includes('Presione')) feed.innerHTML = ''; M.events(t, push, seen); }
  paint();
+}
+function stopSim() { playing = false; clearInterval(timer); $('#play').textContent = pm().play; $('#live').classList.remove('on'); $('#livetxt').textContent = 'EN PAUSA'; }
+function setupPMU() {
+ const M = pm(); stopSim(); layer = M.layers[0][0]; T = 0; seen.clear();
+ const hd = $('#pmu .sec-head'); hd.querySelector('.kick').textContent = M.kick; hd.querySelector('h2').innerHTML = `${M.h[0]}<span class="or">${M.h[1]}</span>`; hd.querySelector('p').textContent = M.p;
+ $('#layers').innerHTML = M.layers.map((l, i) => `<button data-l="${l[0]}" class="${i ? '' : 'on'}">${l[1]}</button>`).join('');
+ document.querySelectorAll('#layers button').forEach(b => b.onclick = () => { document.querySelectorAll('#layers button').forEach(x => x.classList.remove('on')); b.classList.add('on'); layer = b.dataset.l; paint(); });
+ document.querySelectorAll('.kpi > span').forEach((s2, i) => s2.textContent = M.kl[i]);
+ $('#slider').max = M.max; $('#play').textContent = M.play;
+ $('#detail').innerHTML = `<h4>Seleccione una zona o un punto</h4><p class="hint">${M.hint}</p>`;
+ feed.innerHTML = `<li><time>—</time><span>${M.feed0}</span></li>`;
+ update(0, false);
 }
 $('#slider').oninput = e => { seen.clear(); feed.innerHTML = ''; update(+e.target.value, false); };
 $('#play').onclick = () => {
- playing = !playing; $('#play').textContent = playing ? '❚❚ Pausar' : '▶ Simular día E';
- $('#live').classList.toggle('on', playing); $('#livetxt').textContent = playing ? 'EN VIVO' : 'EN PAUSA';
- if (playing) { if (T >= 540) { T = 0; seen.clear(); feed.innerHTML = ''; } timer = setInterval(() => { if (T >= 540) { $('#play').click(); push(540, '<b>Escrutinio completo.</b> Reporte consolidado enviado a la gerencia de campaña.'); return; } update(T + 3, true); }, 140); }
- else clearInterval(timer);
+ if (playing) { stopSim(); return; }
+ const M = pm(); playing = true; $('#play').textContent = '❚❚ Pausar'; $('#live').classList.add('on'); $('#livetxt').textContent = 'EN VIVO';
+ if (T >= M.max) { T = 0; seen.clear(); feed.innerHTML = ''; }
+ timer = setInterval(() => { if (T >= M.max) { stopSim(); push('<b>' + M.end + '</b>'); return; } update(Math.min(M.max, T + M.step), true); }, 140);
 };
-paint();
-
 
 /* ---------- ICONOS ---------- */
 const IC = {
@@ -984,80 +1029,83 @@ drawWheel(); ringShow(0);
 /* ---------- ENTREGABLES: vitrina ---------- */
 const PSVG = '<svg viewBox="0 0 96 110"><rect width="34" height="110" fill="#C2F03A"/><path d="M34 0H62A34 34 0 0 1 62 68H34Z" fill="#FF6A1A"/></svg>';
 const top2 = (t, s2) => `<div class="top"><span class="lg">${PSVG}${t}</span><small>${s2}</small></div>`;
-const SHOW = [
- { tag: 'PROGRAMA DE GOBIERNO COSTEADO', h: 'Promesas que resisten un debate.', p: 'Cada meta con línea base, indicador, costo, competencia legal y fuente de financiación, en una cartilla que la candidata puede llevar a cualquier foro. Si no se puede pagar, no se promete.',
-  m: `<div class="cart">${top2('Programa de gobierno', 'EJE 1 · SEGURIDAD Y VIDA')}<div class="bd">
-  <div class="row2"><div><h5>Barrios en paz, calles con vida</h5><p class="sub2">4 metas · $20.500 millones en cuatro años · 3 fuentes de financiación</p>
-  <div class="metas">
-   <div class="meta"><span class="ic">${svgI('target')}</span><div><b>Patrullaje por cuadrante</b><small>18 → <em>30</em> cuadrantes</small><small>$9.800 M</small></div></div>
-   <div class="meta"><span class="ic">${svgI('eye')}</span><div><b>Cámaras conectadas</b><small>64 → <em>220</em> cámaras</small><small>$6.200 M</small></div></div>
-   <div class="meta"><span class="ic">${svgI('people')}</span><div><b>Ruta mujeres 24 h</b><small>No existe → <em>operando</em></small><small>$1.400 M al año</small></div></div>
-   <div class="meta"><span class="ic">${svgI('pin')}</span><div><b>Luz en zonas críticas</b><small>41 % → <em>85 %</em></small><small>$3.100 M</small></div></div>
-  </div></div>
-  <div><div class="donut" style="--a:40%;--b:70%" data-c="$20.500 M"></div><div class="leg3"><span><i style="background:#FF6A1A"></i>Fonset 40 %</span><span><i style="background:#C2F03A"></i>Regalías 30 %</span><span><i style="background:#121C3B"></i>Propios 30 %</span></div></div></div>
-  <p style="font-size:11px;color:#6F7BA0;margin-top:12px">Ejemplo con cifras ilustrativas.</p></div></div>` },
- { tag: 'MAPA ELECTORAL', h: 'Dónde ganar, puesto por puesto.', p: 'Resultados históricos por mesa y puesto sobre el mapa real del municipio, clasificados en propios, disputables y perdidos. La base para asignar tiempo, testigos y voluntarios.',
-  m: `<div class="cart">${top2('Mapa electoral', 'FUSAGASUGÁ · EJEMPLO')}<div class="bd">
-  <div id="minimap"></div>
-  <div class="kp3" style="margin:12px 0 0"><div><b>42</b><span>puestos propios</span></div><div><b>27</b><span>disputables</span></div><div><b>19</b><span>perdidos</span></div></div>
-  <p style="font-size:11px;color:#6F7BA0;margin-top:10px">Mapa real de Fusagasugá (Cundinamarca). Puntos y cifras ficticios.</p></div></div>` },
- { tag: 'ENCUESTA', h: 'Medir antes de hablar.', p: 'Diseño muestral, cuestionario y supervisión de campo con firma registrada ante el CNE. Los resultados llegan en una cartilla lista para decidir, con ficha técnica completa según la ley.',
-  m: `<div class="cart">${top2('Encuesta de línea base', 'INFORME DE RESULTADOS')}<div class="bd">
-  <h5>¿Cuál es el principal problema del municipio?</h5><p class="sub2">Respuesta única, porcentaje de encuestados</p>
-  <div class="row2"><div>
-   <div class="hbar"><span>Inseguridad</span><i class="o" style="width:68%"></i><em>34 %</em></div>
-   <div class="hbar"><span>Desempleo</span><i style="width:52%"></i><em>26 %</em></div>
-   <div class="hbar"><span>Costo de los servicios</span><i style="width:30%"></i><em>15 %</em></div>
-   <div class="hbar"><span>Vías</span><i style="width:20%"></i><em>10 %</em></div>
-   <div class="hbar"><span>Salud</span><i style="width:16%"></i><em>8 %</em></div></div>
-   <div><div class="donut" style="--a:34%;--b:60%" data-c="6 de cada 10: seguridad o empleo"></div></div></div>
-  <div class="chips"><span>n = 800</span><span>Margen ±3,5 %</span><span>Confianza 95 %</span><span>Hogares, cara a cara</span><span>Cifras ilustrativas</span></div></div></div>` },
- { tag: 'MATRIZ DE RIESGOS', h: 'Ningún riesgo sin dueño.', p: 'Riesgos jurídicos, disciplinarios y reputacionales ubicados por probabilidad e impacto, cada uno con responsable, tratamiento y fecha de revisión.',
-  m: `<div class="cart">${top2('Matriz de riesgos', 'REVISIÓN SEMANAL')}<div class="bd">
-  <div class="heat">
-   <div class="h">Alta</div><div class="c" style="background:#FFE0A8"><span class="rk">R4</span></div><div class="c" style="background:#FFB27F"></div><div class="c" style="background:#FF6A1A"></div>
-   <div class="h">Media</div><div class="c" style="background:#F1FBD2"></div><div class="c" style="background:#FFE0A8"><span class="rk">R2</span></div><div class="c" style="background:#FFB27F"><span class="rk">R1</span></div>
-   <div class="h">Baja</div><div class="c" style="background:#E8F8B5"></div><div class="c" style="background:#F1FBD2"></div><div class="c" style="background:#FFE0A8"><span class="rk">R3</span></div>
-   <div></div><div class="x">Medio</div><div class="x">Alto</div><div class="x">Muy alto</div></div>
-  <div class="rlist"><div><span class="rk">R1</span>Inhabilidad por cargo anterior · concepto jurídico antes de exponerla</div><div><span class="rk">R2</span>Datos personales sin autorización · registro de autorizaciones</div><div><span class="rk">R3</span>Participación de funcionarios · protocolo de separación</div><div><span class="rk">R4</span>Noticia falsa en redes · respuesta con fuente en 24 horas</div></div></div></div>` },
- { tag: 'MANUAL DE VOCEROS', h: 'Toda la campaña dice lo mismo.', p: 'Idea fuerza, consignas, mensajes por público y respuestas a los ataques previsibles, en una cartilla de bolsillo para que cualquier voluntario explique la campaña en 30 segundos.',
-  m: `<div class="cart">${top2('Manual de voceros', 'CARTILLA DE BOLSILLO')}<div class="bd">
-  <div class="cover"><small>IDEA FUERZA</small><div class="big2">¡Vamos<br>pa’lante!</div>${PSVG.replace('<svg', '<svg class="pp"')}</div>
-  <div class="vcards">
-   <div><b><span class="ic">${svgI('user')}</span>JÓVENES</b>Trabajo y estudio sin tener que irse del municipio.</div>
-   <div><b><span class="ic">${svgI('people')}</span>MUJERES</b>Vivas, libres y con trabajo.</div>
-   <div><b><span class="ic">${svgI('mega')}</span>SI DICEN «NO TIENE EXPERIENCIA»</b>Ya dirigió una secretaría con resultados medibles.</div>
-   <div><b><span class="ic">${svgI('scale')}</span>SI DICEN «ES LA FICHA DE ALGUIEN»</b>Tiene historia y propuestas propias.</div></div></div></div>` },
- { tag: 'TABLERO DE GOBIERNO', h: 'Gobernar a la vista de todos.', p: 'Seguimiento del plan de desarrollo meta por meta, listo para el consejo de gobierno, el concejo y la audiencia de rendición de cuentas.',
-  m: `<div class="cart">${top2('Plan de desarrollo', 'AVANCE A 2029')}<div class="bd">
-  <div class="kp3"><div><b>58 %</b><span>avance del plan</span></div><div><b>41/120</b><span>metas cumplidas</span></div><div><b>72 %</b><span>ejecución presupuestal</span></div></div>
-  <div class="hbar"><span>Seguridad y convivencia</span><i class="o" style="width:62%"></i><em>62 %</em></div>
-  <div class="hbar"><span>Empleo y economía local</span><i style="width:48%"></i><em>48 %</em></div>
-  <div class="hbar"><span>Educación</span><i style="width:71%;background:#A6D61E"></i><em>71 %</em></div>
-  <div class="hbar"><span>Agua y saneamiento</span><i style="width:39%"></i><em>39 %</em></div>
-  <table style="margin-top:12px"><tr><th>Meta</th><th>Estado</th><th>Responsable</th></tr>
-  <tr><td>30 cuadrantes con patrullaje</td><td><span class="pill p-md">En curso</span></td><td>Sec. de Gobierno</td></tr>
-  <tr><td>Ruta de atención 24 horas</td><td><span class="pill p-hi">Cumplida</span></td><td>Sec. de la Mujer</td></tr>
-  <tr><td>8 km de alcantarillado rural</td><td><span class="pill p-lo">Rezagada</span></td><td>Sec. de Infraestructura</td></tr></table>
-  <p style="font-size:11px;color:#6F7BA0;margin-top:8px">Cifras ilustrativas.</p></div></div>` }];
-let mini = null;
+const note = t => `<p style="font-size:11px;color:#6F7BA0;margin-top:10px">${t}</p>`;
+const hb = (l, w, v, c = '') => `<div class="hbar"><span>${l}</span><i ${c ? `style="width:${w}%;background:${c}"` : `style="width:${w}%"`}></i><em>${v}</em></div>`;
+const mt = (ic, b, a, c) => `<div class="meta"><span class="ic">${svgI(ic)}</span><div><b>${b}</b><small>${a}</small><small>${c}</small></div></div>`;
+const SHOWS = [
+ [
+  { b: 'Programa costeado', tag: 'PROGRAMA DE GOBIERNO COSTEADO', h: 'Promesas que resisten un debate.', p: 'Cada meta con línea base, indicador, costo, competencia legal y fuente de financiación, en una cartilla que la candidata puede llevar a cualquier foro.',
+   m: () => `<div class="cart">${top2('Programa de gobierno', 'EJE 1 · SEGURIDAD Y VIDA')}<div class="bd"><div class="row2"><div><h5>Barrios en paz, calles con vida</h5><p class="sub2">4 metas · $20.500 millones en cuatro años</p>
+   <div class="metas">${mt('target', 'Patrullaje por cuadrante', '18 → <em>30</em> cuadrantes', '$9.800 M')}${mt('eye', 'Cámaras conectadas', '64 → <em>220</em> cámaras', '$6.200 M')}${mt('people', 'Ruta mujeres 24 h', 'No existe → <em>operando</em>', '$1.400 M al año')}${mt('pin', 'Luz en zonas críticas', '41 % → <em>85 %</em>', '$3.100 M')}</div></div>
+   <div><div class="donut" style="--a:40%;--b:70%" data-c="$20.500 M"></div><div class="leg3"><span><i style="background:#FF6A1A"></i>Fonset 40 %</span><span><i style="background:#C2F03A"></i>Regalías 30 %</span><span><i style="background:#121C3B"></i>Propios 30 %</span></div></div></div>${note('Ejemplo con cifras ilustrativas.')}</div></div>` },
+  { b: 'Mapa de puestos', tag: 'MAPA ELECTORAL', h: 'Dónde ganar, puesto por puesto.', p: 'Resultados históricos por mesa y puesto sobre el mapa real del municipio, clasificados en propios, disputables y perdidos.', map: [4.3376, -74.3640, 'elec'],
+   m: () => `<div class="cart">${top2('Mapa electoral', 'FUSAGASUGÁ · EJEMPLO')}<div class="bd"><div id="minimap"></div><div class="kp3" style="margin:12px 0 0"><div><b>42</b><span>puestos propios</span></div><div><b>27</b><span>disputables</span></div><div><b>19</b><span>perdidos</span></div></div>${note('Mapa real de Fusagasugá (Cundinamarca). Puntos y cifras ficticios.')}</div></div>` },
+  { b: 'Encuesta', tag: 'ENCUESTA', h: 'Medir antes de hablar.', p: 'Diseño muestral, cuestionario y supervisión de campo con firma registrada ante el CNE, con ficha técnica completa según la ley.',
+   m: () => `<div class="cart">${top2('Encuesta de línea base', 'INFORME DE RESULTADOS')}<div class="bd"><h5>¿Cuál es el principal problema del municipio?</h5><p class="sub2">Respuesta única, porcentaje de encuestados</p><div class="row2"><div>${hb('Inseguridad', 68, '34 %', '#FF6A1A')}${hb('Desempleo', 52, '26 %')}${hb('Costo de los servicios', 30, '15 %')}${hb('Vías', 20, '10 %')}${hb('Salud', 16, '8 %')}</div><div><div class="donut" style="--a:34%;--b:60%" data-c="6 de cada 10: seguridad o empleo"></div></div></div><div class="chips"><span>n = 800</span><span>Margen ±3,5 %</span><span>Confianza 95 %</span><span>Cifras ilustrativas</span></div></div></div>` },
+  { b: 'Matriz de riesgos', tag: 'MATRIZ DE RIESGOS', h: 'Ningún riesgo sin dueño.', p: 'Riesgos jurídicos, disciplinarios y reputacionales ubicados por probabilidad e impacto, con responsable y tratamiento.',
+   m: () => `<div class="cart">${top2('Matriz de riesgos', 'REVISIÓN SEMANAL')}<div class="bd"><div class="heat"><div class="h">Alta</div><div class="c" style="background:#FFE0A8"><span class="rk">R4</span></div><div class="c" style="background:#FFB27F"></div><div class="c" style="background:#FF6A1A"></div><div class="h">Media</div><div class="c" style="background:#F1FBD2"></div><div class="c" style="background:#FFE0A8"><span class="rk">R2</span></div><div class="c" style="background:#FFB27F"><span class="rk">R1</span></div><div class="h">Baja</div><div class="c" style="background:#E8F8B5"></div><div class="c" style="background:#F1FBD2"></div><div class="c" style="background:#FFE0A8"><span class="rk">R3</span></div><div></div><div class="x">Medio</div><div class="x">Alto</div><div class="x">Muy alto</div></div>
+   <div class="rlist"><div><span class="rk">R1</span>Inhabilidad por cargo anterior · concepto jurídico previo</div><div><span class="rk">R2</span>Datos sin autorización · registro de autorizaciones</div><div><span class="rk">R3</span>Participación de funcionarios · protocolo de separación</div><div><span class="rk">R4</span>Noticia falsa · respuesta con fuente en 24 horas</div></div></div></div>` },
+  { b: 'Manual de voceros', tag: 'MANUAL DE VOCEROS', h: 'Toda la campaña dice lo mismo.', p: 'Idea fuerza, consignas, mensajes por público y respuestas a los ataques previsibles, en una cartilla de bolsillo.',
+   m: () => `<div class="cart">${top2('Manual de voceros', 'CARTILLA DE BOLSILLO')}<div class="bd"><div class="cover"><small>IDEA FUERZA</small><div class="big2">¡Vamos<br>pa’lante!</div>${PSVG.replace('<svg', '<svg class="pp"')}</div><div class="vcards"><div><b><span class="ic">${svgI('user')}</span>JÓVENES</b>Trabajo y estudio sin tener que irse del municipio.</div><div><b><span class="ic">${svgI('people')}</span>MUJERES</b>Vivas, libres y con trabajo.</div><div><b><span class="ic">${svgI('mega')}</span>SI DICEN «NO TIENE EXPERIENCIA»</b>Ya dirigió una secretaría con resultados medibles.</div><div><b><span class="ic">${svgI('scale')}</span>SI DICEN «ES LA FICHA DE ALGUIEN»</b>Tiene historia y propuestas propias.</div></div></div></div>` }],
+ [
+  { b: 'Informe de empalme', tag: 'EMPALME Y PRIMEROS 100 DÍAS', h: 'Saber qué se recibe, desde el primer día.', p: 'Finanzas, contratos, regalías, procesos judiciales e indicadores del gobierno saliente, con las decisiones urgentes de los primeros 100 días.',
+   m: () => `<div class="cart">${top2('Informe de empalme', 'LO QUE SE RECIBE')}<div class="bd"><div class="kp3"><div><b>$48.200 M</b><span>deuda pública</span></div><div><b>37</b><span>contratos en curso</span></div><div><b>6</b><span>proyectos de regalías suspendidos</span></div></div>
+   <h5 style="font-size:18px">Agenda de los primeros 100 días</h5><div class="rlist"><div><span class="rk">1</span>Reactivar los 6 proyectos suspendidos ante el Sistema General de Regalías</div><div><span class="rk">2</span>Revisar 12 contratos con alerta de la contraloría</div><div><span class="rk">3</span>Presentar el plan de desarrollo al consejo territorial de planeación</div><div><span class="rk">4</span>Instalar el consejo de seguridad con la nueva línea base</div></div>${note('Cifras ilustrativas.')}</div></div>` },
+  { b: 'Plan de desarrollo', tag: 'PLAN DE DESARROLLO TERRITORIAL', h: 'Del programa al plan, con plata.', p: 'Parte estratégica y plan plurianual de inversiones: cada programa con metas, indicadores, responsables y fuentes, listo para el concejo.',
+   m: () => `<div class="cart">${top2('Plan de desarrollo 2028-2031', 'PLAN PLURIANUAL')}<div class="bd"><div class="row2"><div><h5>$412.000 millones en cuatro años</h5><p class="sub2">5 ejes · 22 programas · 120 metas</p>
+   ${hb('Seguridad y convivencia', 54, '22 %', '#FF6A1A')}${hb('Empleo y economía', 44, '18 %')}${hb('Educación', 62, '25 %', '#A6D61E')}${hb('Agua y saneamiento', 50, '20 %')}${hb('Gobierno abierto', 36, '15 %')}</div>
+   <div><div class="donut" style="--a:38%;--b:66%" data-c="$412.000 M"></div><div class="leg3"><span><i style="background:#FF6A1A"></i>SGP 38 %</span><span><i style="background:#C2F03A"></i>Regalías 28 %</span><span><i style="background:#121C3B"></i>Propios y crédito 34 %</span></div></div></div>${note('Cifras ilustrativas.')}</div></div>` },
+  { b: 'Proyecto de regalías', tag: 'FICHA DE PROYECTO', h: 'Proyectos que sí se aprueban.', p: 'Formulación en la metodología oficial, con estudios, presupuesto y cronograma, y acompañamiento hasta la aprobación ante el Sistema General de Regalías.',
+   m: () => `<div class="cart">${top2('Ficha de proyecto', 'SISTEMA GENERAL DE REGALÍAS')}<div class="bd"><h5>Acueducto veredal de la zona norte</h5><p class="sub2">Agua potable para 1.840 hogares rurales</p>
+   <div class="kp3"><div><b>$7.900 M</b><span>valor total</span></div><div><b>14 meses</b><span>de ejecución</span></div><div><b>1.840</b><span>hogares beneficiados</span></div></div>
+   <div class="rlist"><div><span class="rk">✓</span>Estudios y diseños de detalle</div><div><span class="rk">✓</span>Permisos ambientales y predios</div><div><span class="rk">✓</span>Presupuesto y análisis de precios</div><div><span class="rk">→</span>Viabilidad y aprobación</div></div>${note('Ejemplo ilustrativo.')}</div></div>` },
+  { b: 'Tablero de gobierno', tag: 'TABLERO DE GOBIERNO', h: 'Gobernar a la vista de todos.', p: 'Seguimiento del plan de desarrollo meta por meta, listo para el consejo de gobierno, el concejo y la rendición de cuentas.',
+   m: () => `<div class="cart">${top2('Plan de desarrollo', 'AVANCE A 2029')}<div class="bd"><div class="kp3"><div><b>58 %</b><span>avance del plan</span></div><div><b>41/120</b><span>metas cumplidas</span></div><div><b>72 %</b><span>ejecución presupuestal</span></div></div>${hb('Seguridad y convivencia', 62, '62 %', '#FF6A1A')}${hb('Empleo y economía local', 48, '48 %')}${hb('Educación', 71, '71 %', '#A6D61E')}${hb('Agua y saneamiento', 39, '39 %')}
+   <table style="margin-top:12px"><tr><th>Meta</th><th>Estado</th><th>Responsable</th></tr><tr><td>30 cuadrantes con patrullaje</td><td><span class="pill p-md">En curso</span></td><td>Sec. de Gobierno</td></tr><tr><td>Ruta de atención 24 horas</td><td><span class="pill p-hi">Cumplida</span></td><td>Sec. de la Mujer</td></tr><tr><td>8 km de alcantarillado rural</td><td><span class="pill p-lo">Rezagada</span></td><td>Sec. de Infraestructura</td></tr></table>${note('Cifras ilustrativas.')}</div></div>` },
+  { b: 'Hoja de ruta de política', tag: 'IMPLEMENTACIÓN DE POLÍTICAS', h: 'Que las decisiones se vuelvan hechos.', p: 'Cada política con ruta, responsables, cronograma y articulación con la Nación y el departamento.',
+   m: () => `<div class="cart">${top2('Hoja de ruta', 'POLÍTICA DE CUIDADO')}<div class="bd"><h5>Sistema municipal de cuidado</h5><p class="sub2">Cuatro fases en 18 meses</p>
+   <div class="rlist"><div><span class="rk">1</span><b>Diseño</b> · mapa de cuidadoras y oferta existente · meses 1 a 3</div><div><span class="rk">2</span><b>Normas</b> · acuerdo municipal y decretos · meses 3 a 6</div><div><span class="rk">3</span><b>Arranque</b> · 3 centros de cuidado por zona · meses 6 a 12</div><div><span class="rk">4</span><b>Escala</b> · cobertura en todas las zonas · meses 12 a 18</div></div>
+   <div class="chips"><span>Sec. de la Mujer</span><span>Sec. de Salud</span><span>ICBF</span><span>Gobernación</span></div></div></div>` }],
+ [
+  { b: 'Informe de gestión', tag: 'RENDICIÓN DE CUENTAS', h: 'Rendir cuentas que la gente entiende.', p: 'Informe de gestión con esquemas visuales, audiencias públicas y piezas para cada comunidad. Claro, verificable y sin promoción personal.',
+   m: () => `<div class="cart">${top2('Informe de gestión 2028-2031', 'RENDICIÓN DE CUENTAS')}<div class="bd"><div class="cover"><small>CUATRO AÑOS EN CIFRAS</small><div class="big2">93 % del plan<br>cumplido</div>${PSVG.replace('<svg', '<svg class="pp"')}</div>
+   <div class="kp3"><div><b>112</b><span>metas cumplidas</span></div><div><b>64</b><span>obras entregadas</span></div><div><b>11.300</b><span>personas en audiencias</span></div></div>${note('Cifras ilustrativas.')}</div></div>` },
+  { b: 'Mapa de resultados', tag: 'MAPA INTERACTIVO DE RESULTADOS', h: 'Cada obra en su barrio.', p: 'Página pública con las obras y metas ubicadas en el mapa, con fichas, fotos y avance, y datos abiertos para descargar.', map: [5.0221, -74.0048, 'obras'],
+   m: () => `<div class="cart">${top2('Mapa de resultados', 'ZIPAQUIRÁ · EJEMPLO')}<div class="bd"><div id="minimap"></div><div class="kp3" style="margin:12px 0 0"><div><b>64</b><span>obras entregadas</span></div><div><b>$186.000 M</b><span>invertidos</span></div><div><b>12</b><span>zonas con obra</span></div></div>${note('Mapa real de Zipaquirá (Cundinamarca). Puntos y cifras ficticios.')}</div></div>` },
+  { b: 'Pieza para valla', tag: 'DIFUSIÓN DE RESULTADOS', h: 'Resultados que se ven en la calle.', p: 'Artes para vallas, impresos, medios y redes, informativos y sin promoción personal del gobernante, como exige la ley.',
+   m: () => `<div class="cart">${top2('Arte para valla', 'FORMATO 8 × 4 METROS')}<div class="bd"><div style="background:linear-gradient(120deg,#121C3B 55%,#FF6A1A 55%);border-radius:12px;padding:26px;color:#F5F3EE;position:relative;min-height:200px">
+   <div style="font:700 11px Inter;letter-spacing:.18em;color:#C2F03A">ACUEDUCTO VEREDAL ZONA NORTE</div><div style="font:800 40px/1 Sora;margin:10px 0">1.840 hogares<br>con agua potable</div><div style="font-size:14px;max-width:55%">Inversión de $7.900 millones con recursos del Sistema General de Regalías.</div>
+   <div style="position:absolute;right:20px;bottom:18px;font:800 15px Sora;color:#121C3B">Obra entregada · 2030</div></div>${note('Sin nombres ni imágenes del gobernante: publicidad informativa, artículo 10 de la Ley 1474 de 2011.')}</div></div>` },
+  { b: 'Evaluación de política', tag: 'MONITOREO Y EVALUACIÓN', h: 'Saber qué funcionó, y por qué.', p: 'Indicadores, trabajo de campo y entrevistas para evaluar cada política, con recomendaciones de ajuste o de continuidad.',
+   m: () => `<div class="cart">${top2('Evaluación de política', 'SEGURIDAD Y CONVIVENCIA')}<div class="bd"><h5>Homicidios por cada 100.000 habitantes</h5><p class="sub2">Antes y después de la política</p>
+   ${hb('2027 · línea base', 92, '48,2', '#6F7BA0')}${hb('2029', 70, '36,5', '#121C3B')}${hb('2031', 52, '27,1', '#FF6A1A')}
+   <div class="rlist"><div><span class="rk">✓</span>Funcionó: patrullaje por cuadrante y luz en zonas críticas</div><div><span class="rk">!</span>Ajustar: la ruta de atención no llegó a la zona rural</div></div>${note('Cifras ilustrativas.')}</div></div>` },
+  { b: 'Empalme de salida', tag: 'EMPALME Y LEGADO', h: 'Entregar en orden.', p: 'Informe de cierre, memoria institucional y recomendaciones para que las políticas que funcionan no se pierdan con el cambio de gobierno.',
+   m: () => `<div class="cart">${top2('Empalme de salida', 'MEMORIA INSTITUCIONAL')}<div class="bd"><div class="metas">${mt('doc', 'Informe de cierre', 'Metas, finanzas y contratos', 'Con soportes')}${mt('book', 'Memoria institucional', 'Políticas y lecciones', 'Por secretaría')}${mt('swap', 'Agenda de empalme', '12 mesas temáticas', 'Con el gobierno entrante')}${mt('db', 'Archivo y datos', 'Bases e indicadores', 'Organizados y abiertos')}</div>${note('Ejemplo ilustrativo.')}</div></div>` }]];
+let SHOW = SHOWS[0], mini = null;
 function tab(i) {
  document.querySelectorAll('#tabs button').forEach((b, k) => b.classList.toggle('on', k === i));
- const s2 = SHOW[i]; $('#showtxt').innerHTML = `<span class="tag">${s2.tag}</span><h3>${s2.h}</h3><p>${s2.p}</p><a class="btn btn-nar" href="#contacto">Quiero este análisis</a>`; $('#mock').innerHTML = s2.m;
+ const s2 = SHOW[i]; $('#showtxt').innerHTML = `<span class="tag">${s2.tag}</span><h3>${s2.h}</h3><p>${s2.p}</p><a class="btn btn-nar" href="#contacto">Quiero este producto</a>`; $('#mock').innerHTML = s2.m();
  if (mini) { mini.remove(); mini = null; }
- if (i === 1 && window.L) {
-  const C2 = [4.3376, -74.3640];
-  mini = L.map('minimap', { scrollWheelZoom: false, attributionControl: true, zoomControl: false }).setView(C2, 14);
+ if (s2.map && window.L) {
+  const C2 = [s2.map[0], s2.map[1]];
+  mini = L.map('minimap', { scrollWheelZoom: false, zoomControl: false }).setView(C2, 14);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '© OpenStreetMap' }).addTo(mini);
   let sd = 11; const r2 = () => (sd = (sd * 16807) % 2147483647) / 2147483647;
   for (let k = 0; k < 34; k++) {
    const a = r2() * Math.PI * 2, d = 250 + r2() * 1500, v = r2();
-   L.circleMarker([C2[0] + d * Math.sin(a) / 111320, C2[1] + d * Math.cos(a) / 111000], { radius: 6 + r2() * 5, color: '#fff', weight: 2, fillOpacity: .95, fillColor: v < .45 ? '#FF6A1A' : v < .75 ? '#A6D61E' : '#6F7BA0' }).addTo(mini);
+   const col = s2.map[2] === 'elec' ? (v < .45 ? '#FF6A1A' : v < .75 ? '#A6D61E' : '#6F7BA0') : (v < .7 ? '#FF6A1A' : '#121C3B');
+   L.circleMarker([C2[0] + d * Math.sin(a) / 111320, C2[1] + d * Math.cos(a) / 111000], { radius: 6 + r2() * 5, color: '#fff', weight: 2, fillOpacity: .95, fillColor: col }).addTo(mini);
   }
   setTimeout(() => mini && mini.invalidateSize(), 50);
  }
 }
-document.querySelectorAll('#tabs button').forEach((b, i) => b.onclick = () => tab(i)); tab(0);
+function renderVitrina(k) {
+ SHOW = SHOWS[k];
+ $('#tabs').innerHTML = SHOW.map((s2, i) => `<button data-t="${i}" class="${i ? '' : 'on'}">${s2.b}</button>`).join('');
+ document.querySelectorAll('#tabs button').forEach((b, i) => b.onclick = () => tab(i)); tab(0);
+}
+
 
 const ENT = [['E1', 'Plan de trabajo', 'Cronograma, responsables y reglas: todos saben qué se entrega y quién decide.', 'EIS'],
  ['E2', 'Concepto jurídico', 'Requisitos, inhabilidades y ruta de aval: confirma que la candidatura es viable.', 'EIS'],
@@ -1080,10 +1128,10 @@ $('#entlist').innerHTML = ENT.map(e => `<div class="it"><div class="id" style="b
 const cio = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; const t0 = e.target, n = +t0.dataset.n; let k = 0; const t = setInterval(() => { k++; t0.textContent = Math.round(n * k / 30); if (k >= 30) clearInterval(t); }, 30); cio.unobserve(t0); }), { threshold: .6 });
 document.querySelectorAll('[data-n]').forEach(x => cio.observe(x));
 
-/* ---------- DETALLE Y TARIFAS DE LOS TRES SERVICIOS ---------- */
+/* ---------- MODOS: GANAR · GOBERNAR · TRANSFORMAR ---------- */
 const SZ = ['Menos de 30.000 hab.', '30.000 a 100.000', '100.000 a 300.000', '300.000 a 1 millón', 'Más de 1 millón'];
 const MULT = [.59, .7, 1, 1.3, 1.7];
-let szi = 2, sdi = -1;
+let szi = 2;
 const money = v => '$' + (Math.round(v * 10) / 10).toLocaleString('es-CO', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' M';
 const SD = [
  { t: 'Servicio 1 · Ganar', d: 'Para candidaturas a alcaldías, gobernaciones, concejos y asambleas. La Fase 1 va de la preparación a la inscripción; la Fase 2, de la inscripción al día de elecciones.',
@@ -1113,21 +1161,6 @@ const SD = [
    ['Empalme de salida y legado', 50, 'tres meses', ['Informe de cierre y empalme', 'Memoria institucional', 'Recomendaciones de continuidad', 'Organización del archivo de gestión']],
    ['Veedurías y organización social', 38, 'seis meses', ['Formación de veedurías', 'Pactos de seguimiento', 'Espacios de participación', 'Informe de resultados']]],
   notes: [['PUBLICIDAD OFICIAL', 'Piezas informativas, sin promoción personal del gobernante, como exige el artículo 10 de la Ley 1474 de 2011.'], ['CALENDARIO', 'La difusión se programa fuera de los periodos restringidos por la Ley de garantías.'], ['LO QUE NO INCLUYE', 'Pauta, impresión, vallas ni producción audiovisual de alto formato.']] }];
-function renderSD() {
- const d = SD[sdi], box = $('#sdetail');
- box.innerHTML = `<div class="sd-head"><div><span class="kick" style="color:var(--nar)">${d.t}</span><h3>Productos y tarifas</h3><p>${d.d}</p></div>
-  <div><div style="font:700 11px Inter;letter-spacing:.14em;color:#5b6688;margin-bottom:6px">TAMAÑO DEL MUNICIPIO</div><div class="sz">${SZ.map((z, k) => `<button data-z="${k}" class="${k === szi ? 'on' : ''}">${z}</button>`).join('')}</div></div></div>
-  <div class="prods">${d.prods.map(p => `<div class="prod"><h4>${p[0]}</h4><div class="pr">${sdi === 0 && szi === 4 && p[0] === 'Paquete Especializado' ? 'A la medida' : money(p[1] * MULT[szi])}</div><div class="un">${p[2]} · antes de IVA</div><ul>${p[3].map(x => `<li>${x}</li>`).join('')}</ul></div>`).join('')}</div>
-  <div class="sd-notes">${d.notes.map(n => `<div><b>${n[0]}</b>${n[1]}</div>`).join('')}</div>
-  ${d.link ? `<a class="btn btn-nar" style="margin-top:16px" href="${d.link}">Ver los paquetes y sus 14 entregables →</a>` : `<a class="btn btn-nar" style="margin-top:16px" href="#contacto">Solicitar propuesta →</a>`}`;
- box.querySelectorAll('.sz button').forEach(b => b.onclick = () => { szi = +b.dataset.z; renderSD(); });
-}
-document.querySelectorAll('.ggt .more').forEach(b => b.onclick = () => {
- const k = +b.dataset.sd, box = $('#sdetail');
- if (sdi === k && box.classList.contains('open')) { box.classList.remove('open'); b.closest('.col').classList.remove('sel'); sdi = -1; return; }
- sdi = k; document.querySelectorAll('.ggt .col').forEach((c, j) => c.classList.toggle('sel', j === k));
- box.classList.add('open'); renderSD(); setTimeout(() => box.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
-});
 
 /* ---------- PAQUETES ---------- */
 const PR = [['18,8', '33,4', '48,9'], ['22,3', '46,8', '68,4'], ['31,9', '66,8', '97,8'], ['41,4', '86,9', '127,1'], ['54,1', '113,5', 'A la medida']];
@@ -1135,6 +1168,77 @@ document.querySelectorAll('#sizes button').forEach(b => b.onclick = () => {
  document.querySelectorAll('#sizes button').forEach(x => x.classList.remove('on')); b.classList.add('on');
  PR[+b.dataset.s].forEach((v, i) => $('#p' + i).textContent = /\d/.test(v) ? '$' + v + ' M' : v);
 });
+const LINES = [
+ { kick: 'Servicio 1 · Para ganar', h: ['Ocho líneas para la campaña, ', 'un solo equipo.'], p: 'Se contratan solas o en paquete. Del diagnóstico al día de elecciones, con las mismas personas.',
+  l: [['Construcción de candidaturas', 'Perfilamiento, posicionamiento y potenciamiento: quién es, qué representa y cómo crece.', ['Perfil e idea fuerza', 'Entrenamiento y agenda pública'], 'ballot'],
+   ['Investigación electoral', 'Resultados por mesa y puesto, censo electoral y opinión pública.', ['Mapa electoral y tablero', 'Encuestas con ficha técnica'], 'chart'],
+   ['Programa de gobierno', 'Diagnóstico, metas, indicadores, costos y fuentes de financiación.', ['Programa costeado', 'Fichas de proyecto'], 'doc'],
+   ['Consultoría jurídica', 'Derecho electoral, inhabilidades, financiación y datos personales.', ['Conceptos jurídicos', 'Protocolo de cumplimiento'], 'scale'],
+   ['Comunicación', 'Narrativa, contenidos, medios, vocerías y redes.', ['Consignas y mensajes', 'Manual de voceros'], 'mega'],
+   ['Inteligencia documental', 'Fuentes oficiales, verificación y análisis de controversias.', ['Dossier con fuentes', 'Matriz de riesgos'], 'search'],
+   ['Participación ciudadana', 'Mesas territoriales, consultas y construcción colectiva del programa.', ['Metodología y relatorías', 'Matriz de aportes'], 'people'],
+   ['Puesto de mando electoral', 'Testigos, alertas y conteo en tiempo real el día de elecciones.', ['Tablero unificado', 'Protocolo de defensa del voto'], 'target']] },
+ { kick: 'Servicio 2 · Para gobernar', h: ['Ocho líneas para gobernar, ', 'del empalme a la ejecución.'], p: 'Para alcaldías, gobernaciones y equipos de gobierno. Se contratan por producto o como asesoría permanente.',
+  l: [['Empalme y primeros 100 días', 'Lo que se recibe y las decisiones urgentes del arranque.', ['Informe de empalme', 'Agenda de 100 días'], 'calendar'],
+   ['Plan de desarrollo territorial', 'Del programa de gobierno al plan, con metas y presupuesto.', ['Parte estratégica', 'Plan plurianual de inversiones'], 'map'],
+   ['Proyectos y regalías', 'Formulación y gestión de proyectos ante el Sistema General de Regalías.', ['Fichas de proyecto', 'Acompañamiento a la viabilidad'], 'coins'],
+   ['Implementación de políticas', 'Rutas, responsables, cronogramas y articulación con la Nación.', ['Hoja de ruta', 'Comité de seguimiento'], 'route'],
+   ['Asesoría jurídica de gobierno', 'Contratación, actos administrativos y riesgos disciplinarios y fiscales.', ['Conceptos jurídicos', 'Revisión de decisiones clave'], 'scale'],
+   ['Comunicación de gobierno', 'Narrativa de gestión, vocerías y manejo de crisis.', ['Estrategia de comunicación', 'Protocolo de crisis'], 'mega'],
+   ['Participación y presupuestos participativos', 'La gente decide parte de la inversión y vigila su ejecución.', ['Metodología de participación', 'Relatorías y acuerdos'], 'people'],
+   ['Tablero de gestión', 'Avance de obras, inversión y alertas de rezago en un solo mapa.', ['Tablero meta por meta', 'Alertas tempranas'], 'pulse']] },
+ { kick: 'Servicio 3 · Para cerrar bien', h: ['Ocho líneas para mostrar resultados ', 'y cerrar en orden.'], p: 'Para gobiernos que quieren rendir cuentas con claridad, evaluar lo que hicieron y entregar el cargo en orden.',
+  l: [['Monitoreo de políticas', 'Indicadores para saber qué funciona y qué corregir a tiempo.', ['Batería de indicadores', 'Alertas de rezago'], 'pulse'],
+   ['Evaluación de resultados', 'Qué funcionó, por qué y qué conviene continuar.', ['Informe de evaluación', 'Recomendaciones'], 'search'],
+   ['Informe de gestión', 'Cuatro años en cifras, con esquemas visuales que la gente entiende.', ['Informe con soportes', 'Resumen ciudadano'], 'board'],
+   ['Rendición de cuentas', 'Audiencias públicas y encuentros por comunidad.', ['Audiencia pública', 'Respuesta a preguntas'], 'eye'],
+   ['Mapa interactivo de resultados', 'Obras y metas ubicadas por barrio, en una página pública.', ['Fichas por obra', 'Datos abiertos'], 'map'],
+   ['Difusión de resultados', 'Piezas para medios, redes, impresos y vallas, informativas y sin promoción personal.', ['Artes para vallas', 'Video de resultados'], 'mega'],
+   ['Veedurías y organización social', 'Ciudadanía organizada que sigue vigilando lo que se hizo.', ['Formación de veedurías', 'Pactos de seguimiento'], 'hands'],
+   ['Empalme de salida y legado', 'Informe de cierre y memoria institucional para el gobierno entrante.', ['Informe de empalme', 'Memoria institucional'], 'swap']] }];
+const ENTH = [['Entregables', 'Lo que usted recibe, ', 'así se ve.', 'Cada producto tiene objetivo, método, responsable, fecha y criterio de aceptación. Estos son algunos ejemplos para campañas.'],
+ ['Entregables · Gobernar', 'Lo que recibe su gobierno, ', 'así se ve.', 'Ejemplos de productos para gobernar: del empalme al plan de desarrollo, los proyectos y el seguimiento.'],
+ ['Entregables · Cerrar bien', 'Lo que queda al cerrar, ', 'así se ve.', 'Ejemplos de productos para mostrar resultados, rendir cuentas y entregar en orden.']];
+const PKH = [['Paquetes para campañas · Servicio 1', 'Tres formas ', 'de trabajar juntos.', 'Precios por cuatro meses de trabajo, antes de IVA, según el tamaño del municipio. Elija el suyo.'],
+ ['Tarifas · Servicio 2 · Gobernar', 'Productos para gobernar, ', 'con precio claro.', 'Se contratan por producto o como asesoría permanente. Precios antes de IVA según el tamaño del municipio o departamento.'],
+ ['Tarifas · Servicio 3 · Cerrar bien', 'Productos para cerrar bien, ', 'con precio claro.', 'Se contratan por producto. Precios antes de IVA según el tamaño del municipio o departamento.']];
+const setHead = (sel, h) => { const hd = $(sel + ' .sec-head'); hd.querySelector('.kick').textContent = h[0]; hd.querySelector('h2').innerHTML = `${h[1]}<span class="or">${h[2]}</span>`; hd.querySelector('p').textContent = h[3]; };
+function renderLineas(k) {
+ const L2 = LINES[k]; setHead('#servicios', [L2.kick, L2.h[0], L2.h[1], L2.p]);
+ $('#servicios .svc').innerHTML = L2.l.map((x, i) => `<article class="${i ? '' : 'star'}"><span class="n">${String(i + 1).padStart(2, '0')}</span><h3>${x[0]}</h3><p>${x[1]}</p><ul>${x[2].map(y => `<li>${y}</li>`).join('')}</ul><span class="ic">${svgI(x[3])}</span></article>`).join('');
+}
+function renderTarifas(k) {
+ setHead('#paquetes', PKH[k]);
+ $('#pkganar').style.display = k ? 'none' : '';
+ const box = $('#pkgov'); box.style.display = k ? '' : 'none';
+ const hl = $('.guar .hl');
+ hl.innerHTML = k ? `<span class="ic">${svgI('columns')}</span><h4>Contratación pública transparente</h4><p>Con entidades públicas contratamos por los procedimientos de ley, publicados en el SECOP, con estudio de mercado y pagos contra productos verificables.</p>`
+  : `<span class="ic">${svgI('trophy')}</span><h4>Bono de resultado (opcional)</h4><p>En campañas se puede pactar un bono de 10 a 20 % de los honorarios si se gana. Se paga desde la cuenta de campaña, se reporta en Cuentas Claras y cuenta dentro del tope de gastos.</p>`;
+ if (!k) return;
+ const d = SD[k];
+ box.innerHTML = `<div class="sz" style="margin-bottom:22px">${SZ.map((z, i) => `<button data-z="${i}" class="${i === szi ? 'on' : ''}" style="border-color:var(--grisc);color:${i === szi ? 'var(--navy)' : 'var(--grisc)'};background:${i === szi ? 'var(--off)' : 'none'}">${z}</button>`).join('')}</div>
+  <div class="prods">${d.prods.map(p => `<div class="prod"><h4>${p[0]}</h4><div class="pr">${money(p[1] * MULT[szi])}</div><div class="un">${p[2]} · antes de IVA</div><div style="font:700 10.5px Inter;letter-spacing:.14em;color:var(--nar);margin-bottom:4px">ENTREGABLES</div><ul>${p[3].map(x => `<li>${x}</li>`).join('')}</ul><a class="btn" style="margin-top:auto;padding:10px 16px;font-size:13px;background:var(--navy);color:var(--off);align-self:flex-start;margin-top:14px" href="#contacto">Cotizar</a></div>`).join('')}</div>
+  <div class="sd-notes">${d.notes.map(n => `<div style="background:var(--navy2)"><b>${n[0]}</b>${n[1]}</div>`).join('')}</div>`;
+ box.querySelectorAll('.sz button').forEach(b => b.onclick = () => { szi = +b.dataset.z; renderTarifas(MODE); });
+}
+const MODEC = ['#C2F03A', '#F5F3EE', '#FF6A1A'];
+function setMode(k, scroll) {
+ MODE = k; document.body.dataset.mode = k;
+ document.querySelectorAll('.ftabs button').forEach((b, i) => b.classList.toggle('on', i === k));
+ document.querySelectorAll('.ggt .col').forEach((c, i) => c.classList.toggle('sel', i === k));
+ renderLineas(k); setupPMU(); renderVitrina(k); setHead('#entregables', ENTH[k]); renderTarifas(k);
+ const rt = document.querySelectorAll('#ringtabs button'); if (rt[k]) rt[k].click();
+ document.querySelectorAll('.mode-flag').forEach(f => { f.textContent = ['Viendo: Servicio 1 · Ganar', 'Viendo: Servicio 2 · Gobernar', 'Viendo: Servicio 3 · Cerrar bien'][k]; f.style.background = MODEC[k]; });
+ if (scroll) $('#servicios').scrollIntoView({ behavior: 'smooth' });
+}
+document.body.insertAdjacentHTML('beforeend', `<div class="ftabs" aria-label="Elegir servicio">
+ <span class="fl">ELIJA SU SERVICIO</span>
+ <button data-m="0"><i>1</i>Ganar</button><button data-m="1"><i>2</i>Gobernar</button><button data-m="2"><i>3</i>Transformar</button></div>`);
+document.querySelectorAll('.ftabs button').forEach(b => b.onclick = () => setMode(+b.dataset.m, true));
+document.querySelectorAll('.ggt .more').forEach(b => { b.textContent = 'Ver productos, entregables y tarifas →'; b.onclick = () => setMode(+b.dataset.sd, true); });
+const ftabs = document.querySelector('.ftabs');
+addEventListener('scroll', () => { const g = $('#ggt').getBoundingClientRect().top, c = $('#contacto').getBoundingClientRect().top; ftabs.classList.toggle('show', g < innerHeight * .5 && c > innerHeight * .4); }, { passive: true });
+setMode(0);
 </script>
 </body>
 </html>
