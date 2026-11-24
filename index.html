@@ -584,6 +584,9 @@ body.m2 .mz.light .mode-flag,body.m2 .mz.cel .mode-flag,body.m2 #pmu .mode-flag,
  footer{padding-bottom:28px}
  #ggt .wrap,.mz .wrap{padding-right:46px}
 }
+#mtoast{position:fixed;left:50%;top:96px;transform:translate(-50%,-20px);z-index:70;font:800 14px Sora;padding:10px 18px;border-radius:999px;box-shadow:0 12px 30px rgba(0,0,0,.35);opacity:0;transition:.35s;pointer-events:none;color:#121C3B;background:#C2F03A}
+#mtoast.on{opacity:1;transform:translate(-50%,0)}#mtoast.m1{background:#A9C4FF}#mtoast.m2{background:#FF6A1A}
+.mz.flash{animation:flash .9s}@keyframes flash{0%{filter:brightness(1.12)}100%{filter:none}}
 </style>
 </head>
 <body>
@@ -1537,7 +1540,16 @@ function setMode(k, scroll) {
 document.body.insertAdjacentHTML('beforeend', `<div class="ftabs" aria-label="Elegir servicio">
  <span class="fl">ELIJA SU SERVICIO</span>
  <button data-m="0"><i>1</i>Ganar</button><button data-m="1"><i>2</i>Gobernar</button><button data-m="2"><i>3</i>Transformar</button></div>`);
-document.querySelectorAll('.ftabs button').forEach(b => b.onclick = () => setMode(+b.dataset.m, true));
+function switchInPlace(k) {
+ const secs = ['#ggt', '#servicios', '#pmu', '#entregables', '#paquetes'].map(x => $(x));
+ const cur = secs.filter(x => x.getBoundingClientRect().top <= innerHeight * .35).pop() || secs[0], y0 = cur.getBoundingClientRect().top;
+ const sb = document.documentElement.style.scrollBehavior; document.documentElement.style.scrollBehavior = 'auto';
+ setMode(k, false); scrollBy(0, cur.getBoundingClientRect().top - y0); document.documentElement.style.scrollBehavior = sb;
+ cur.classList.remove('flash'); void cur.offsetWidth; cur.classList.add('flash');
+ const t = $('#mtoast'); t.textContent = 'Ahora viendo: ' + ['Ganar', 'Gobernar', 'Transformar'][k]; t.className = 'm' + k + ' on'; clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove('on'), 1800);
+}
+document.body.insertAdjacentHTML('beforeend', '<div id="mtoast" aria-live="polite"></div>');
+document.querySelectorAll('.ftabs button').forEach(b => b.onclick = () => switchInPlace(+b.dataset.m));
 document.querySelectorAll('.ggt .more').forEach(b => { b.textContent = 'Ver productos, entregables y tarifas →'; b.onclick = () => setMode(+b.dataset.sd, true); });
 const ftabs = document.querySelector('.ftabs');
 addEventListener('scroll', () => { const g = $('#ggt').getBoundingClientRect().top, c = $('#contacto').getBoundingClientRect().top; ftabs.classList.toggle('show', g < innerHeight * .5 && c > innerHeight * .4); }, { passive: true });
