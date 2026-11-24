@@ -253,6 +253,44 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
 .xp div:nth-child(even) b{color:var(--nar)}
 .xp h4{font-size:18px;margin:12px 0 8px}
 .xp p{font-size:14px;color:var(--grisc)}
+
+/* ICONOS Y DECORACIÓN */
+.ic{display:inline-flex;align-items:center;justify-content:center;flex:none}
+.ic svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ggt .col{isolation:isolate}
+.ggt .it{display:flex;gap:14px;align-items:flex-start}
+.ggt .it .ic{width:40px;height:40px;border-radius:11px;padding:8px;margin-top:2px}
+.ggt .col.a .it .ic{background:rgba(194,240,58,.14);color:var(--lim)}
+.ggt .col.b .it .ic{background:var(--cel);color:var(--navy)}
+.ggt .col.c .it .ic{background:rgba(18,28,59,.12);color:var(--navy)}
+.ggt .col .big{position:absolute;right:-26px;top:-18px;width:170px;height:170px;opacity:.09;pointer-events:none;z-index:-1}
+.ggt .col.a .big{color:var(--lim)}.ggt .col.b .big,.ggt .col.c .big{color:var(--navy)}
+.svc article .ic{position:absolute;right:20px;top:22px;width:44px;height:44px;color:var(--nar);transition:.3s}
+.svc article.star .ic{color:var(--navy)}
+.svc article:hover .ic{transform:rotate(-8deg) scale(1.12)}
+.triad div{position:relative;overflow:hidden}
+.triad .ic{position:absolute;right:26px;top:30px;width:58px;height:58px;color:var(--lim);opacity:.9}
+.xp div{overflow:hidden}
+.xp .ic{position:absolute;right:-14px;bottom:-14px;width:120px;height:120px;opacity:.1;color:var(--off);transition:.4s}
+.xp div:hover .ic{opacity:.22;transform:scale(1.05)}
+.dots{position:relative;isolation:isolate}
+.dots:before{content:"";position:absolute;inset:0;z-index:-1;background-image:radial-gradient(rgba(194,240,58,.16) 1.3px,transparent 1.4px);background-size:26px 26px;-webkit-mask-image:linear-gradient(120deg,transparent 30%,#000 75%);mask-image:linear-gradient(120deg,transparent 30%,#000 75%)}
+.light.dots:before{background-image:radial-gradient(rgba(18,28,59,.13) 1.3px,transparent 1.4px)}
+.marquee{background:var(--nar);color:var(--navy);overflow:hidden;white-space:nowrap;padding:16px 0;font:800 22px Sora;letter-spacing:-.01em}
+.marquee .tr{display:inline-flex;gap:38px;animation:mq 38s linear infinite;padding-left:38px}
+.marquee .tr span{display:inline-flex;align-items:center;gap:38px}
+.marquee .tr span:after{content:"";width:14px;height:14px;background:var(--navy);border-radius:50%}
+.marquee.alt{background:var(--lim)}
+@keyframes mq{to{transform:translateX(-50%)}}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
+.stats div{border-top:3px solid var(--nar);padding-top:16px}
+.stats b{font:800 54px Sora;color:var(--navy);display:block;line-height:1}
+.stats span{font-size:14.5px;color:#3B4668}
+.orbit{position:absolute;pointer-events:none;opacity:.5}
+.orbit circle{fill:none;stroke:var(--lim);stroke-width:1;stroke-dasharray:3 9}
+.orbit .o2{stroke:var(--nar)}
+.spin{animation:spin 60s linear infinite;transform-origin:center}
+@keyframes spin{to{transform:rotate(360deg)}}
 @media (max-width:980px){.ring-wrap,.ggt,.xp{grid-template-columns:1fr}}
 @media (max-width:980px){
  nav.top{background:rgba(18,28,59,.96)}
@@ -284,6 +322,16 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
  .hero{padding-top:240px}
  .hero .bigp{top:132px;bottom:auto;height:96px;right:24px}
  .hero .wrap>*{max-width:none}
+}
+
+@media (max-width:980px){
+ nav.top.scrolled .logo>span{display:none}
+ nav.top.scrolled .logo svg{height:30px}
+ nav.top.scrolled .wrap{flex-wrap:nowrap;gap:16px;padding-top:8px;padding-bottom:8px}
+ nav.top.scrolled .menu{padding:4px 0;width:auto;flex:1}
+ .stats{grid-template-columns:1fr 1fr}
+ .stats b{font-size:42px}
+ .marquee{font-size:18px}
 }
 </style>
 </head>
@@ -327,7 +375,9 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
  </div>
 </header>
 
-<section id="enfoque" class="light">
+<div class="marquee" aria-hidden="true"><div class="tr"><span>Ganar</span><span>Gobernar</span><span>Transformar</span><span>Datos con fuente</span><span>Derecho preventivo</span><span>Territorio</span><span>Organización social</span><span>Rendición de cuentas</span><span>Ganar</span><span>Gobernar</span><span>Transformar</span><span>Datos con fuente</span><span>Derecho preventivo</span><span>Territorio</span><span>Organización social</span><span>Rendición de cuentas</span></div></div>
+
+<section id="enfoque" class="light dots">
  <div class="wrap">
   <div class="manifesto reveal">
    <div>
@@ -343,6 +393,12 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
    <div><b>01</b><h3>Evidencia</h3><p>Datos oficiales, estadística electoral y verificación documental. Ninguna cifra sin fuente.</p></div>
    <div><b>02</b><h3>Derecho</h3><p>Inhabilidades, financiación, datos personales y cumplimiento, resueltos antes de que sean un problema.</p></div>
    <div><b>03</b><h3>Territorio</h3><p>Trabajo de campo, participación ciudadana y lectura fina de cada barrio, comuna y vereda.</p></div>
+  </div>
+  <div class="stats reveal">
+   <div><b data-n="3">0</b><span>servicios: ganar, gobernar y transformar</span></div>
+   <div><b data-n="8">0</b><span>líneas de trabajo para campañas</span></div>
+   <div><b data-n="14">0</b><span>entregables con fecha y criterio de aceptación</span></div>
+   <div><b data-n="4">0</b><span>disciplinas en una sola mesa</span></div>
   </div>
  </div>
 </section>
@@ -361,7 +417,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
  </div>
 </section>
 
-<section id="ggt">
+<section id="ggt" class="dots">
  <div class="wrap">
   <div class="sec-head reveal">
    <div><span class="kick">Tres servicios</span><h2>Ganar. Gobernar. <span class="or">Transformar.</span></h2></div>
@@ -408,7 +464,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
  </div>
 </section>
 
-<section id="pmu">
+<section id="pmu" class="dots">
  <div class="wrap">
   <div class="sec-head reveal">
    <div><span class="kick">Puesto de mando unificado</span><h2>Todo el territorio, <span class="or">en una sola pantalla.</span></h2></div>
@@ -529,8 +585,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
  </div>
 </section>
 
-<section id="contacto">
- <div class="wrap contact">
+<div class="marquee alt" aria-hidden="true"><div class="tr"><span>¡Vamos pa’lante!</span><span>La teoría sirve si cambia la realidad</span><span>Cada cifra con fuente</span><span>Juego limpio</span><span>¡Vamos pa’lante!</span><span>La teoría sirve si cambia la realidad</span><span>Cada cifra con fuente</span><span>Juego limpio</span></div></div>
+<section id="contacto" class="dots" style="overflow:hidden">
+ <svg class="orbit spin" viewBox="0 0 600 600" style="right:-180px;top:-120px;width:620px"><circle cx="300" cy="300" r="290"/><circle class="o2" cx="300" cy="300" r="220"/><circle cx="300" cy="300" r="150"/></svg>
+ <div class="wrap contact" style="position:relative">
   <div class="reveal">
    <span class="kick">Conversemos</span>
    <h2 style="margin-top:16px">La pregunta no es si puede ganar. <span class="or">Es si va a empezar a tiempo.</span></h2>
@@ -822,6 +880,49 @@ const ENT = [['E1', 'Plan de trabajo', 'Cronograma, responsables y reglas: todos
  ['E14', 'Red digital y mesas territoriales', 'Mensajería con datos autorizados, mesas y tablero.', 'S']];
 const col = { EIS: '#9AA4C4', IS: '#FF6A1A', S: '#C2F03A' }, pc = { E: '#9AA4C4', I: '#FF6A1A', S: '#C2F03A' };
 $('#entlist').innerHTML = ENT.map(e => `<div class="it"><div class="id" style="background:${col[e[3]]}">${e[0]}</div><div class="bd"><b>${e[1]}</b><p>${e[2]}</p></div><div class="pk">${['E', 'I', 'S'].map(k => `<i style="${e[3].includes(k) ? `background:${pc[k]};color:#121C3B` : ''}">${k}</i>`).join('')}</div></div>`).join('');
+
+/* ---------- ICONOS ---------- */
+const IC = {
+ ballot:'<rect x="4" y="11" width="16" height="10" rx="1.5"/><path d="M8 11V4h8v7M10 7.5l1.5 1.5L14 6M7 15h10"/>',
+ user:'<circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/>',
+ chart:'<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
+ doc:'<path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5M8 13h8M8 17h5"/>',
+ scale:'<path d="M12 3v18M5 21h14M5 7h14M5 7l-3 7a3.5 3.5 0 0 0 6 0zM19 7l-3 7a3.5 3.5 0 0 0 6 0z"/>',
+ mega:'<path d="M3 10v4l11 5V5zM14 9a4 4 0 0 1 0 6M6 14l1 5h3l-1-4"/>',
+ search:'<circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21M8 10.5h5"/>',
+ people:'<circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2 20c.8-3 3-5 6-5s5.2 2 6 5M14 15.3c.6-.2 1.3-.3 2-.3 3 0 5.2 2 6 5"/>',
+ target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/><path d="M12 1v4M12 19v4M1 12h4M19 12h4"/>',
+ columns:'<path d="M3 9 12 4l9 5M4 9h16M6 9v9M10 9v9M14 9v9M18 9v9M3 21h18M4 18h16"/>',
+ calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8 14h3v3H8z"/>',
+ map:'<path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2zM9 4v14M15 6v14"/>',
+ coins:'<ellipse cx="9" cy="6" rx="6" ry="2.5"/><path d="M3 6v4c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5V6M3 10v4c0 1.4 2.7 2.5 6 2.5"/><ellipse cx="16" cy="15" rx="5" ry="2.2"/><path d="M11 15v3.5c0 1.2 2.2 2.2 5 2.2s5-1 5-2.2V15"/>',
+ route:'<circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h7.5a3.5 3.5 0 0 0 0-7h-7a3.5 3.5 0 0 1 0-7H16"/>',
+ pulse:'<path d="M2 12h4l3-8 4 16 3-8h6"/>',
+ board:'<rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8M7 12l3-3 2 2 4-4"/>',
+ eye:'<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+ swap:'<path d="M4 8h13l-3-3M20 16H7l3 3"/>',
+ hands:'<circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="9" r="2"/><circle cx="19" cy="9" r="2"/><path d="M7.5 21c0-3 2-5.5 4.5-5.5s4.5 2.5 4.5 5.5M2 17c.5-2 1.6-3.4 3-3.4M22 17c-.5-2-1.6-3.4-3-3.4"/>',
+ db:'<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>',
+ pin:'<path d="M12 22s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/>',
+ landmark:'<path d="M3 21h18M5 21V10M19 21V10M9 21v-7h6v7M2 10l10-7 10 7z"/>',
+ sprout:'<path d="M12 21v-9M12 12c0-4-3-7-8-7 0 4 3 7 8 7zM12 15c0-3.5 2.5-6 7-6 0 3.5-2.5 6-7 6z"/>',
+ book:'<path d="M3 5c3-1.5 6-1.5 9 0v15c-3-1.5-6-1.5-9 0zM21 5c-3-1.5-6-1.5-9 0v15c3-1.5 6-1.5 9 0z"/>',
+ pen:'<path d="M4 20h4L19 9l-4-4L4 16zM14 6l4 4M13 20h7"/>',
+ trophy:'<path d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H4c0 3 1.5 5 4 5M16 6h4c0 3-1.5 5-4 5M12 13v4M8 21h8M9 17h6"/>',
+ rocket:'<path d="M5 15c-1.5 1-2 4-2 6 2 0 5-.5 6-2M14 4h6v6c-2 4-6 7-8 8l-6-6c1-2 4-6 8-8zM9 14l-2-2"/><circle cx="15" cy="9" r="1.6"/>'};
+const svgI = n => `<svg viewBox="0 0 24 24" aria-hidden="true">${IC[n]}</svg>`;
+const addIcons = (sel, names, cls = 'ic', where = 'afterbegin') => document.querySelectorAll(sel).forEach((e, i) => names[i] && e.insertAdjacentHTML(where, `<span class="${cls}">${svgI(names[i])}</span>`));
+addIcons('.ggt .col.a .it', ['user', 'chart', 'mega', 'scale', 'target']);
+addIcons('.ggt .col.b .it', ['calendar', 'map', 'coins', 'route']);
+addIcons('.ggt .col.c .it', ['pulse', 'board', 'eye', 'swap', 'hands']);
+document.querySelectorAll('.ggt .it').forEach(it => { const b = it.querySelector('b'), sp = it.querySelector(':scope > span:not(.ic)'); if (b && sp) { const w = document.createElement('div'); it.insertBefore(w, b); w.append(b, sp); } });
+document.querySelectorAll('.ggt .col').forEach((c, i) => c.insertAdjacentHTML('afterbegin', `<span class="ic big">${svgI(['trophy', 'columns', 'rocket'][i])}</span>`));
+addIcons('.svc article', ['ballot', 'chart', 'doc', 'scale', 'mega', 'search', 'people', 'target'], 'ic', 'beforeend');
+addIcons('.triad > div', ['db', 'scale', 'pin'], 'ic', 'beforeend');
+addIcons('.xp > div', ['landmark', 'coins', 'scale', 'sprout', 'book', 'pen'], 'ic', 'beforeend');
+/* contadores */
+const cio = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; const t0 = e.target, n = +t0.dataset.n; let k = 0; const t = setInterval(() => { k++; t0.textContent = Math.round(n * k / 30); if (k >= 30) clearInterval(t); }, 30); cio.unobserve(t0); }), { threshold: .6 });
+document.querySelectorAll('[data-n]').forEach(x => cio.observe(x));
 
 /* ---------- PAQUETES ---------- */
 const PR = [['15,0', '26,7', '39,1'], ['17,8', '37,4', '54,7'], ['25,5', '53,4', '78,2'], ['33,1', '69,5', '101,7'], ['43,3', '90,8', 'A la medida']];
